@@ -1,0 +1,69 @@
+---
+import { localeMeta, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+  currentPath: string;
+  alternates: Record<Locale, string>;
+}
+
+const { locale, currentPath, alternates } = Astro.props;
+const copy = t(locale);
+const nav = [
+  [copy.nav.home, ''],
+  [copy.nav.projects, 'projects'],
+  [copy.nav.ai, 'ai-engineering'],
+  [copy.nav.about, 'about'],
+  [copy.nav.writing, 'writing'],
+  [copy.nav.contact, 'contact'],
+] as const;
+
+const isCurrent = (path: string) => {
+  const href = localizedPath(locale, path);
+  return path === '' ? currentPath === href : currentPath.startsWith(href);
+};
+---
+
+<header class="site-header">
+  <a class="brand" href={localizedPath(locale)} aria-label="Yifan Wang home">
+    <span class="brand-mark" aria-hidden="true">YW</span>
+    <span class="brand-name">Yifan Wang</span>
+  </a>
+
+  <nav class="primary-nav" aria-label="Primary navigation">
+    {
+      nav.map(([label, path]) => (
+        <a href={localizedPath(locale, path)} aria-current={isCurrent(path) ? 'page' : undefined}>
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <div class="header-actions">
+    <div class="language-switcher" aria-label="Language">
+      {
+        (Object.keys(localeMeta) as Locale[]).map((item) => (
+          <a
+            href={alternates[item]}
+            lang={localeMeta[item].lang}
+            aria-current={locale === item ? 'page' : undefined}
+          >
+            {localeMeta[item].label}
+          </a>
+        ))
+      }
+    </div>
+    <button
+      class="theme-toggle"
+      type="button"
+      data-theme-toggle
+      data-theme-text={copy.theme}
+      aria-label={`${copy.theme}: ${copy.themeModes[0]}`}
+    >
+      <span class="theme-dot" aria-hidden="true"></span>
+      <span data-theme-label>{copy.themeModes[0]}</span>
+    </button>
+  </div>
+</header>

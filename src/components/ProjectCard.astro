@@ -1,0 +1,35 @@
+---
+import type { Project } from '../data/projects';
+import { projectHref } from '../data/projects';
+import type { Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  project: Project;
+  locale: Locale;
+}
+
+const { project, locale } = Astro.props;
+const copy = t(locale);
+const href = projectHref(project, locale);
+const external = project.kind === 'engineering';
+---
+
+<article class:list={['project-card', { flagship: project.kind === 'flagship' }]}>
+  <div class="project-card-topline">
+    <span class:list={['status-label', { private: project.visibility === 'private-source' }]}>
+      {project.visibility === 'private-source' ? copy.privateSource : copy.publicSource}
+    </span>
+    <span class="project-index" aria-hidden="true">{project.kind === 'flagship' ? 'F' : 'E'}</span>
+  </div>
+  <h3>{project.title}</h3>
+  <p>{project.summary[locale]}</p>
+  <p class="project-outcome">{project.outcome[locale]}</p>
+  <ul class="tag-list" aria-label="Technologies">
+    {project.technologies.map((technology) => <li>{technology}</li>)}
+  </ul>
+  <a class="text-link" href={href}>
+    {project.kind === 'flagship' ? copy.viewCase : copy.viewProject}
+    <span aria-hidden="true">{external ? '↗' : '→'}</span>
+  </a>
+</article>

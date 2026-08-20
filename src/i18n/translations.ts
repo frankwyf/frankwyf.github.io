@@ -1,0 +1,377 @@
+import type { Locale } from './index';
+
+export const messages = {
+  en: {
+    skip: 'Skip to content',
+    nav: {
+      home: 'Home',
+      projects: 'Projects',
+      ai: 'AI Engineering',
+      about: 'About',
+      writing: 'Writing',
+      contact: 'Contact',
+    },
+    theme: 'Theme',
+    themeModes: ['System', 'Light', 'Dark'],
+    privateSource: 'Private source · Public case study',
+    publicSource: 'Public engineering project',
+    viewCase: 'Read case study',
+    viewProject: 'View project',
+    home: {
+      eyebrow: 'Software · Data · Applied AI',
+      title: 'Reliable AI systems for real-world operations.',
+      intro:
+        'I am Yifan Wang, also known as Frank. I build production-oriented software that connects enterprise workflows, operational data, and applied AI—with evaluation and human oversight built in.',
+      projectsCta: 'View projects',
+      contactCta: 'Contact me',
+      systemTitle: 'My engineering through-line',
+      systemSteps: [
+        'Business problem',
+        'Software architecture',
+        'Data integrity',
+        'Applied AI',
+        'Security & evaluation',
+      ],
+      focusTitle: 'Engineering focus',
+      focusIntro: 'A practical progression, not a list of disconnected tools.',
+      focus: [
+        ['Enterprise systems', 'C#/.NET, Java, integration, testing, and production validation.'],
+        [
+          'Data engineering',
+          'Python, SQL, ETL, quality gates, reproducible pipelines, and operational evidence.',
+        ],
+        [
+          'Applied AI',
+          'Grounded retrieval, controlled tools, explainable modeling, evaluation, and observability.',
+        ],
+      ],
+      flagshipTitle: 'Flagship case studies',
+      flagshipIntro:
+        'Private-source systems presented through reviewed architecture, synthetic evidence, and honest delivery boundaries.',
+      selectedTitle: 'Selected engineering work',
+      principlesTitle: 'How I build',
+      principles: [
+        [
+          'Deterministic where it matters',
+          'Money, permissions, and policy stay in testable code—not generated prose.',
+        ],
+        [
+          'Evidence before claims',
+          'Synthetic demos, evaluation gates, and limitations are shown explicitly.',
+        ],
+        [
+          'Human control by design',
+          'Consequential recommendations require authorization, review, and audit.',
+        ],
+      ],
+      closing: 'Looking for an engineer who can connect business reality, data, and dependable AI?',
+    },
+    projects: {
+      eyebrow: 'Selected work',
+      title: 'Projects designed around decisions, evidence, and operational constraints.',
+      intro:
+        'The two flagship systems use private source code. Their public case studies focus on the business problem, architecture, controls, evaluation, and honest limitations.',
+      flagship: 'Flagship systems',
+      engineering: 'Engineering projects',
+    },
+    ai: {
+      eyebrow: 'AI Engineering',
+      title: 'Applied AI is a systems discipline.',
+      intro:
+        'Useful AI depends on reliable data, bounded tools, evaluation, observability, and controls—not only a model call.',
+      areas: [
+        [
+          'Grounded retrieval',
+          'Tenant-aware retrieval, evidence filtering, citations, and refusal when support is missing.',
+        ],
+        [
+          'Controlled tool use',
+          'Allow-listed tools, typed inputs, permission checks, bounded execution, and audit.',
+        ],
+        [
+          'Agent harnesses',
+          'Context engineering, reusable skills, MCP-style tool boundaries, and deterministic fallbacks.',
+        ],
+        [
+          'Evaluation',
+          'Golden datasets, numerical checks, tool accuracy, groundedness, attack tests, latency, and cost.',
+        ],
+        [
+          'Human oversight',
+          'Recommendations remain reviewable; high-impact actions require explicit authorization.',
+        ],
+        [
+          'Observability',
+          'Request context, privacy-aware traces, metrics, versioned evidence, and failure analysis.',
+        ],
+      ],
+      boundaryTitle: 'A boundary I keep explicit',
+      boundary:
+        'LLMs can summarize evidence and coordinate approved tools. They cannot invent permissions, calculate authoritative financial values, execute arbitrary SQL, or bypass human approval.',
+    },
+    about: {
+      eyebrow: 'About',
+      title: 'An enterprise software foundation, moving deliberately into Applied AI.',
+      paragraphs: [
+        'My background spans enterprise application development, industrial and operational systems, Python/SQL data integration, ETL, and production validation.',
+        'That experience shapes how I approach AI: start with the workflow and data contract, make important calculations deterministic, then add models where they create measurable value.',
+        'I am developing toward Applied AI, Data & AI, Backend, Platform, and Forward Deployed Engineering roles across enterprise SaaS, FinTech, industrial systems, and other real-world domains.',
+      ],
+      languagesTitle: 'Languages',
+      languages: [
+        'Chinese — Native',
+        'English — Professional working proficiency',
+        'Japanese — JLPT N2 / business communication',
+      ],
+      certificationsTitle: 'Certifications',
+      locationTitle: 'Location',
+    },
+    writing: {
+      eyebrow: 'Writing',
+      title: 'Engineering notes are being prepared.',
+      intro:
+        'This section will publish evidence-backed notes on Applied AI, agents, data engineering, cloud delivery, and software design. Empty volume is not the goal; useful writing is.',
+      planned: 'Planned themes',
+      themes: [
+        'Evaluation for agentic systems',
+        'Deterministic finance around LLM workflows',
+        'B2B credit model governance',
+        'Reusable agent skills and MCP boundaries',
+      ],
+    },
+    contact: {
+      eyebrow: 'Contact',
+      title: 'Let’s talk about software, data, and dependable AI.',
+      intro:
+        'I am open to international opportunities in Applied AI, Data & AI, Backend, Platform, and Forward Deployed Engineering.',
+      email: 'Email',
+      response:
+        'Email is the most direct route. GitHub and LinkedIn provide additional project and professional context.',
+    },
+    footer: 'Building practical systems at the intersection of software, data, and AI.',
+  },
+  ja: {
+    skip: '本文へ移動',
+    nav: {
+      home: 'ホーム',
+      projects: 'プロジェクト',
+      ai: 'AIエンジニアリング',
+      about: 'プロフィール',
+      writing: '記事',
+      contact: '連絡先',
+    },
+    theme: 'テーマ',
+    themeModes: ['システム', 'ライト', 'ダーク'],
+    privateSource: '非公開ソース · 公開ケーススタディ',
+    publicSource: '公開エンジニアリングプロジェクト',
+    viewCase: 'ケーススタディを見る',
+    viewProject: 'プロジェクトを見る',
+    home: {
+      eyebrow: 'ソフトウェア · データ · 応用AI',
+      title: '現実の業務に耐える、信頼性の高いAIシステムを。',
+      intro:
+        'Yifan Wang（英語名 Frank）です。企業業務、運用データ、応用AIを結び、評価と人による監督を組み込んだプロダクション志向のソフトウェアを開発しています。',
+      projectsCta: 'プロジェクトを見る',
+      contactCta: '連絡する',
+      systemTitle: '一貫したエンジニアリングの流れ',
+      systemSteps: ['業務課題', 'ソフトウェア設計', 'データ整合性', '応用AI', 'セキュリティと評価'],
+      focusTitle: 'エンジニアリング領域',
+      focusIntro: '単なる技術一覧ではなく、実務から積み上げた専門性です。',
+      focus: [
+        ['エンタープライズシステム', 'C#/.NET、Java、システム連携、テスト、運用検証。'],
+        ['データエンジニアリング', 'Python、SQL、ETL、品質ゲート、再現可能なパイプライン。'],
+        ['応用AI', '根拠付き検索、制御されたツール、説明可能なモデル、評価、可観測性。'],
+      ],
+      flagshipTitle: '代表ケーススタディ',
+      flagshipIntro:
+        '非公開ソースを、審査済みの設計、合成データの証拠、明確な制約を通じて紹介します。',
+      selectedTitle: '主なエンジニアリング実績',
+      principlesTitle: '開発原則',
+      principles: [
+        [
+          '重要領域は決定論的に',
+          '金額、権限、ポリシーは生成文章ではなく、テスト可能なコードで扱います。',
+        ],
+        ['主張より証拠', '合成デモ、評価ゲート、制約を明示します。'],
+        ['人の統制を設計に組み込む', '重要な提案には権限、レビュー、監査を必須とします。'],
+      ],
+      closing: '業務、データ、信頼できるAIを結び付けるエンジニアをお探しですか？',
+    },
+    projects: {
+      eyebrow: '主な実績',
+      title: '意思決定、証拠、運用上の制約を中心に設計したプロジェクト。',
+      intro:
+        '二つの代表システムのソースは非公開です。ケーススタディでは課題、設計、統制、評価、制約を説明します。',
+      flagship: '代表システム',
+      engineering: 'エンジニアリングプロジェクト',
+    },
+    ai: {
+      eyebrow: 'AIエンジニアリング',
+      title: '応用AIはシステム工学です。',
+      intro: '有用なAIには、信頼できるデータ、制限されたツール、評価、可観測性、統制が必要です。',
+      areas: [
+        ['根拠付き検索', 'テナント境界、証拠フィルタ、引用、根拠不足時の回答拒否。'],
+        ['制御されたツール利用', '許可リスト、型付き入力、権限確認、実行制限、監査。'],
+        [
+          'エージェント基盤',
+          'コンテキスト設計、再利用可能なスキル、MCP型の境界、決定論的フォールバック。',
+        ],
+        ['評価', 'ゴールデンデータ、数値検証、ツール精度、根拠性、攻撃テスト、遅延、コスト。'],
+        ['人による監督', '提案はレビュー可能にし、重要操作には明示的な承認を求めます。'],
+        [
+          '可観測性',
+          'リクエスト文脈、プライバシーを守るトレース、メトリクス、バージョン付き証拠。',
+        ],
+      ],
+      boundaryTitle: '明確に守る境界',
+      boundary:
+        'LLMは証拠の要約と承認済みツールの調整を行えますが、権限の作成、正式な金額計算、任意SQL、人の承認回避はできません。',
+    },
+    about: {
+      eyebrow: 'プロフィール',
+      title: 'エンタープライズソフトウェアを基盤に、応用AIへ。',
+      paragraphs: [
+        '企業向けアプリケーション、産業・運用システム、Python/SQLによるデータ連携、ETL、運用検証に携わってきました。',
+        'AIでも、まず業務フローとデータ契約を定義し、重要な計算を決定論的に実装した上で、価値のある箇所にモデルを適用します。',
+        'Applied AI、Data & AI、Backend、Platform、Forward Deployed Engineeringの国際的なポジションを目指しています。',
+      ],
+      languagesTitle: '言語',
+      languages: [
+        '中国語 — ネイティブ',
+        '英語 — ビジネスレベル',
+        '日本語 — JLPT N2 / 業務コミュニケーション',
+      ],
+      certificationsTitle: '資格',
+      locationTitle: '拠点',
+    },
+    writing: {
+      eyebrow: '記事',
+      title: '技術ノートを準備中です。',
+      intro:
+        '応用AI、エージェント、データエンジニアリング、クラウド、ソフトウェア設計について、証拠に基づく内容を公開します。量より有用性を重視します。',
+      planned: '予定テーマ',
+      themes: [
+        'エージェントシステムの評価',
+        'LLMワークフローと決定論的金融計算',
+        'B2B信用モデルガバナンス',
+        '再利用可能なAgent SkillsとMCP境界',
+      ],
+    },
+    contact: {
+      eyebrow: '連絡先',
+      title: 'ソフトウェア、データ、信頼できるAIについて話しましょう。',
+      intro:
+        'Applied AI、Data & AI、Backend、Platform、Forward Deployed Engineeringの国際的な機会を探しています。',
+      email: 'メール',
+      response:
+        'メールが最も確実です。GitHubとLinkedInでもプロジェクトや職務背景をご確認いただけます。',
+    },
+    footer: 'ソフトウェア、データ、AIの交点で実用的なシステムを構築しています。',
+  },
+  zh: {
+    skip: '跳转到正文',
+    nav: {
+      home: '首页',
+      projects: '项目',
+      ai: 'AI 工程',
+      about: '关于',
+      writing: '文章',
+      contact: '联系',
+    },
+    theme: '主题',
+    themeModes: ['跟随系统', '浅色', '深色'],
+    privateSource: '私有源码 · 公开案例研究',
+    publicSource: '公开工程项目',
+    viewCase: '阅读案例',
+    viewProject: '查看项目',
+    home: {
+      eyebrow: '软件 · 数据 · 应用 AI',
+      title: '为真实业务打造可靠的 AI 系统。',
+      intro:
+        '我是 Yifan Wang，英文常用名 Frank。我构建连接企业流程、运营数据与应用 AI 的生产型软件，并把评估和人工监督纳入系统设计。',
+      projectsCta: '查看项目',
+      contactCta: '联系我',
+      systemTitle: '我的工程主线',
+      systemSteps: ['业务问题', '软件架构', '数据完整性', '应用 AI', '安全与评估'],
+      focusTitle: '工程方向',
+      focusIntro: '这是一条来自实际工作的成长路径，而不是互不关联的技术清单。',
+      focus: [
+        ['企业系统', 'C#/.NET、Java、系统集成、测试与生产验证。'],
+        ['数据工程', 'Python、SQL、ETL、质量门禁、可复现管道与运营证据。'],
+        ['应用 AI', '有依据的检索、受控工具、可解释模型、评估与可观测性。'],
+      ],
+      flagshipTitle: '旗舰案例研究',
+      flagshipIntro: '通过经过审查的架构、合成数据证据和诚实的交付边界展示私有源码系统。',
+      selectedTitle: '精选工程项目',
+      principlesTitle: '我的构建原则',
+      principles: [
+        ['关键部分保持确定性', '金额、权限与政策写在可测试的代码中，而不是由模型生成。'],
+        ['先有证据，再有主张', '明确展示合成演示、评估门禁与系统限制。'],
+        ['从设计上保留人工控制', '重要建议必须经过授权、复核与审计。'],
+      ],
+      closing: '正在寻找能够连接业务现实、数据与可靠 AI 的工程师？',
+    },
+    projects: {
+      eyebrow: '精选作品',
+      title: '围绕决策、证据和运营约束设计的项目。',
+      intro: '两个旗舰系统均为私有源码。公开案例聚焦业务问题、架构、控制、评估和真实限制。',
+      flagship: '旗舰系统',
+      engineering: '工程项目',
+    },
+    ai: {
+      eyebrow: 'AI 工程',
+      title: '应用 AI 是一门系统工程。',
+      intro: '有用的 AI 不只需要一次模型调用，还需要可靠数据、受控工具、评估、可观测性和治理。',
+      areas: [
+        ['有依据的检索', '租户隔离、证据过滤、引用，以及在缺乏依据时拒绝回答。'],
+        ['受控工具调用', '白名单工具、类型化输入、权限检查、有界执行与审计。'],
+        ['Agent Harness', '上下文工程、可复用技能、MCP 式工具边界和确定性回退。'],
+        ['评估', '黄金数据集、数值检查、工具准确率、依据性、攻击测试、延迟与成本。'],
+        ['人工监督', '建议保持可复核，高影响操作必须获得明确授权。'],
+        ['可观测性', '请求上下文、隐私友好的追踪、指标、版本化证据与失败分析。'],
+      ],
+      boundaryTitle: '我会明确守住的边界',
+      boundary:
+        'LLM 可以总结证据并协调已批准的工具，但不能创造权限、计算权威财务数值、执行任意 SQL 或绕过人工审批。',
+    },
+    about: {
+      eyebrow: '关于',
+      title: '以企业软件为基础，有意识地走向应用 AI。',
+      paragraphs: [
+        '我的背景包括企业应用开发、工业与运营系统、Python/SQL 数据集成、ETL 和生产验证。',
+        '这段经历决定了我处理 AI 的方式：先理解流程和数据契约，让关键计算保持确定性，再把模型加入真正能产生价值的环节。',
+        '我正在面向企业 SaaS、金融科技、工业系统等领域的 Applied AI、Data & AI、Backend、Platform 和 Forward Deployed Engineering 岗位发展。',
+      ],
+      languagesTitle: '语言',
+      languages: ['中文 — 母语', '英语 — 专业工作能力', '日语 — JLPT N2 / 商务沟通'],
+      certificationsTitle: '认证',
+      locationTitle: '所在地',
+    },
+    writing: {
+      eyebrow: '文章',
+      title: '工程文章正在准备中。',
+      intro:
+        '这里将发布关于应用 AI、Agent、数据工程、云交付和软件设计的证据型文章。目标不是堆数量，而是提供真正有用的内容。',
+      planned: '计划主题',
+      themes: [
+        'Agent 系统评估',
+        'LLM 工作流中的确定性财务计算',
+        'B2B 信用模型治理',
+        '可复用 Agent Skills 与 MCP 边界',
+      ],
+    },
+    contact: {
+      eyebrow: '联系',
+      title: '聊聊软件、数据与可靠的 AI。',
+      intro:
+        '我对 Applied AI、Data & AI、Backend、Platform 和 Forward Deployed Engineering 的国际机会保持开放。',
+      email: '邮箱',
+      response: '邮箱是最直接的联系方式。GitHub 和 LinkedIn 可提供更多项目与职业背景信息。',
+    },
+    footer: '在软件、数据与 AI 的交汇处构建实用系统。',
+  },
+} as const;
+
+export function t(locale: Locale) {
+  return messages[locale];
+}

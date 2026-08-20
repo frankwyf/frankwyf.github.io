@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const copy = t(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy.nav.contact}
+  description={copy.contact.intro}
+  alternates={localizedAlternates('contact')}
+  currentPath={localizedPath(locale, 'contact')}
+>
+  <section class="contact-page section-shell">
+    <p class="eyebrow">{copy.contact.eyebrow}</p>
+    <h1>{copy.contact.title}</h1>
+    <p class="lede">{copy.contact.intro}</p>
+    <a class="email-display" href={`mailto:${site.email}`}
+      ><span>{copy.contact.email}</span>{site.email}<b aria-hidden="true">↗</b></a
+    >
+    <div class="contact-links">
+      <a href={site.github}
+        ><span>GitHub</span><strong>@frankwyf</strong><b aria-hidden="true">↗</b></a
+      >
+      <a href={site.linkedin}
+        ><span>LinkedIn</span><strong>Yifan Wang</strong><b aria-hidden="true">↗</b></a
+      >
+    </div>
+    <p class="contact-note">{copy.contact.response}</p>
+  </section>
+</BaseLayout>

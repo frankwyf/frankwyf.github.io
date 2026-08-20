@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { certifications, site } from '../data/site';
+import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const copy = t(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy.nav.about}
+  description={copy.about.paragraphs[0]}
+  alternates={localizedAlternates('about')}
+  currentPath={localizedPath(locale, 'about')}
+>
+  <section class="page-hero section-shell about-hero">
+    <div><p class="eyebrow">{copy.about.eyebrow}</p><h1>{copy.about.title}</h1></div>
+    <div class="about-copy">{copy.about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
+  </section>
+  <section class="section section-shell about-grid">
+    <article class="info-panel">
+      <p class="eyebrow">{copy.about.languagesTitle}</p><ul>
+        {copy.about.languages.map((language) => <li>{language}</li>)}
+      </ul>
+    </article>
+    <article class="info-panel">
+      <p class="eyebrow">{copy.about.certificationsTitle}</p><ul>
+        {
+          certifications.map((certification) => (
+            <li>
+              <>
+                <strong>{certification.name}</strong>
+                <span>{certification.issuer}</span>
+              </>
+            </li>
+          ))
+        }
+      </ul>
+    </article>
+    <article class="info-panel">
+      <p class="eyebrow">{copy.about.locationTitle}</p><p class="panel-large">{site.location}</p>
+    </article>
+  </section>
+</BaseLayout>

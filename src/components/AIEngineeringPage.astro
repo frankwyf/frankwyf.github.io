@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const copy = t(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy.nav.ai}
+  description={copy.ai.intro}
+  alternates={localizedAlternates('ai-engineering')}
+  currentPath={localizedPath(locale, 'ai-engineering')}
+>
+  <section class="page-hero section-shell">
+    <p class="eyebrow">{copy.ai.eyebrow}</p>
+    <h1>{copy.ai.title}</h1>
+    <p class="lede">{copy.ai.intro}</p>
+  </section>
+  <section class="section section-shell">
+    <div class="capability-grid">
+      {
+        copy.ai.areas.map(([heading, text], index) => (
+          <article>
+            <>
+              <span>0{index + 1}</span>
+              <h2>{heading}</h2>
+              <p>{text}</p>
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+  <section class="boundary-section section-shell">
+    <p class="eyebrow">System boundary</p>
+    <h2>{copy.ai.boundaryTitle}</h2>
+    <p>{copy.ai.boundary}</p>
+    <div class="boundary-flow" aria-label="AI system control flow">
+      <span>Evidence</span><b>→</b><span>Bounded AI</span><b>→</b><span>Approved tools</span><b>→</b
+      ><span>Human review</span>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const copy = t(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy.nav.writing}
+  description={copy.writing.intro}
+  alternates={localizedAlternates('writing')}
+  currentPath={localizedPath(locale, 'writing')}
+>
+  <section class="page-hero section-shell">
+    <p class="eyebrow">{copy.writing.eyebrow}</p>
+    <h1>{copy.writing.title}</h1>
+    <p class="lede">{copy.writing.intro}</p>
+  </section>
+  <section class="section section-shell">
+    <div class="writing-placeholder">
+      <div><span class="pulse-dot"></span><p>{copy.writing.planned}</p></div>
+      <ol>
+        {
+          copy.writing.themes.map((theme, index) => (
+            <li>
+              <span>0{index + 1}</span>
+              {theme}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

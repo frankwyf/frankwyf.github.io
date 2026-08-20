@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from './ProjectCard.astro';
+import { projects } from '../data/projects';
+import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const copy = t(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy.nav.projects}
+  description={copy.projects.intro}
+  alternates={localizedAlternates('projects')}
+  currentPath={localizedPath(locale, 'projects')}
+>
+  <section class="page-hero section-shell">
+    <p class="eyebrow">{copy.projects.eyebrow}</p>
+    <h1>{copy.projects.title}</h1>
+    <p class="lede">{copy.projects.intro}</p>
+  </section>
+  <section class="section section-shell">
+    <header class="section-heading">
+      <p class="eyebrow">01</p><h2>{copy.projects.flagship}</h2>
+    </header>
+    <div class="project-grid flagship-grid">
+      {
+        projects
+          .filter((project) => project.kind === 'flagship')
+          .map((project) => <ProjectCard {project} {locale} />)
+      }
+    </div>
+  </section>
+  <section class="section section-shell section-tint">
+    <header class="section-heading">
+      <p class="eyebrow">02</p><h2>{copy.projects.engineering}</h2>
+    </header>
+    <div class="project-grid">
+      {
+        projects
+          .filter((project) => project.kind === 'engineering')
+          .map((project) => <ProjectCard {project} {locale} />)
+      }
+    </div>
+  </section>
+</BaseLayout>

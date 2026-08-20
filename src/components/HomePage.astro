@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from './ProjectCard.astro';
+import { projects } from '../data/projects';
+import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+import { site } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = t(locale);
+const flagships = projects.filter((project) => project.kind === 'flagship');
+const engineering = projects.filter((project) => project.kind === 'engineering').slice(0, 3);
+const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
+---
+
+<BaseLayout
+  {locale}
+  {title}
+  description={copy.home.intro}
+  alternates={localizedAlternates()}
+  currentPath={localizedPath(locale)}
+>
+  <section class="hero section-shell">
+    <div class="hero-copy">
+      <p class="eyebrow">{copy.home.eyebrow}</p>
+      <p class="identity">Yifan Wang <span>· {site.englishName}</span></p>
+      <h1>{copy.home.title}</h1>
+      <p class="lede">{copy.home.intro}</p>
+      <div class="button-row">
+        <a class="button primary" href={localizedPath(locale, 'projects')}
+          >{copy.home.projectsCta}</a
+        >
+        <a class="button secondary" href={localizedPath(locale, 'contact')}
+          >{copy.home.contactCta}</a
+        >
+      </div>
+      <div class="social-row">
+        <a href={site.github}>GitHub ↗</a>
+        <a href={site.linkedin}>LinkedIn ↗</a>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+    </div>
+
+    <aside class="system-map" aria-label={copy.home.systemTitle}>
+      <p>{copy.home.systemTitle}</p>
+      <ol>
+        {
+          copy.home.systemSteps.map((step, index) => (
+            <li>
+              <span>0{index + 1}</span>
+              {step}
+            </li>
+          ))
+        }
+      </ol>
+      <div class="system-note">Production discipline, applied to AI.</div>
+    </aside>
+  </section>
+
+  <section class="section section-shell">
+    <header class="section-heading">
+      <p class="eyebrow">01 / Focus</p>
+      <h2>{copy.home.focusTitle}</h2>
+      <p>{copy.home.focusIntro}</p>
+    </header>
+    <div class="focus-grid">
+      {
+        copy.home.focus.map(([heading, text], index) => (
+          <article>
+            <>
+              <span>0{index + 1}</span>
+              <h3>{heading}</h3>
+              <p>{text}</p>
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-shell section-tint">
+    <header class="section-heading split-heading">
+      <div><p class="eyebrow">02 / Case studies</p><h2>{copy.home.flagshipTitle}</h2></div>
+      <p>{copy.home.flagshipIntro}</p>
+    </header>
+    <div class="project-grid flagship-grid">
+      {flagships.map((project) => <ProjectCard {project} {locale} />)}
+    </div>
+  </section>
+
+  <section class="section section-shell">
+    <header class="section-heading">
+      <p class="eyebrow">03 / Selected work</p>
+      <h2>{copy.home.selectedTitle}</h2>
+    </header>
+    <div class="project-grid">
+      {engineering.map((project) => <ProjectCard {project} {locale} />)}
+    </div>
+    <a class="button secondary section-action" href={localizedPath(locale, 'projects')}
+      >{copy.home.projectsCta} →</a
+    >
+  </section>
+
+  <section class="section section-shell principles-section">
+    <header class="section-heading">
+      <p class="eyebrow">04 / Principles</p>
+      <h2>{copy.home.principlesTitle}</h2>
+    </header>
+    <div class="principles-list">
+      {
+        copy.home.principles.map(([heading, text], index) => (
+          <article>
+            <>
+              <span>0{index + 1}</span>
+              <div>
+                <>
+                  <h3>{heading}</h3>
+                  <p>{text}</p>
+                </>
+              </div>
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="closing-section section-shell">
+    <p class="eyebrow">05 / Contact</p>
+    <h2>{copy.home.closing}</h2>
+    <a class="button primary" href={`mailto:${site.email}`}>{site.email}</a>
+  </section>
+</BaseLayout>

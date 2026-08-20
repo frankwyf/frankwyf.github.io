@@ -1,0 +1,27 @@
+---
+import type { Locale } from '../i18n';
+import { localizedPath } from '../i18n';
+import { t } from '../i18n/translations';
+import { site } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = t(locale);
+---
+
+<footer class="site-footer">
+  <div>
+    <strong>Yifan Wang</strong>
+    <p>{copy.footer}</p>
+  </div>
+  <div class="footer-links">
+    <a href={site.github}>GitHub</a>
+    <a href={site.linkedin}>LinkedIn</a>
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+    <a href={localizedPath(locale, 'contact')}>{copy.nav.contact}</a>
+  </div>
+  <p class="copyright">© {new Date().getFullYear()} Yifan Wang</p>
+</footer>

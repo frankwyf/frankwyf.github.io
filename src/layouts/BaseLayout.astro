@@ -1,0 +1,99 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { localeMeta, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+import { site } from '../data/site';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  alternates: Record<Locale, string>;
+  currentPath: string;
+}
+
+const { locale, title, description, alternates, currentPath } = Astro.props;
+const copy = t(locale);
+const canonical = new URL(currentPath, site.url).toString();
+const pageTitle =
+  title === site.name ? `${site.name} · ${site.englishName}` : `${title} · ${site.name}`;
+const themeLabels = copy.themeModes;
+---
+
+<!doctype html>
+<html lang={localeMeta[locale].lang} data-theme="light" data-theme-mode="system">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f4f1e8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={new URL(alternates.en, site.url)} />
+    <link rel="alternate" hreflang="ja" href={new URL(alternates.ja, site.url)} />
+    <link rel="alternate" hreflang="zh-CN" href={new URL(alternates.zh, site.url)} />
+    <link rel="alternate" hreflang="x-default" href={new URL(alternates.en, site.url)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Yifan Wang — Engineering Portfolio" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">{copy.skip}</a>
+    <div class="site-shell">
+      <Header {locale} {currentPath} {alternates} />
+      <main id="main-content">
+        <slot />
+      </main>
+      <Footer {locale} />
+    </div>
+    <script is:inline define:vars={{ themeLabels }}>
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    </script>
+  </body>
+</html>

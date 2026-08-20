@@ -1,0 +1,58 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+  entry: CollectionEntry<'caseStudies'>;
+}
+
+const { locale, entry } = Astro.props;
+const { Content } = await render(entry);
+const copy = t(locale);
+const path = `projects/${entry.data.routeSlug}`;
+---
+
+<BaseLayout
+  locale={locale}
+  title={entry.data.title}
+  description={entry.data.summary}
+  alternates={localizedAlternates(path)}
+  currentPath={localizedPath(locale, path)}
+>
+  <article class="case-study">
+    <header class="case-hero section-shell">
+      <a class="back-link" href={localizedPath(locale, 'projects')}>← {copy.nav.projects}</a>
+      <div class="case-hero-grid">
+        <div>
+          <p class="eyebrow">Flagship case study</p>
+          <h1>{entry.data.title}</h1>
+          <p class="lede">{entry.data.summary}</p>
+        </div>
+        <aside class="case-meta">
+          <div><span>Status</span><strong>{entry.data.status}</strong></div>
+          <div><span>Source</span><strong>{copy.privateSource}</strong></div>
+          <div>
+            <span>Last verified</span><strong
+              >{entry.data.lastVerified.toISOString().slice(0, 10)}</strong
+            >
+          </div>
+        </aside>
+      </div>
+      <ul class="tag-list case-tags">
+        {entry.data.technologies.map((technology) => <li>{technology}</li>)}
+      </ul>
+    </header>
+    <div class="case-body section-shell">
+      <aside class="case-rail">
+        <span>Problem</span><span>Architecture</span><span>Controls</span><span>Evidence</span><span
+          >Boundary</span
+        >
+      </aside>
+      <div class="prose"><Content /></div>
+    </div>
+  </article>
+</BaseLayout>
