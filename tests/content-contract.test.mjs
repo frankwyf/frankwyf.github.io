@@ -46,3 +46,18 @@ test('localized core route files exist', async () => {
   for (const file of required)
     await assert.doesNotReject(() => readFile(path.join(root, file), 'utf8'));
 });
+
+test('social preview image has the declared Open Graph dimensions', async () => {
+  const image = await readFile(path.join(root, 'public', 'og.png'));
+  assert.equal(image.subarray(1, 4).toString('ascii'), 'PNG');
+  assert.equal(image.readUInt32BE(16), 1200);
+  assert.equal(image.readUInt32BE(20), 630);
+});
+
+test('placeholder writing pages remain out of search indexes', async () => {
+  const component = await readFile(
+    path.join(root, 'src', 'components', 'WritingPage.astro'),
+    'utf8',
+  );
+  assert.match(component, /\bnoIndex\b/);
+});

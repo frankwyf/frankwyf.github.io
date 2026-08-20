@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { localizedAlternates, localizedPath, type Locale } from '../i18n';
+import { localeMeta, localizedAlternates, localizedPath, type Locale } from '../i18n';
 import { t } from '../i18n/translations';
 
 interface Props {
@@ -14,6 +14,10 @@ const { locale, entry } = Astro.props;
 const { Content } = await render(entry);
 const copy = t(locale);
 const path = `projects/${entry.data.routeSlug}`;
+const verifiedDate = new Intl.DateTimeFormat(localeMeta[locale].lang, {
+  dateStyle: 'medium',
+  timeZone: 'UTC',
+}).format(entry.data.lastVerified);
 ---
 
 <BaseLayout
@@ -28,17 +32,15 @@ const path = `projects/${entry.data.routeSlug}`;
       <a class="back-link" href={localizedPath(locale, 'projects')}>← {copy.nav.projects}</a>
       <div class="case-hero-grid">
         <div>
-          <p class="eyebrow">Flagship case study</p>
+          <p class="eyebrow">{copy.caseStudy.eyebrow}</p>
           <h1>{entry.data.title}</h1>
           <p class="lede">{entry.data.summary}</p>
         </div>
         <aside class="case-meta">
-          <div><span>Status</span><strong>{entry.data.status}</strong></div>
-          <div><span>Source</span><strong>{copy.privateSource}</strong></div>
+          <div><span>{copy.caseStudy.status}</span><strong>{entry.data.status}</strong></div>
+          <div><span>{copy.caseStudy.source}</span><strong>{copy.privateSource}</strong></div>
           <div>
-            <span>Last verified</span><strong
-              >{entry.data.lastVerified.toISOString().slice(0, 10)}</strong
-            >
+            <span>{copy.caseStudy.lastVerified}</span><strong>{verifiedDate}</strong>
           </div>
         </aside>
       </div>
@@ -47,10 +49,8 @@ const path = `projects/${entry.data.routeSlug}`;
       </ul>
     </header>
     <div class="case-body section-shell">
-      <aside class="case-rail">
-        <span>Problem</span><span>Architecture</span><span>Controls</span><span>Evidence</span><span
-          >Boundary</span
-        >
+      <aside class="case-rail" aria-hidden="true">
+        {copy.caseStudy.rail.map((label) => <span>{label}</span>)}
       </aside>
       <div class="prose"><Content /></div>
     </div>

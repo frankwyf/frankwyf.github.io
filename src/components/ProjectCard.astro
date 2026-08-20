@@ -25,10 +25,16 @@ const external = project.kind === 'engineering';
   <h3>{project.title}</h3>
   <p>{project.summary[locale]}</p>
   <p class="project-outcome">{project.outcome[locale]}</p>
-  <ul class="tag-list" aria-label="Technologies">
+  <ul class="tag-list" aria-label={copy.aria.technologies}>
     {project.technologies.map((technology) => <li>{technology}</li>)}
   </ul>
-  <a class="text-link" href={href}>
+  <a
+    class="text-link"
+    href={href}
+    target={external ? '_blank' : undefined}
+    rel={external ? 'external noopener' : undefined}
+    aria-label={`${project.kind === 'flagship' ? copy.viewCase : copy.viewProject}: ${project.title}`}
+  >
     {project.kind === 'flagship' ? copy.viewCase : copy.viewProject}
     <span aria-hidden="true">{external ? '↗' : '→'}</span>
   </a>

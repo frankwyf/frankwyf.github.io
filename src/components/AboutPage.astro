@@ -43,7 +43,9 @@ const copy = t(locale);
       </ul>
     </article>
     <article class="info-panel">
-      <p class="eyebrow">{copy.about.locationTitle}</p><p class="panel-large">{site.location}</p>
+      <p class="eyebrow">{copy.about.locationTitle}</p><p class="panel-large">
+        {site.location[locale]}<br /><span class="panel-note">{site.availability[locale]}</span>
+      </p>
     </article>
   </section>
 </BaseLayout>

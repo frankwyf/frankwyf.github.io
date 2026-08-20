@@ -5,5 +5,9 @@ export default defineConfig({
   site: 'https://frankwyf.github.io',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !/\/(?:ja\/|zh\/)?writing\/$/.test(page) && !/\/404\/$/.test(page),
+    }),
+  ],
 });

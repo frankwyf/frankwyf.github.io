@@ -15,7 +15,6 @@ const nav = [
   [copy.nav.projects, 'projects'],
   [copy.nav.ai, 'ai-engineering'],
   [copy.nav.about, 'about'],
-  [copy.nav.writing, 'writing'],
   [copy.nav.contact, 'contact'],
 ] as const;
 
@@ -26,12 +25,12 @@ const isCurrent = (path: string) => {
 ---
 
 <header class="site-header">
-  <a class="brand" href={localizedPath(locale)} aria-label="Yifan Wang home">
+  <a class="brand" href={localizedPath(locale)} aria-label={copy.aria.home}>
     <span class="brand-mark" aria-hidden="true">YW</span>
     <span class="brand-name">Yifan Wang</span>
   </a>
 
-  <nav class="primary-nav" aria-label="Primary navigation">
+  <nav class="primary-nav" aria-label={copy.aria.primaryNav}>
     {
       nav.map(([label, path]) => (
         <a href={localizedPath(locale, path)} aria-current={isCurrent(path) ? 'page' : undefined}>
@@ -42,7 +41,7 @@ const isCurrent = (path: string) => {
   </nav>
 
   <div class="header-actions">
-    <div class="language-switcher" aria-label="Language">
+    <div class="language-switcher" aria-label={copy.aria.language}>
       {
         (Object.keys(localeMeta) as Locale[]).map((item) => (
           <a

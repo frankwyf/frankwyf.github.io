@@ -39,10 +39,13 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
         >
       </div>
       <div class="social-row">
-        <a href={site.github}>GitHub ↗</a>
-        <a href={site.linkedin}>LinkedIn ↗</a>
+        <a href={site.github} rel="me external">GitHub ↗</a>
+        <a href={site.linkedin} rel="me external">LinkedIn ↗</a>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </div>
+      <p class="availability-line">
+        <span aria-hidden="true"></span>{site.location[locale]} · {site.availability[locale]}
+      </p>
     </div>
 
     <aside class="system-map" aria-label={copy.home.systemTitle}>
@@ -63,7 +66,7 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
 
   <section class="section section-shell">
     <header class="section-heading">
-      <p class="eyebrow">01 / Focus</p>
+      <p class="eyebrow">01 / {copy.home.sections[0]}</p>
       <h2>{copy.home.focusTitle}</h2>
       <p>{copy.home.focusIntro}</p>
     </header>
@@ -84,7 +87,9 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
 
   <section class="section section-shell section-tint">
     <header class="section-heading split-heading">
-      <div><p class="eyebrow">02 / Case studies</p><h2>{copy.home.flagshipTitle}</h2></div>
+      <div>
+        <p class="eyebrow">02 / {copy.home.sections[1]}</p><h2>{copy.home.flagshipTitle}</h2>
+      </div>
       <p>{copy.home.flagshipIntro}</p>
     </header>
     <div class="project-grid flagship-grid">
@@ -94,7 +99,7 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
 
   <section class="section section-shell">
     <header class="section-heading">
-      <p class="eyebrow">03 / Selected work</p>
+      <p class="eyebrow">03 / {copy.home.sections[2]}</p>
       <h2>{copy.home.selectedTitle}</h2>
     </header>
     <div class="project-grid">
@@ -107,7 +112,7 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
 
   <section class="section section-shell principles-section">
     <header class="section-heading">
-      <p class="eyebrow">04 / Principles</p>
+      <p class="eyebrow">04 / {copy.home.sections[3]}</p>
       <h2>{copy.home.principlesTitle}</h2>
     </header>
     <div class="principles-list">
@@ -130,7 +135,7 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
   </section>
 
   <section class="closing-section section-shell">
-    <p class="eyebrow">05 / Contact</p>
+    <p class="eyebrow">05 / {copy.home.sections[4]}</p>
     <h2>{copy.home.closing}</h2>
     <a class="button primary" href={`mailto:${site.email}`}>{site.email}</a>
   </section>
