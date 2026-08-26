@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="system"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v7.2.4"><meta name="description" content="My background spans enterprise application development, industrial and operational systems, Python/SQL data integration, ETL, and production validation."><meta name="robots" content="index,follow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f4f1e8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://frankwyf.github.io/about/"><link rel="alternate" hreflang="en" href="https://frankwyf.github.io/about/"><link rel="alternate" hreflang="ja" href="https://frankwyf.github.io/ja/about/"><link rel="alternate" hreflang="zh-CN" href="https://frankwyf.github.io/zh/about/"><link rel="alternate" hreflang="x-default" href="https://frankwyf.github.io/about/"><meta property="og:type" content="website"><meta property="og:title" content="About · Yifan Wang"><meta property="og:description" content="My background spans enterprise application development, industrial and operational systems, Python/SQL data integration, ETL, and production validation."><meta property="og:url" content="https://frankwyf.github.io/about/"><meta property="og:site_name" content="Yifan Wang — Engineering Portfolio"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://frankwyf.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Yifan Wang — Software, Data, and Applied AI"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="About · Yifan Wang"><meta name="twitter:description" content="My background spans enterprise application development, industrial and operational systems, Python/SQL data integration, ETL, and production validation."><meta name="twitter:image" content="https://frankwyf.github.io/og.png"><title>About · Yifan Wang</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yifan Wang","alternateName":"Frank Wang","url":"https://frankwyf.github.io","email":"mailto:wyf_frank66@outlook.com","jobTitle":"Software & Data Engineer","sameAs":["https://github.com/frankwyf","https://www.linkedin.com/in/yifan-wang-862b89390"],"knowsAbout":["Software Engineering","Data Engineering","Applied Artificial Intelligence","AI Evaluation","Cloud Architecture"]}</script><script>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BfRcRzcD.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><div class="site-shell"><header class="site-header"><a class="brand" href="/" aria-label="Yifan Wang home"><span class="brand-mark" aria-hidden="true">YW</span><span class="brand-name">Yifan Wang</span></a><nav class="primary-nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/projects/">Projects</a><a href="/ai-engineering/">AI Engineering</a><a href="/about/" aria-current="page">About</a><a href="/contact/">Contact</a></nav><div class="header-actions"><div class="language-switcher" aria-label="Language"><a href="/about/" lang="en" aria-current="page">EN</a><a href="/ja/about/" lang="ja">日本語</a><a href="/zh/about/" lang="zh-CN">中文</a></div><button class="theme-toggle" type="button" data-theme-toggle data-theme-text="Theme" aria-label="Theme: System"><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>System</span></button></div></header><main id="main-content"><section class="page-hero section-shell about-hero"><div><p class="eyebrow">About</p><h1>An enterprise software foundation, moving deliberately into Applied AI.</h1></div><div class="about-copy"><p>My background spans enterprise application development, industrial and operational systems, Python/SQL data integration, ETL, and production validation.</p><p>That experience shapes how I approach AI: start with the workflow and data contract, make important calculations deterministic, then add models where they create measurable value.</p><p>I am developing toward Applied AI, Data &amp; AI, Backend, Platform, and Forward Deployed Engineering roles across enterprise SaaS, FinTech, industrial systems, and other real-world domains.</p></div></section><section class="section section-shell about-grid"><article class="info-panel"><p class="eyebrow">Languages</p><ul><li>Chinese — Native</li><li>English — Professional working proficiency</li><li>Japanese — JLPT N2 / business communication</li></ul></article><article class="info-panel"><p class="eyebrow">Certifications</p><ul><li><strong>AWS Certified Solutions Architect – Associate</strong><span>Amazon Web Services</span></li><li><strong>AWS Certified AI Practitioner</strong><span>Amazon Web Services</span></li><li><strong>Digital Industries Software Credentials</strong><span>Siemens</span></li></ul></article><article class="info-panel"><p class="eyebrow">Location</p><p class="panel-large">Shanghai / Tokyo<br><span class="panel-note">Open to international roles and relocation</span></p></article></section></main><footer class="site-footer"><div><strong>Yifan Wang</strong><p>Building practical systems at the intersection of software, data, and AI.</p></div><div class="footer-links"><a href="https://github.com/frankwyf" rel="me external">GitHub</a><a href="https://www.linkedin.com/in/yifan-wang-862b89390" rel="me external">LinkedIn</a><a href="mailto:wyf_frank66@outlook.com">wyf_frank66@outlook.com</a><a href="/writing/">Writing</a><a href="/contact/">Contact</a></div><p class="copyright">© 2026 Yifan Wang</p></footer></div><script>(function(){const themeLabels = ["System","Light","Dark"];
+
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    })();</script></body></html>

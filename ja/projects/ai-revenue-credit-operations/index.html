@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="ja" data-theme="light" data-theme-mode="system"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v7.2.4"><meta name="description" content="財務ロジックを決定論的に保ち、AIを根拠付き検索と制限された支援に利用するB2B業務基盤。"><meta name="robots" content="index,follow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f4f1e8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://frankwyf.github.io/ja/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="en" href="https://frankwyf.github.io/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="ja" href="https://frankwyf.github.io/ja/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="zh-CN" href="https://frankwyf.github.io/zh/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="x-default" href="https://frankwyf.github.io/projects/ai-revenue-credit-operations/"><meta property="og:type" content="website"><meta property="og:title" content="AI Revenue &amp; Credit Operations Platform · Yifan Wang"><meta property="og:description" content="財務ロジックを決定論的に保ち、AIを根拠付き検索と制限された支援に利用するB2B業務基盤。"><meta property="og:url" content="https://frankwyf.github.io/ja/projects/ai-revenue-credit-operations/"><meta property="og:site_name" content="Yifan Wang — Engineering Portfolio"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://frankwyf.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Yifan Wang — Software, Data, and Applied AI"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI Revenue &amp; Credit Operations Platform · Yifan Wang"><meta name="twitter:description" content="財務ロジックを決定論的に保ち、AIを根拠付き検索と制限された支援に利用するB2B業務基盤。"><meta name="twitter:image" content="https://frankwyf.github.io/og.png"><title>AI Revenue &amp; Credit Operations Platform · Yifan Wang</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yifan Wang","alternateName":"Frank Wang","url":"https://frankwyf.github.io","email":"mailto:wyf_frank66@outlook.com","jobTitle":"Software & Data Engineer","sameAs":["https://github.com/frankwyf","https://www.linkedin.com/in/yifan-wang-862b89390"],"knowsAbout":["Software Engineering","Data Engineering","Applied Artificial Intelligence","AI Evaluation","Cloud Architecture"]}</script><script>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BfRcRzcD.css"></head><body><a class="skip-link" href="#main-content">本文へ移動</a><div class="site-shell"><header class="site-header"><a class="brand" href="/ja/" aria-label="Yifan Wang ホーム"><span class="brand-mark" aria-hidden="true">YW</span><span class="brand-name">Yifan Wang</span></a><nav class="primary-nav" aria-label="メインナビゲーション"><a href="/ja/">ホーム</a><a href="/ja/projects/" aria-current="page">プロジェクト</a><a href="/ja/ai-engineering/">AIエンジニアリング</a><a href="/ja/about/">プロフィール</a><a href="/ja/contact/">連絡先</a></nav><div class="header-actions"><div class="language-switcher" aria-label="言語"><a href="/projects/ai-revenue-credit-operations/" lang="en">EN</a><a href="/ja/projects/ai-revenue-credit-operations/" lang="ja" aria-current="page">日本語</a><a href="/zh/projects/ai-revenue-credit-operations/" lang="zh-CN">中文</a></div><button class="theme-toggle" type="button" data-theme-toggle data-theme-text="テーマ" aria-label="テーマ: システム"><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>システム</span></button></div></header><main id="main-content"><article class="case-study"><header class="case-hero section-shell"><a class="back-link" href="/ja/projects/">← プロジェクト</a><div class="case-hero-grid"><div><p class="eyebrow">代表ケーススタディ</p><h1>AI Revenue &amp; Credit Operations Platform</h1><p class="lede">財務ロジックを決定論的に保ち、AIを根拠付き検索と制限された支援に利用するB2B業務基盤。</p></div><aside class="case-meta"><div><span>状況</span><strong>ローカルリリース候補 · クラウドテンプレート未デプロイ</strong></div><div><span>ソース</span><strong>非公開ソース · 公開ケーススタディ</strong></div><div><span>最終確認日</span><strong>2026/08/21</strong></div></aside></div><ul class="tag-list case-tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>pgvector</li><li>RAG</li><li>RBAC</li><li>Evaluation</li><li>AWS design</li></ul></header><div class="case-body section-shell"><aside class="case-rail" aria-hidden="true"><span>課題</span><span>設計</span><span>統制</span><span>証拠</span><span>制約</span></aside><div class="prose"><h2 id="業務上の課題">業務上の課題</h2>
+<p>Revenue・Credit部門では、顧客、契約、請求、支払、返金、利用状況、与信限度額のデータが複数システムに分散しています。迅速な回答は必要ですが、金額、権限、重要操作の正式な根拠をLLMの文章に任せることはできません。</p>
+<p>本プロジェクトは、会計、テナント、認可、承認、監査の境界を維持したまま、AIが証拠検索と提案準備を支援する方法を検証します。</p>
+<h2 id="エンジニアリング上の対応">エンジニアリング上の対応</h2>
+<p>正確な金額計算、通貨分離、延滞期間、照合、データ品質、証拠の保存を決定論的な中核として実装します。AIはこの中核の外側に配置され、計算結果を再定義できません。</p>
+<p>契約検索はテナントで分離され、回答には引用が必要です。証拠がなければ回答を拒否します。ツールは許可リスト、スキーマ、権限、時間制限、監査の各境界を通過し、任意のSQLやシェル実行は許可されません。</p>
+<h2 id="人による統制と監査">人による統制と監査</h2>
+<p>提案は操作ではなく下書きです。作成者とは別の権限を持つレビュー担当者が最新バージョンを承認した後にのみ、冪等なドライランで結果をシミュレーションできます。職務分離、楽観的ロック、承認トークン、追記型の秘匿化監査により、統制経路を確認できます。</p>
+<h2 id="評価とデリバリー証拠">評価とデリバリー証拠</h2>
+<p>ローカル評価では、数値精度、検索、引用、ツール選択と引数、回答拒否、攻撃プロンプト、テナント分離を確認します。デフォルトは再現可能で無料のFake Providerを使用し、任意のローカル推論はProvider境界の背後に置きます。</p>
+<p>コンテナおよびAWS定義はレビュー可能な設計成果物であり、デプロイ実績ではありません。クラウド設定はデフォルトで無効で、有料アカウントには適用していません。</p>
+<h2 id="現在の境界">現在の境界</h2>
+<p>本システムは合成データを使う非公開ソースのポートフォリオです。実運用の財務基盤ではなく、不可逆な回収・与信操作も行いません。本番利用には、ID連携、デプロイ検証、運用セキュリティ試験、復旧訓練、責任ある業務オーナーが必要です。</p>
+</div></div></article></main><footer class="site-footer"><div><strong>Yifan Wang</strong><p>ソフトウェア、データ、AIの交点で実用的なシステムを構築しています。</p></div><div class="footer-links"><a href="https://github.com/frankwyf" rel="me external">GitHub</a><a href="https://www.linkedin.com/in/yifan-wang-862b89390" rel="me external">LinkedIn</a><a href="mailto:wyf_frank66@outlook.com">wyf_frank66@outlook.com</a><a href="/ja/writing/">記事</a><a href="/ja/contact/">連絡先</a></div><p class="copyright">© 2026 Yifan Wang</p></footer></div><script>(function(){const themeLabels = ["システム","ライト","ダーク"];
+
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    })();</script></body></html>

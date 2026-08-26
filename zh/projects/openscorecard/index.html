@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light" data-theme-mode="system"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v7.2.4"><meta name="description" content="围绕时间标签、可解释模型和可复核政策构建的 B2B 信用决策与模型治理实验室。"><meta name="robots" content="index,follow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f4f1e8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://frankwyf.github.io/zh/projects/openscorecard/"><link rel="alternate" hreflang="en" href="https://frankwyf.github.io/projects/openscorecard/"><link rel="alternate" hreflang="ja" href="https://frankwyf.github.io/ja/projects/openscorecard/"><link rel="alternate" hreflang="zh-CN" href="https://frankwyf.github.io/zh/projects/openscorecard/"><link rel="alternate" hreflang="x-default" href="https://frankwyf.github.io/projects/openscorecard/"><meta property="og:type" content="website"><meta property="og:title" content="OpenScorecard · Yifan Wang"><meta property="og:description" content="围绕时间标签、可解释模型和可复核政策构建的 B2B 信用决策与模型治理实验室。"><meta property="og:url" content="https://frankwyf.github.io/zh/projects/openscorecard/"><meta property="og:site_name" content="Yifan Wang — Engineering Portfolio"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://frankwyf.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Yifan Wang — Software, Data, and Applied AI"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="OpenScorecard · Yifan Wang"><meta name="twitter:description" content="围绕时间标签、可解释模型和可复核政策构建的 B2B 信用决策与模型治理实验室。"><meta name="twitter:image" content="https://frankwyf.github.io/og.png"><title>OpenScorecard · Yifan Wang</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yifan Wang","alternateName":"Frank Wang","url":"https://frankwyf.github.io","email":"mailto:wyf_frank66@outlook.com","jobTitle":"Software & Data Engineer","sameAs":["https://github.com/frankwyf","https://www.linkedin.com/in/yifan-wang-862b89390"],"knowsAbout":["Software Engineering","Data Engineering","Applied Artificial Intelligence","AI Evaluation","Cloud Architecture"]}</script><script>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BfRcRzcD.css"></head><body><a class="skip-link" href="#main-content">跳转到正文</a><div class="site-shell"><header class="site-header"><a class="brand" href="/zh/" aria-label="Yifan Wang 首页"><span class="brand-mark" aria-hidden="true">YW</span><span class="brand-name">Yifan Wang</span></a><nav class="primary-nav" aria-label="主导航"><a href="/zh/">首页</a><a href="/zh/projects/" aria-current="page">项目</a><a href="/zh/ai-engineering/">AI 工程</a><a href="/zh/about/">关于</a><a href="/zh/contact/">联系</a></nav><div class="header-actions"><div class="language-switcher" aria-label="语言"><a href="/projects/openscorecard/" lang="en">EN</a><a href="/ja/projects/openscorecard/" lang="ja">日本語</a><a href="/zh/projects/openscorecard/" lang="zh-CN" aria-current="page">中文</a></div><button class="theme-toggle" type="button" data-theme-toggle data-theme-text="主题" aria-label="主题: 跟随系统"><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>跟随系统</span></button></div></header><main id="main-content"><article class="case-study"><header class="case-hero section-shell"><a class="back-link" href="/zh/projects/">← 项目</a><div class="case-hero-grid"><div><p class="eyebrow">旗舰案例研究</p><h1>OpenScorecard</h1><p class="lede">围绕时间标签、可解释模型和可复核政策构建的 B2B 信用决策与模型治理实验室。</p></div><aside class="case-meta"><div><span>状态</span><strong>本地已验证作品集系统 · 不是生产授信服务</strong></div><div><span>源码</span><strong>私有源码 · 公开案例研究</strong></div><div><span>最近验证</span><strong>2026年8月21日</strong></div></aside></div><ul class="tag-list case-tags"><li>Python</li><li>FastAPI</li><li>Explainable ML</li><li>OOT validation</li><li>Model governance</li><li>Synthetic data</li></ul></header><div class="case-body section-shell"><aside class="case-rail" aria-hidden="true"><span>问题</span><span>架构</span><span>控制</span><span>证据</span><span>边界</span></aside><div class="prose"><h2 id="决策问题">决策问题</h2>
+<p>参考场景是一家 B2B 供应商决定如何管理中小企业客户的贸易信用。目标变量具有明确时间定义：一家公司是否会在观察日之后 90 天的表现窗口内达到逾期 30 天以上。</p>
+<p>这个契约十分重要。特征必须在观察日已经可用，未来付款行为不能泄漏到训练输入中。</p>
+<h2 id="可复现证据">可复现证据</h2>
+<p>工作流生成确定性的合成中小企业组合，验证 Schema 和时间规则，并在训练、验证与 OOT 阶段复用同一数据契约。数据质量或泄漏门禁失败时，后续建模会被阻断。</p>
+<p>系统在相同时间切分上比较逻辑回归基线、可解释 WOE 评分卡候选模型和树模型 Challenger。评审不会只看一个头部指标，而会同时考虑区分度、校准、稳定性、样本证据和政策影响。</p>
+<h2 id="模型治理与政策分离">模型治理与政策分离</h2>
+<p>模型审批是明确的。版本化 Model Card 和治理决策记录评估证据，并在强制门禁失败时拒绝候选模型。</p>
+<p>模型负责估计风险，单独的版本化政策把风险映射为等级、账期、建议额度、原因码和人工复核要求。这样可以在不重训模型的情况下，以可审计方式调整政策阈值。</p>
+<h2 id="复核体验">复核体验</h2>
+<p>只读本地界面串联组合概览、企业信用复核、模型验证和监控证据。分数贡献能够重建总分并提供排序后的原因。监控会区分即时可用的漂移信号，以及只有在标签成熟后才有意义的表现指标。</p>
+<h2 id="诚实边界">诚实边界</h2>
+<p>该系统使用合成数据，是研究与作品集实验室，不是生产授信服务。合成数据表现不代表真实信用组合。生产使用需要代表性数据、独立验证、公平与法律评审、身份认证、受控模型操作、持久审计留存和有责任主体的人工监督。</p>
+</div></div></article></main><footer class="site-footer"><div><strong>Yifan Wang</strong><p>在软件、数据与 AI 的交汇处构建实用系统。</p></div><div class="footer-links"><a href="https://github.com/frankwyf" rel="me external">GitHub</a><a href="https://www.linkedin.com/in/yifan-wang-862b89390" rel="me external">LinkedIn</a><a href="mailto:wyf_frank66@outlook.com">wyf_frank66@outlook.com</a><a href="/zh/writing/">文章</a><a href="/zh/contact/">联系</a></div><p class="copyright">© 2026 Yifan Wang</p></footer></div><script>(function(){const themeLabels = ["跟随系统","浅色","深色"];
+
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    })();</script></body></html>

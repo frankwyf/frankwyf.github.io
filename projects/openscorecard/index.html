@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="system"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v7.2.4"><meta name="description" content="A reproducible B2B credit decisioning and model-governance lab built around temporal labels, explainable models, and reviewable policy."><meta name="robots" content="index,follow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f4f1e8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://frankwyf.github.io/projects/openscorecard/"><link rel="alternate" hreflang="en" href="https://frankwyf.github.io/projects/openscorecard/"><link rel="alternate" hreflang="ja" href="https://frankwyf.github.io/ja/projects/openscorecard/"><link rel="alternate" hreflang="zh-CN" href="https://frankwyf.github.io/zh/projects/openscorecard/"><link rel="alternate" hreflang="x-default" href="https://frankwyf.github.io/projects/openscorecard/"><meta property="og:type" content="website"><meta property="og:title" content="OpenScorecard · Yifan Wang"><meta property="og:description" content="A reproducible B2B credit decisioning and model-governance lab built around temporal labels, explainable models, and reviewable policy."><meta property="og:url" content="https://frankwyf.github.io/projects/openscorecard/"><meta property="og:site_name" content="Yifan Wang — Engineering Portfolio"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://frankwyf.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Yifan Wang — Software, Data, and Applied AI"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="OpenScorecard · Yifan Wang"><meta name="twitter:description" content="A reproducible B2B credit decisioning and model-governance lab built around temporal labels, explainable models, and reviewable policy."><meta name="twitter:image" content="https://frankwyf.github.io/og.png"><title>OpenScorecard · Yifan Wang</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yifan Wang","alternateName":"Frank Wang","url":"https://frankwyf.github.io","email":"mailto:wyf_frank66@outlook.com","jobTitle":"Software & Data Engineer","sameAs":["https://github.com/frankwyf","https://www.linkedin.com/in/yifan-wang-862b89390"],"knowsAbout":["Software Engineering","Data Engineering","Applied Artificial Intelligence","AI Evaluation","Cloud Architecture"]}</script><script>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BfRcRzcD.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><div class="site-shell"><header class="site-header"><a class="brand" href="/" aria-label="Yifan Wang home"><span class="brand-mark" aria-hidden="true">YW</span><span class="brand-name">Yifan Wang</span></a><nav class="primary-nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/projects/" aria-current="page">Projects</a><a href="/ai-engineering/">AI Engineering</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav><div class="header-actions"><div class="language-switcher" aria-label="Language"><a href="/projects/openscorecard/" lang="en" aria-current="page">EN</a><a href="/ja/projects/openscorecard/" lang="ja">日本語</a><a href="/zh/projects/openscorecard/" lang="zh-CN">中文</a></div><button class="theme-toggle" type="button" data-theme-toggle data-theme-text="Theme" aria-label="Theme: System"><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>System</span></button></div></header><main id="main-content"><article class="case-study"><header class="case-hero section-shell"><a class="back-link" href="/projects/">← Projects</a><div class="case-hero-grid"><div><p class="eyebrow">Flagship case study</p><h1>OpenScorecard</h1><p class="lede">A reproducible B2B credit decisioning and model-governance lab built around temporal labels, explainable models, and reviewable policy.</p></div><aside class="case-meta"><div><span>Status</span><strong>Locally validated portfolio system · Not a production underwriting service</strong></div><div><span>Source</span><strong>Private source · Public case study</strong></div><div><span>Last verified</span><strong>Aug 21, 2026</strong></div></aside></div><ul class="tag-list case-tags"><li>Python</li><li>FastAPI</li><li>Explainable ML</li><li>OOT validation</li><li>Model governance</li><li>Synthetic data</li></ul></header><div class="case-body section-shell"><aside class="case-rail" aria-hidden="true"><span>Problem</span><span>Architecture</span><span>Controls</span><span>Evidence</span><span>Boundary</span></aside><div class="prose"><h2 id="the-decision-problem">The decision problem</h2>
+<p>The reference scenario is a B2B supplier deciding how to manage trade credit for SME customers. The target is defined in time: whether a company reaches 30 or more days past due during a 90-day performance window after an observation date.</p>
+<p>That contract matters. Features must be available at the observation date, and future payment behavior must not leak into training inputs.</p>
+<h2 id="reproducible-evidence">Reproducible evidence</h2>
+<p>The workflow generates a deterministic synthetic SME portfolio, validates its schema and temporal rules, and reuses the same data contract across training, validation, and out-of-time periods. Failed quality or leakage gates block further modeling work.</p>
+<p>A logistic baseline, an interpretable WOE scorecard candidate, and a tree challenger are compared on the same temporal split. The review considers discrimination, calibration, stability, sample evidence, and policy impact rather than selecting a model from one headline metric.</p>
+<h2 id="model-governance-and-policy-separation">Model governance and policy separation</h2>
+<p>Model approval is explicit. A versioned Model Card and governance decision record the evidence and can reject a candidate when mandatory gates fail.</p>
+<p>The model estimates risk; a separate versioned policy maps that estimate to grades, terms, proposed limits, reason codes, and human-review requirements. This separation allows policy thresholds to change without pretending the model itself made the business decision.</p>
+<h2 id="review-experience">Review experience</h2>
+<p>A read-only local experience connects portfolio overview, company review, model validation, and monitoring evidence. Score contributions can reconstruct the total score and support ranked reasons. Monitoring separates immediately available drift signals from performance evidence that only becomes meaningful after labels mature.</p>
+<h2 id="honest-boundary">Honest boundary</h2>
+<p>The system uses synthetic data and is presented as a research and portfolio lab. Synthetic performance does not represent a real credit portfolio. Production underwriting would require representative data, independent validation, fairness and legal review, authentication, controlled model operations, durable audit retention, and accountable human oversight.</p>
+</div></div></article></main><footer class="site-footer"><div><strong>Yifan Wang</strong><p>Building practical systems at the intersection of software, data, and AI.</p></div><div class="footer-links"><a href="https://github.com/frankwyf" rel="me external">GitHub</a><a href="https://www.linkedin.com/in/yifan-wang-862b89390" rel="me external">LinkedIn</a><a href="mailto:wyf_frank66@outlook.com">wyf_frank66@outlook.com</a><a href="/writing/">Writing</a><a href="/contact/">Contact</a></div><p class="copyright">© 2026 Yifan Wang</p></footer></div><script>(function(){const themeLabels = ["System","Light","Dark"];
+
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    })();</script></body></html>

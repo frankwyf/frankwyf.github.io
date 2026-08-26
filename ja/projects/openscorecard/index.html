@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="ja" data-theme="light" data-theme-mode="system"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v7.2.4"><meta name="description" content="時系列ラベル、説明可能なモデル、レビュー可能なポリシーを中心に構築したB2B信用判断・モデルガバナンス環境。"><meta name="robots" content="index,follow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f4f1e8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://frankwyf.github.io/ja/projects/openscorecard/"><link rel="alternate" hreflang="en" href="https://frankwyf.github.io/projects/openscorecard/"><link rel="alternate" hreflang="ja" href="https://frankwyf.github.io/ja/projects/openscorecard/"><link rel="alternate" hreflang="zh-CN" href="https://frankwyf.github.io/zh/projects/openscorecard/"><link rel="alternate" hreflang="x-default" href="https://frankwyf.github.io/projects/openscorecard/"><meta property="og:type" content="website"><meta property="og:title" content="OpenScorecard · Yifan Wang"><meta property="og:description" content="時系列ラベル、説明可能なモデル、レビュー可能なポリシーを中心に構築したB2B信用判断・モデルガバナンス環境。"><meta property="og:url" content="https://frankwyf.github.io/ja/projects/openscorecard/"><meta property="og:site_name" content="Yifan Wang — Engineering Portfolio"><meta property="og:locale" content="ja_JP"><meta property="og:image" content="https://frankwyf.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Yifan Wang — Software, Data, and Applied AI"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="OpenScorecard · Yifan Wang"><meta name="twitter:description" content="時系列ラベル、説明可能なモデル、レビュー可能なポリシーを中心に構築したB2B信用判断・モデルガバナンス環境。"><meta name="twitter:image" content="https://frankwyf.github.io/og.png"><title>OpenScorecard · Yifan Wang</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yifan Wang","alternateName":"Frank Wang","url":"https://frankwyf.github.io","email":"mailto:wyf_frank66@outlook.com","jobTitle":"Software & Data Engineer","sameAs":["https://github.com/frankwyf","https://www.linkedin.com/in/yifan-wang-862b89390"],"knowsAbout":["Software Engineering","Data Engineering","Applied Artificial Intelligence","AI Evaluation","Cloud Architecture"]}</script><script>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BfRcRzcD.css"></head><body><a class="skip-link" href="#main-content">本文へ移動</a><div class="site-shell"><header class="site-header"><a class="brand" href="/ja/" aria-label="Yifan Wang ホーム"><span class="brand-mark" aria-hidden="true">YW</span><span class="brand-name">Yifan Wang</span></a><nav class="primary-nav" aria-label="メインナビゲーション"><a href="/ja/">ホーム</a><a href="/ja/projects/" aria-current="page">プロジェクト</a><a href="/ja/ai-engineering/">AIエンジニアリング</a><a href="/ja/about/">プロフィール</a><a href="/ja/contact/">連絡先</a></nav><div class="header-actions"><div class="language-switcher" aria-label="言語"><a href="/projects/openscorecard/" lang="en">EN</a><a href="/ja/projects/openscorecard/" lang="ja" aria-current="page">日本語</a><a href="/zh/projects/openscorecard/" lang="zh-CN">中文</a></div><button class="theme-toggle" type="button" data-theme-toggle data-theme-text="テーマ" aria-label="テーマ: システム"><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>システム</span></button></div></header><main id="main-content"><article class="case-study"><header class="case-hero section-shell"><a class="back-link" href="/ja/projects/">← プロジェクト</a><div class="case-hero-grid"><div><p class="eyebrow">代表ケーススタディ</p><h1>OpenScorecard</h1><p class="lede">時系列ラベル、説明可能なモデル、レビュー可能なポリシーを中心に構築したB2B信用判断・モデルガバナンス環境。</p></div><aside class="case-meta"><div><span>状況</span><strong>ローカル検証済みポートフォリオ · 本番与信サービスではありません</strong></div><div><span>ソース</span><strong>非公開ソース · 公開ケーススタディ</strong></div><div><span>最終確認日</span><strong>2026/08/21</strong></div></aside></div><ul class="tag-list case-tags"><li>Python</li><li>FastAPI</li><li>Explainable ML</li><li>OOT validation</li><li>Model governance</li><li>Synthetic data</li></ul></header><div class="case-body section-shell"><aside class="case-rail" aria-hidden="true"><span>課題</span><span>設計</span><span>統制</span><span>証拠</span><span>制約</span></aside><div class="prose"><h2 id="意思決定の課題">意思決定の課題</h2>
+<p>想定シナリオは、B2BサプライヤーがSME顧客への掛売りを管理する場面です。観測日後90日間のパフォーマンス期間に、30日以上の延滞へ到達するかを時間軸付きの目的変数として定義します。</p>
+<p>観測日時点で利用できる特徴だけを使い、将来の支払情報が学習入力へ漏れないことが重要です。</p>
+<h2 id="再現可能な証拠">再現可能な証拠</h2>
+<p>決定論的な合成SMEポートフォリオを生成し、スキーマと時間ルールを検証します。同じデータ契約を学習、検証、時点外評価で使用し、品質またはリーケージのゲートに失敗するとモデリングを停止します。</p>
+<p>ロジスティック回帰のベースライン、説明可能なWOEスコアカード候補、ツリーモデルのChallengerを同じ時系列分割で比較します。一つの指標ではなく、識別力、キャリブレーション、安定性、サンプル証拠、ポリシー影響を確認します。</p>
+<h2 id="モデルガバナンスとポリシー分離">モデルガバナンスとポリシー分離</h2>
+<p>モデル承認は明示的です。バージョン付きModel Cardとガバナンス判断が証拠を記録し、必須ゲートに失敗した候補を拒否できます。</p>
+<p>モデルはリスクを推定し、別のバージョン付きポリシーがグレード、条件、限度額案、理由コード、レビュー要否へ変換します。この分離により、モデルを再学習せずにポリシー閾値を監査可能な形で変更できます。</p>
+<h2 id="レビュー体験">レビュー体験</h2>
+<p>読み取り専用のローカル画面で、ポートフォリオ概要、企業レビュー、モデル検証、モニタリングを確認できます。スコア寄与から合計点と理由を再構成し、モニタリングでは即時のドリフト情報とラベル成熟後の性能情報を分離します。</p>
+<h2 id="現在の境界">現在の境界</h2>
+<p>合成データを使う研究・ポートフォリオ環境であり、本番与信サービスではありません。合成データの性能は実際のポートフォリオを表しません。本番利用には代表性のあるデータ、独立検証、公平性・法務レビュー、認証、統制されたモデル運用、監査保管、人による責任ある監督が必要です。</p>
+</div></div></article></main><footer class="site-footer"><div><strong>Yifan Wang</strong><p>ソフトウェア、データ、AIの交点で実用的なシステムを構築しています。</p></div><div class="footer-links"><a href="https://github.com/frankwyf" rel="me external">GitHub</a><a href="https://www.linkedin.com/in/yifan-wang-862b89390" rel="me external">LinkedIn</a><a href="mailto:wyf_frank66@outlook.com">wyf_frank66@outlook.com</a><a href="/ja/writing/">記事</a><a href="/ja/contact/">連絡先</a></div><p class="copyright">© 2026 Yifan Wang</p></footer></div><script>(function(){const themeLabels = ["システム","ライト","ダーク"];
+
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    })();</script></body></html>

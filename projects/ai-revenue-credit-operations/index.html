@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="system"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v7.2.4"><meta name="description" content="A production-minded B2B operations platform that keeps financial logic deterministic while using AI for grounded retrieval and bounded assistance."><meta name="robots" content="index,follow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f4f1e8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://frankwyf.github.io/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="en" href="https://frankwyf.github.io/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="ja" href="https://frankwyf.github.io/ja/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="zh-CN" href="https://frankwyf.github.io/zh/projects/ai-revenue-credit-operations/"><link rel="alternate" hreflang="x-default" href="https://frankwyf.github.io/projects/ai-revenue-credit-operations/"><meta property="og:type" content="website"><meta property="og:title" content="AI Revenue &amp; Credit Operations Platform · Yifan Wang"><meta property="og:description" content="A production-minded B2B operations platform that keeps financial logic deterministic while using AI for grounded retrieval and bounded assistance."><meta property="og:url" content="https://frankwyf.github.io/projects/ai-revenue-credit-operations/"><meta property="og:site_name" content="Yifan Wang — Engineering Portfolio"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://frankwyf.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Yifan Wang — Software, Data, and Applied AI"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI Revenue &amp; Credit Operations Platform · Yifan Wang"><meta name="twitter:description" content="A production-minded B2B operations platform that keeps financial logic deterministic while using AI for grounded retrieval and bounded assistance."><meta name="twitter:image" content="https://frankwyf.github.io/og.png"><title>AI Revenue &amp; Credit Operations Platform · Yifan Wang</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yifan Wang","alternateName":"Frank Wang","url":"https://frankwyf.github.io","email":"mailto:wyf_frank66@outlook.com","jobTitle":"Software & Data Engineer","sameAs":["https://github.com/frankwyf","https://www.linkedin.com/in/yifan-wang-862b89390"],"knowsAbout":["Software Engineering","Data Engineering","Applied Artificial Intelligence","AI Evaluation","Cloud Architecture"]}</script><script>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BfRcRzcD.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><div class="site-shell"><header class="site-header"><a class="brand" href="/" aria-label="Yifan Wang home"><span class="brand-mark" aria-hidden="true">YW</span><span class="brand-name">Yifan Wang</span></a><nav class="primary-nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/projects/" aria-current="page">Projects</a><a href="/ai-engineering/">AI Engineering</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav><div class="header-actions"><div class="language-switcher" aria-label="Language"><a href="/projects/ai-revenue-credit-operations/" lang="en" aria-current="page">EN</a><a href="/ja/projects/ai-revenue-credit-operations/" lang="ja">日本語</a><a href="/zh/projects/ai-revenue-credit-operations/" lang="zh-CN">中文</a></div><button class="theme-toggle" type="button" data-theme-toggle data-theme-text="Theme" aria-label="Theme: System"><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>System</span></button></div></header><main id="main-content"><article class="case-study"><header class="case-hero section-shell"><a class="back-link" href="/projects/">← Projects</a><div class="case-hero-grid"><div><p class="eyebrow">Flagship case study</p><h1>AI Revenue &amp; Credit Operations Platform</h1><p class="lede">A production-minded B2B operations platform that keeps financial logic deterministic while using AI for grounded retrieval and bounded assistance.</p></div><aside class="case-meta"><div><span>Status</span><strong>Local release candidate · Cloud templates not deployed</strong></div><div><span>Source</span><strong>Private source · Public case study</strong></div><div><span>Last verified</span><strong>Aug 21, 2026</strong></div></aside></div><ul class="tag-list case-tags"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>pgvector</li><li>RAG</li><li>RBAC</li><li>Evaluation</li><li>AWS design</li></ul></header><div class="case-body section-shell"><aside class="case-rail" aria-hidden="true"><span>Problem</span><span>Architecture</span><span>Controls</span><span>Evidence</span><span>Boundary</span></aside><div class="prose"><h2 id="the-business-problem">The business problem</h2>
+<p>Revenue and credit teams often work across customer, contract, invoice, payment, refund, usage, and credit-limit data. They need fast answers, but a fluent model response is not an acceptable source of truth for money, permissions, or high-impact actions.</p>
+<p>The platform explores how an AI-assisted workflow can help analysts find evidence and prepare recommendations without weakening the underlying accounting, tenancy, authorization, approval, or audit boundaries.</p>
+<h2 id="the-engineering-response">The engineering response</h2>
+<p>The system starts with a deterministic core: exact monetary calculations, currency isolation, aging, reconciliation, data-quality validation, and persisted evidence. AI capabilities sit outside that core and cannot redefine its results.</p>
+<p>Contract retrieval is tenant-scoped and evidence-backed. Answers require supporting citations; missing evidence produces a refusal. Tools are allow-listed, schema validated, permission checked, bounded, and audited. The model cannot create a new permission or call arbitrary SQL or shell commands.</p>
+<h2 id="human-control-and-audit">Human control and audit</h2>
+<p>Recommendations are drafts rather than actions. A separate authorized reviewer must approve the current version before an idempotent dry-run adapter can simulate the result. Creator/reviewer separation, optimistic concurrency, approval-bound tokens, and append-only redacted audit events make the control path visible.</p>
+<h2 id="evaluation-and-delivery-evidence">Evaluation and delivery evidence</h2>
+<p>The local suite covers deterministic numerical behavior, retrieval, citations, tool selection and parameters, refusal quality, adversarial prompts, and tenant isolation. Fake providers keep the default evaluation reproducible and free; optional local inference is isolated behind provider interfaces.</p>
+<p>Container and AWS infrastructure definitions are reviewable engineering artifacts, not deployment claims. The cloud configuration remains disabled by default and has not been applied to a paid account.</p>
+<h2 id="honest-boundary">Honest boundary</h2>
+<p>This is a private-source portfolio system using synthetic data. It is not a production finance platform, and it does not perform irreversible collection or credit actions. Production use would require reviewed identity integration, deployed infrastructure validation, operational security testing, recovery exercises, and accountable business ownership.</p>
+</div></div></article></main><footer class="site-footer"><div><strong>Yifan Wang</strong><p>Building practical systems at the intersection of software, data, and AI.</p></div><div class="footer-links"><a href="https://github.com/frankwyf" rel="me external">GitHub</a><a href="https://www.linkedin.com/in/yifan-wang-862b89390" rel="me external">LinkedIn</a><a href="mailto:wyf_frank66@outlook.com">wyf_frank66@outlook.com</a><a href="/writing/">Writing</a><a href="/contact/">Contact</a></div><p class="copyright">© 2026 Yifan Wang</p></footer></div><script>(function(){const themeLabels = ["System","Light","Dark"];
+
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    })();</script></body></html>

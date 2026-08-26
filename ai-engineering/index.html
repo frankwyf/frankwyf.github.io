@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en" data-theme="light" data-theme-mode="system"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v7.2.4"><meta name="description" content="Useful AI depends on reliable data, bounded tools, evaluation, observability, and controls—not only a model call."><meta name="robots" content="index,follow"><meta name="color-scheme" content="light dark"><meta name="theme-color" content="#f4f1e8"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://frankwyf.github.io/ai-engineering/"><link rel="alternate" hreflang="en" href="https://frankwyf.github.io/ai-engineering/"><link rel="alternate" hreflang="ja" href="https://frankwyf.github.io/ja/ai-engineering/"><link rel="alternate" hreflang="zh-CN" href="https://frankwyf.github.io/zh/ai-engineering/"><link rel="alternate" hreflang="x-default" href="https://frankwyf.github.io/ai-engineering/"><meta property="og:type" content="website"><meta property="og:title" content="AI Engineering · Yifan Wang"><meta property="og:description" content="Useful AI depends on reliable data, bounded tools, evaluation, observability, and controls—not only a model call."><meta property="og:url" content="https://frankwyf.github.io/ai-engineering/"><meta property="og:site_name" content="Yifan Wang — Engineering Portfolio"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://frankwyf.github.io/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Yifan Wang — Software, Data, and Applied AI"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="AI Engineering · Yifan Wang"><meta name="twitter:description" content="Useful AI depends on reliable data, bounded tools, evaluation, observability, and controls—not only a model call."><meta name="twitter:image" content="https://frankwyf.github.io/og.png"><title>AI Engineering · Yifan Wang</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yifan Wang","alternateName":"Frank Wang","url":"https://frankwyf.github.io","email":"mailto:wyf_frank66@outlook.com","jobTitle":"Software & Data Engineer","sameAs":["https://github.com/frankwyf","https://www.linkedin.com/in/yifan-wang-862b89390"],"knowsAbout":["Software Engineering","Data Engineering","Applied Artificial Intelligence","AI Evaluation","Cloud Architecture"]}</script><script>
+      (() => {
+        const saved = localStorage.getItem('yifan-theme') || 'system';
+        const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themeMode = saved;
+        document.documentElement.dataset.theme =
+          saved === 'system' ? (dark ? 'dark' : 'light') : saved;
+      })();
+    </script><link rel="stylesheet" href="/_astro/BaseLayout.BfRcRzcD.css"></head><body><a class="skip-link" href="#main-content">Skip to content</a><div class="site-shell"><header class="site-header"><a class="brand" href="/" aria-label="Yifan Wang home"><span class="brand-mark" aria-hidden="true">YW</span><span class="brand-name">Yifan Wang</span></a><nav class="primary-nav" aria-label="Primary navigation"><a href="/">Home</a><a href="/projects/">Projects</a><a href="/ai-engineering/" aria-current="page">AI Engineering</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav><div class="header-actions"><div class="language-switcher" aria-label="Language"><a href="/ai-engineering/" lang="en" aria-current="page">EN</a><a href="/ja/ai-engineering/" lang="ja">日本語</a><a href="/zh/ai-engineering/" lang="zh-CN">中文</a></div><button class="theme-toggle" type="button" data-theme-toggle data-theme-text="Theme" aria-label="Theme: System"><span class="theme-dot" aria-hidden="true"></span><span data-theme-label>System</span></button></div></header><main id="main-content"><section class="page-hero section-shell"><p class="eyebrow">AI Engineering</p><h1>Applied AI is a systems discipline.</h1><p class="lede">Useful AI depends on reliable data, bounded tools, evaluation, observability, and controls—not only a model call.</p></section><section class="section section-shell"><div class="capability-grid"><article><span>01</span><h2>Grounded retrieval</h2><p>Tenant-aware retrieval, evidence filtering, citations, and refusal when support is missing.</p></article><article><span>02</span><h2>Controlled tool use</h2><p>Allow-listed tools, typed inputs, permission checks, bounded execution, and audit.</p></article><article><span>03</span><h2>Agent harnesses</h2><p>Context engineering, reusable skills, MCP-style tool boundaries, and deterministic fallbacks.</p></article><article><span>04</span><h2>Evaluation</h2><p>Golden datasets, numerical checks, tool accuracy, groundedness, attack tests, latency, and cost.</p></article><article><span>05</span><h2>Human oversight</h2><p>Recommendations remain reviewable; high-impact actions require explicit authorization.</p></article><article><span>06</span><h2>Observability</h2><p>Request context, privacy-aware traces, metrics, versioned evidence, and failure analysis.</p></article></div></section><section class="boundary-section section-shell"><p class="eyebrow">System boundary</p><h2>A boundary I keep explicit</h2><p>LLMs can summarize evidence and coordinate approved tools. They cannot invent permissions, calculate authoritative financial values, execute arbitrary SQL, or bypass human approval.</p><div class="boundary-flow" aria-label="AI system control flow"><span>Evidence</span><b>→</b><span>Bounded AI</span><b>→</b><span>Approved tools</span><b>→</b><span>Human review</span></div></section></main><footer class="site-footer"><div><strong>Yifan Wang</strong><p>Building practical systems at the intersection of software, data, and AI.</p></div><div class="footer-links"><a href="https://github.com/frankwyf" rel="me external">GitHub</a><a href="https://www.linkedin.com/in/yifan-wang-862b89390" rel="me external">LinkedIn</a><a href="mailto:wyf_frank66@outlook.com">wyf_frank66@outlook.com</a><a href="/writing/">Writing</a><a href="/contact/">Contact</a></div><p class="copyright">© 2026 Yifan Wang</p></footer></div><script>(function(){const themeLabels = ["System","Light","Dark"];
+
+      (() => {
+        const root = document.documentElement;
+        const button = document.querySelector('[data-theme-toggle]');
+        const label = document.querySelector('[data-theme-label]');
+        const modes = ['system', 'light', 'dark'];
+        const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const apply = (mode) => {
+          const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = actual;
+          localStorage.setItem('yifan-theme', mode);
+          if (label) label.textContent = themeLabels[modes.indexOf(mode)];
+          if (button)
+            button.setAttribute(
+              'aria-label',
+              `${button.dataset.themeText}: ${themeLabels[modes.indexOf(mode)]}`,
+            );
+        };
+
+        apply(root.dataset.themeMode || 'system');
+        button?.addEventListener('click', () => {
+          const current = modes.indexOf(root.dataset.themeMode || 'system');
+          apply(modes[(current + 1) % modes.length]);
+        });
+        media.addEventListener('change', () => {
+          if (root.dataset.themeMode === 'system') apply('system');
+        });
+      })();
+    })();</script></body></html>
