@@ -19,6 +19,11 @@ export const site = {
 
 export const certifications = [
   {
+    name: 'AWS Certified Machine Learning Engineer – Associate',
+    issuer: 'Amazon Web Services',
+    status: 'Earned',
+  },
+  {
     name: 'AWS Certified Solutions Architect – Associate',
     issuer: 'Amazon Web Services',
     status: 'Earned',

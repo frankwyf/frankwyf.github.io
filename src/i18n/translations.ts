@@ -122,6 +122,7 @@ export const messages = {
       paragraphs: [
         'My background spans enterprise application development, industrial and operational systems, Python/SQL data integration, ETL, and production validation.',
         'That experience shapes how I approach AI: start with the workflow and data contract, make important calculations deterministic, then add models where they create measurable value.',
+        'In my current role at DENTSU SOKEN SHANGHAI, I have been deliberately broadening from enterprise software delivery toward AI- and data-oriented engineering. I am combining that internal career development with hands-on portfolio work in applied AI, credit data, and reliable operational systems.',
         'I am developing toward Applied AI, Data & AI, Backend, Platform, and Forward Deployed Engineering roles across enterprise SaaS, FinTech, industrial systems, and other real-world domains.',
       ],
       languagesTitle: 'Languages',
@@ -254,6 +255,7 @@ export const messages = {
       paragraphs: [
         '企業向けアプリケーション、産業・運用システム、Python/SQLによるデータ連携、ETL、運用検証に携わってきました。',
         'AIでも、まず業務フローとデータ契約を定義し、重要な計算を決定論的に実装した上で、価値のある箇所にモデルを適用します。',
+        '現在のDENTSU SOKEN SHANGHAIでの業務では、企業向けソフトウェアを基盤に、社内でAI・データ指向の仕事へ段階的にキャリアを広げています。実務での学びと、応用AI・信用データ領域のポートフォリオ開発を並行しています。',
         'Applied AI、Data & AI、Backend、Platform、Forward Deployed Engineeringの国際的なポジションを目指しています。',
       ],
       languagesTitle: '言語',
@@ -375,6 +377,7 @@ export const messages = {
       paragraphs: [
         '我的背景包括企业应用开发、工业与运营系统、Python/SQL 数据集成、ETL 和生产验证。',
         '这段经历决定了我处理 AI 的方式：先理解流程和数据契约，让关键计算保持确定性，再把模型加入真正能产生价值的环节。',
+        '在 DENTSU SOKEN SHANGHAI 的当前工作中，我正以企业软件交付为基础，逐步转向更偏 AI 与数据的工程工作。这段公司内部的职业发展，与我在应用 AI、信用数据和可靠运营系统上的个人实践同步推进。',
         '我正在面向企业 SaaS、金融科技、工业系统等领域的 Applied AI、Data & AI、Backend、Platform 和 Forward Deployed Engineering 岗位发展。',
       ],
       languagesTitle: '语言',
