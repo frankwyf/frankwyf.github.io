@@ -13,14 +13,33 @@ const { project, locale } = Astro.props;
 const copy = t(locale);
 const href = projectHref(project, locale);
 const external = project.kind === 'engineering';
+const actionLabel =
+  project.kind === 'professional'
+    ? copy.viewExperience
+    : project.kind === 'flagship'
+      ? copy.viewCase
+      : copy.viewProject;
 ---
 
-<article class:list={['project-card', { flagship: project.kind === 'flagship' }]}>
+<article
+  class:list={[
+    'project-card',
+    { flagship: project.kind === 'flagship', professional: project.kind === 'professional' },
+  ]}
+>
   <div class="project-card-topline">
-    <span class:list={['status-label', { private: project.visibility === 'private-source' }]}>
-      {project.visibility === 'private-source' ? copy.privateSource : copy.publicSource}
+    <span class:list={['status-label', { private: project.visibility !== 'public-source' }]}>
+      {
+        project.kind === 'professional'
+          ? copy.professionalExperience
+          : project.visibility === 'private-source'
+            ? copy.privateSource
+            : copy.publicSource
+      }
     </span>
-    <span class="project-index" aria-hidden="true">{project.kind === 'flagship' ? 'F' : 'E'}</span>
+    <span class="project-index" aria-hidden="true">
+      {project.kind === 'professional' ? 'P' : project.kind === 'flagship' ? 'F' : 'E'}
+    </span>
   </div>
   <h3>{project.title}</h3>
   <p>{project.summary[locale]}</p>
@@ -33,9 +52,9 @@ const external = project.kind === 'engineering';
     href={href}
     target={external ? '_blank' : undefined}
     rel={external ? 'external noopener' : undefined}
-    aria-label={`${project.kind === 'flagship' ? copy.viewCase : copy.viewProject}: ${project.title}`}
+    aria-label={`${actionLabel}: ${project.title}`}
   >
-    {project.kind === 'flagship' ? copy.viewCase : copy.viewProject}
+    {actionLabel}
     <span aria-hidden="true">{external ? '↗' : '→'}</span>
   </a>
 </article>

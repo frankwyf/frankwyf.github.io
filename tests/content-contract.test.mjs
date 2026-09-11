@@ -26,11 +26,22 @@ test('public email is centralized in site data', async () => {
   assert.equal(occurrences, 1);
 });
 
-test('both flagship case studies exist in all three locales', async () => {
+test('all case studies have complete locale coverage and origin labels', async () => {
+  const expected = [
+    'ai-revenue-credit-operations',
+    'enterprise-ai-assisted-engineering',
+    'openscorecard',
+  ];
   for (const locale of ['en', 'ja', 'zh']) {
     const directory = path.join(root, 'src', 'content', 'case-studies', locale);
     const entries = (await readdir(directory)).sort();
-    assert.deepEqual(entries, ['ai-revenue-credit-operations.md', 'openscorecard.md']);
+    assert.deepEqual(entries, expected.map((slug) => `${slug}.md`).sort());
+    for (const slug of expected) {
+      const content = await readFile(path.join(directory, `${slug}.md`), 'utf8');
+      assert.match(content, new RegExp(`^translationKey: ${slug}$`, 'm'));
+      assert.match(content, new RegExp(`^routeSlug: ${slug}$`, 'm'));
+      assert.match(content, /^origin: (professional|personal)$/m);
+    }
   }
 });
 

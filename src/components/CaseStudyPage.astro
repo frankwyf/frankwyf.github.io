@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { locale, entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const copy = t(locale);
 const path = `projects/${entry.data.routeSlug}`;
 const verifiedDate = new Intl.DateTimeFormat(localeMeta[locale].lang, {
@@ -32,15 +32,36 @@ const verifiedDate = new Intl.DateTimeFormat(localeMeta[locale].lang, {
       <a class="back-link" href={localizedPath(locale, 'projects')}>← {copy.nav.projects}</a>
       <div class="case-hero-grid">
         <div>
-          <p class="eyebrow">{copy.caseStudy.eyebrow}</p>
+          <p class="eyebrow">
+            {
+              entry.data.origin === 'professional'
+                ? copy.professionalExperience
+                : copy.caseStudy.eyebrow
+            }
+          </p>
           <h1>{entry.data.title}</h1>
           <p class="lede">{entry.data.summary}</p>
         </div>
         <aside class="case-meta">
           <div><span>{copy.caseStudy.status}</span><strong>{entry.data.status}</strong></div>
-          <div><span>{copy.caseStudy.source}</span><strong>{copy.privateSource}</strong></div>
           <div>
-            <span>{copy.caseStudy.lastVerified}</span><strong>{verifiedDate}</strong>
+            <span>{copy.caseStudy.source}</span>
+            <strong
+              >{
+                entry.data.origin === 'professional'
+                  ? copy.professionalExperience
+                  : copy.privateSource
+              }</strong
+            >
+          </div>
+          <div>
+            <span
+              >{
+                entry.data.origin === 'professional'
+                  ? copy.caseStudy.reviewed
+                  : copy.caseStudy.technicalVerified
+              }</span
+            ><strong>{verifiedDate}</strong>
           </div>
         </aside>
       </div>
@@ -49,9 +70,14 @@ const verifiedDate = new Intl.DateTimeFormat(localeMeta[locale].lang, {
       </ul>
     </header>
     <div class="case-body section-shell">
-      <aside class="case-rail" aria-hidden="true">
-        {copy.caseStudy.rail.map((label) => <span>{label}</span>)}
-      </aside>
+      <nav class="case-rail" aria-label={copy.caseStudy.contents}>
+        <p>{copy.caseStudy.contents}</p>
+        {
+          headings
+            .filter((heading) => heading.depth === 2)
+            .map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)
+        }
+      </nav>
       <div class="prose"><Content /></div>
     </div>
   </article>

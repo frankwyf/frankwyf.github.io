@@ -3,6 +3,7 @@ title: AI Revenue & Credit Operations Platform
 translationKey: ai-revenue-credit-operations
 routeSlug: ai-revenue-credit-operations
 locale: en
+origin: personal
 summary: A production-minded B2B operations platform that keeps financial logic deterministic while using AI for grounded retrieval and bounded assistance.
 status: Local release candidate · Cloud templates not deployed
 visibility: private-source

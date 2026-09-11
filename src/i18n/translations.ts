@@ -21,7 +21,9 @@ export const messages = {
     },
     privateSource: 'Private source · Public case study',
     publicSource: 'Public engineering project',
+    professionalExperience: 'Professional experience · Public summary',
     viewCase: 'Read case study',
+    viewExperience: 'Read experience',
     viewProject: 'View project',
     home: {
       eyebrow: 'Software · Data · Applied AI',
@@ -30,7 +32,13 @@ export const messages = {
         'I am Yifan Wang, also known as Frank. I build production-oriented software that connects enterprise workflows, operational data, and applied AI—with evaluation and human oversight built in.',
       projectsCta: 'View projects',
       contactCta: 'Contact me',
+      allProjects: 'All projects',
+      professionalTitle: 'Professional experience',
+      snapshotTitle: 'Professional snapshot',
+      snapshotAi: 'AI-assisted enterprise engineering',
+      contactTitle: 'Contact',
       systemTitle: 'My engineering through-line',
+      systemNote: 'Recent enterprise AI-assisted engineering experience.',
       sections: ['Focus', 'Case studies', 'Selected work', 'Principles', 'Contact'],
       systemSteps: [
         'Business problem',
@@ -79,6 +87,7 @@ export const messages = {
       intro:
         'The two flagship systems use private source code. Their public case studies focus on the business problem, architecture, controls, evaluation, and honest limitations.',
       flagship: 'Flagship systems',
+      professional: 'Professional experience',
       engineering: 'Engineering projects',
     },
     ai: {
@@ -113,8 +122,27 @@ export const messages = {
         ],
       ],
       boundaryTitle: 'A boundary I keep explicit',
+      boundaryLabel: 'System boundary',
       boundary:
         'LLMs can summarize evidence and coordinate approved tools. They cannot invent permissions, calculate authoritative financial values, execute arbitrary SQL, or bypass human approval.',
+      boundaryFlow: ['Evidence', 'Bounded AI', 'Approved tools', 'Human review'],
+      evidenceTitle: 'Evidence in this portfolio',
+      evidenceIntro:
+        'These pages show how the principles above become testable workflows, bounded case studies, and reviewable engineering evidence.',
+      evidenceLinks: [
+        [
+          'Enterprise UAT',
+          'AI-assisted browser and network investigation with human-controlled release decisions.',
+        ],
+        [
+          'AI Revenue & Credit Operations',
+          'Private-source case study with deterministic finance and credit boundaries.',
+        ],
+        [
+          'OpenScorecard',
+          'Private-source credit analytics case study with explainability and governance.',
+        ],
+      ],
     },
     about: {
       eyebrow: 'About',
@@ -126,6 +154,9 @@ export const messages = {
         'I am developing toward Applied AI, Data & AI, Backend, Platform, and Forward Deployed Engineering roles across enterprise SaaS, FinTech, industrial systems, and other real-world domains.',
       ],
       languagesTitle: 'Languages',
+      experienceTitle: 'Professional experience',
+      evidenceTitle: 'Evidence I bring',
+      educationTitle: 'Education',
       languages: [
         'Chinese — Native',
         'English — Professional working proficiency',
@@ -133,6 +164,8 @@ export const messages = {
       ],
       certificationsTitle: 'Certifications',
       locationTitle: 'Location',
+      preparing:
+        'Preparing: AWS Certified Data Engineer – Associate (DEA-C01). PTC Codebeamer practitioner certification is also in progress.',
     },
     writing: {
       eyebrow: 'Writing',
@@ -153,6 +186,7 @@ export const messages = {
       intro:
         'I am open to international opportunities in Applied AI, Data & AI, Backend, Platform, and Forward Deployed Engineering.',
       email: 'Email',
+      resumeRequest: 'Request résumé',
       response:
         'Email is the most direct route. GitHub and LinkedIn provide additional project and professional context.',
     },
@@ -162,6 +196,17 @@ export const messages = {
       source: 'Source',
       lastVerified: 'Last verified',
       rail: ['Problem', 'Architecture', 'Controls', 'Evidence', 'Boundary'],
+      professionalRail: [
+        'Context',
+        'Contribution',
+        'Workflow',
+        'Investigations',
+        'Human review',
+        'Boundary',
+      ],
+      reviewed: 'Content reviewed',
+      technicalVerified: 'Technical verification',
+      contents: 'On this page',
     },
     footer: 'Building practical systems at the intersection of software, data, and AI.',
   },
@@ -185,7 +230,9 @@ export const messages = {
     },
     privateSource: '非公開ソース · 公開ケーススタディ',
     publicSource: '公開エンジニアリングプロジェクト',
+    professionalExperience: '実務経験 · 公開概要',
     viewCase: 'ケーススタディを見る',
+    viewExperience: '経験を見る',
     viewProject: 'プロジェクトを見る',
     home: {
       eyebrow: 'ソフトウェア · データ · 応用AI',
@@ -194,7 +241,13 @@ export const messages = {
         'Yifan Wang（英語名 Frank）です。企業業務、運用データ、応用AIを結び、評価と人による監督を組み込んだプロダクション志向のソフトウェアを開発しています。',
       projectsCta: 'プロジェクトを見る',
       contactCta: '連絡する',
+      allProjects: 'すべてのプロジェクト',
+      professionalTitle: '実務経験',
+      snapshotTitle: '職務サマリー',
+      snapshotAi: 'AIを活用した企業エンジニアリング',
+      contactTitle: '連絡先',
       systemTitle: '一貫したエンジニアリングの流れ',
+      systemNote: '企業でのAI活用エンジニアリングの実務経験。',
       sections: ['注力領域', 'ケーススタディ', '主な実績', '開発原則', '連絡先'],
       systemSteps: ['業務課題', 'ソフトウェア設計', 'データ整合性', '応用AI', 'セキュリティと評価'],
       focusTitle: 'エンジニアリング領域',
@@ -225,6 +278,7 @@ export const messages = {
       intro:
         '二つの代表システムのソースは非公開です。ケーススタディでは課題、設計、統制、評価、制約を説明します。',
       flagship: '代表システム',
+      professional: '実務経験',
       engineering: 'エンジニアリングプロジェクト',
     },
     ai: {
@@ -246,8 +300,21 @@ export const messages = {
         ],
       ],
       boundaryTitle: '明確に守る境界',
+      boundaryLabel: 'システム境界',
       boundary:
         'LLMは証拠の要約と承認済みツールの調整を行えますが、権限の作成、正式な金額計算、任意SQL、人の承認回避はできません。',
+      boundaryFlow: ['証拠', '制御されたAI', '承認済みツール', '人による確認'],
+      evidenceTitle: 'ポートフォリオの証拠',
+      evidenceIntro:
+        '上記の原則を、検証可能なワークフロー、制御されたケーススタディ、レビュー可能な実務証拠として示します。',
+      evidenceLinks: [
+        ['企業UAT', '人がリリース判断を管理する、AI支援ブラウザ・ネットワーク調査。'],
+        [
+          'AI Revenue & Credit Operations',
+          '決定論的な金融・信用境界を示す非公開ソースのケーススタディ。',
+        ],
+        ['OpenScorecard', '説明可能性とガバナンスを扱う非公開ソースの信用分析ケーススタディ。'],
+      ],
     },
     about: {
       eyebrow: 'プロフィール',
@@ -259,6 +326,9 @@ export const messages = {
         'Applied AI、Data & AI、Backend、Platform、Forward Deployed Engineeringの国際的なポジションを目指しています。',
       ],
       languagesTitle: '言語',
+      experienceTitle: '実務経験',
+      evidenceTitle: '活かせる経験',
+      educationTitle: '学歴',
       languages: [
         '中国語 — ネイティブ',
         '英語 — ビジネスレベル',
@@ -266,6 +336,8 @@ export const messages = {
       ],
       certificationsTitle: '資格',
       locationTitle: '拠点',
+      preparing:
+        '準備中：AWS Certified Data Engineer – Associate（DEA-C01）。PTC Codebeamer実装プラクティショナー資格も準備中です。',
     },
     writing: {
       eyebrow: '記事',
@@ -286,6 +358,7 @@ export const messages = {
       intro:
         'Applied AI、Data & AI、Backend、Platform、Forward Deployed Engineeringの国際的な機会を探しています。',
       email: 'メール',
+      resumeRequest: '職務経歴書を依頼',
       response:
         'メールが最も確実です。GitHubとLinkedInでもプロジェクトや職務背景をご確認いただけます。',
     },
@@ -295,6 +368,10 @@ export const messages = {
       source: 'ソース',
       lastVerified: '最終確認日',
       rail: ['課題', '設計', '統制', '証拠', '制約'],
+      professionalRail: ['背景', '担当', 'ワークフロー', '調査', '人による確認', '境界'],
+      reviewed: '内容確認日',
+      technicalVerified: '技術確認日',
+      contents: 'ページ内目次',
     },
     footer: 'ソフトウェア、データ、AIの交点で実用的なシステムを構築しています。',
   },
@@ -318,7 +395,9 @@ export const messages = {
     },
     privateSource: '私有源码 · 公开案例研究',
     publicSource: '公开工程项目',
+    professionalExperience: '企业工作经历 · 公开摘要',
     viewCase: '阅读案例',
+    viewExperience: '查看经历',
     viewProject: '查看项目',
     home: {
       eyebrow: '软件 · 数据 · 应用 AI',
@@ -327,7 +406,13 @@ export const messages = {
         '我是 Yifan Wang，英文常用名 Frank。我构建连接企业流程、运营数据与应用 AI 的生产型软件，并把评估和人工监督纳入系统设计。',
       projectsCta: '查看项目',
       contactCta: '联系我',
+      allProjects: '查看全部项目',
+      professionalTitle: '企业工作经历',
+      snapshotTitle: '职业概览',
+      snapshotAi: 'AI 辅助企业工程',
+      contactTitle: '联系',
       systemTitle: '我的工程主线',
+      systemNote: '近期企业 AI 辅助工程实践。',
       sections: ['重点方向', '案例研究', '精选作品', '构建原则', '联系'],
       systemSteps: ['业务问题', '软件架构', '数据完整性', '应用 AI', '安全与评估'],
       focusTitle: '工程方向',
@@ -353,6 +438,7 @@ export const messages = {
       title: '围绕决策、证据和运营约束设计的项目。',
       intro: '两个旗舰系统均为私有源码。公开案例聚焦业务问题、架构、控制、评估和真实限制。',
       flagship: '旗舰系统',
+      professional: '企业工作经历',
       engineering: '工程项目',
     },
     ai: {
@@ -368,8 +454,18 @@ export const messages = {
         ['可观测性', '请求上下文、隐私友好的追踪、指标、版本化证据与失败分析。'],
       ],
       boundaryTitle: '我会明确守住的边界',
+      boundaryLabel: '系统边界',
       boundary:
         'LLM 可以总结证据并协调已批准的工具，但不能创造权限、计算权威财务数值、执行任意 SQL 或绕过人工审批。',
+      boundaryFlow: ['证据', '受控 AI', '已批准工具', '人工复核'],
+      evidenceTitle: '作品集中的证据',
+      evidenceIntro:
+        '下面的页面展示这些原则如何落地为可测试工作流、受控案例研究和可复核的工程证据。',
+      evidenceLinks: [
+        ['企业 UAT', 'AI 辅助浏览器与网络排查，并由人工控制发布决策。'],
+        ['AI Revenue & Credit Operations', '展示确定性财务与信用边界的私有源码案例研究。'],
+        ['OpenScorecard', '关注可解释性与治理的私有源码信用分析案例研究。'],
+      ],
     },
     about: {
       eyebrow: '关于',
@@ -381,9 +477,14 @@ export const messages = {
         '我正在面向企业 SaaS、金融科技、工业系统等领域的 Applied AI、Data & AI、Backend、Platform 和 Forward Deployed Engineering 岗位发展。',
       ],
       languagesTitle: '语言',
+      experienceTitle: '工作经历',
+      evidenceTitle: '可带来的经验',
+      educationTitle: '教育背景',
       languages: ['中文 — 母语', '英语 — 专业工作能力', '日语 — JLPT N2 / 商务沟通'],
       certificationsTitle: '认证',
       locationTitle: '所在地',
+      preparing:
+        '准备中：AWS Certified Data Engineer – Associate（DEA-C01）。PTC Codebeamer 实施从业者认证也在准备中。',
     },
     writing: {
       eyebrow: '文章',
@@ -404,6 +505,7 @@ export const messages = {
       intro:
         '我对 Applied AI、Data & AI、Backend、Platform 和 Forward Deployed Engineering 的国际机会保持开放。',
       email: '邮箱',
+      resumeRequest: '索取简历',
       response: '邮箱是最直接的联系方式。GitHub 和 LinkedIn 可提供更多项目与职业背景信息。',
     },
     caseStudy: {
@@ -412,6 +514,10 @@ export const messages = {
       source: '源码',
       lastVerified: '最近验证',
       rail: ['问题', '架构', '控制', '证据', '边界'],
+      professionalRail: ['背景', '我的贡献', '工作流', '问题排查', '人工复核', '边界'],
+      reviewed: '内容确认日期',
+      technicalVerified: '技术验证日期',
+      contents: '本页目录',
     },
     footer: '在软件、数据与 AI 的交汇处构建实用系统。',
   },

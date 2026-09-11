@@ -3,6 +3,7 @@ title: AI Revenue & Credit Operations Platform
 translationKey: ai-revenue-credit-operations
 routeSlug: ai-revenue-credit-operations
 locale: ja
+origin: personal
 summary: 財務ロジックを決定論的に保ち、AIを根拠付き検索と制限された支援に利用するB2B業務基盤。
 status: ローカルリリース候補 · クラウドテンプレート未デプロイ
 visibility: private-source

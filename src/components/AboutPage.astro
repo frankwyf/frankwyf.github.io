@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { career } from '../data/career';
 import { certifications, site } from '../data/site';
 import { localizedAlternates, localizedPath, type Locale } from '../i18n';
 import { t } from '../i18n/translations';
@@ -20,9 +21,51 @@ const copy = t(locale);
 >
   <section class="page-hero section-shell about-hero">
     <div><p class="eyebrow">{copy.about.eyebrow}</p><h1>{copy.about.title}</h1></div>
-    <div class="about-copy">{copy.about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}</div>
+    <div class="about-copy">
+      {copy.about.paragraphs.slice(0, 3).map((paragraph) => <p>{paragraph}</p>)}
+    </div>
   </section>
+
+  <section class="section section-shell career-section">
+    <header class="section-heading">
+      <p class="eyebrow">01 / {copy.about.experienceTitle}</p><h2>{copy.about.experienceTitle}</h2>
+    </header>
+    <article class="timeline-card">
+      <div>
+        <span class="eyebrow">{career.currentRole.period}</span><h3>
+          {career.currentRole.title}
+        </h3><p>{career.currentRole.company}</p>
+      </div>
+      <div>
+        <p>{career.experienceIntro[locale]}</p><ul class="evidence-list">
+          {career.experienceHighlights[locale].map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="section section-shell section-tint">
+    <header class="section-heading">
+      <p class="eyebrow">02 / {copy.about.evidenceTitle}</p><h2>{copy.about.evidenceTitle}</h2>
+    </header>
+    <div class="evidence-grid">
+      {
+        career.evidence[locale].map(([heading, text]) => (
+          <article>
+            <>
+              <h3>{heading}</h3>
+              <p>{text}</p>
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
   <section class="section section-shell about-grid">
+    <article class="info-panel">
+      <p class="eyebrow">{copy.about.educationTitle}</p><p>{career.education[locale]}</p>
+    </article>
     <article class="info-panel">
       <p class="eyebrow">{copy.about.languagesTitle}</p><ul>
         {copy.about.languages.map((language) => <li>{language}</li>)}
@@ -35,12 +78,14 @@ const copy = t(locale);
             <li>
               <>
                 <strong>{certification.name}</strong>
-                <span>{certification.issuer}</span>
+                <span>
+                  {certification.issuer} · {certification.status}
+                </span>
               </>
             </li>
           ))
         }
-      </ul>
+      </ul><p class="panel-note">{copy.about.preparing}</p>
     </article>
     <article class="info-panel">
       <p class="eyebrow">{copy.about.locationTitle}</p><p class="panel-large">

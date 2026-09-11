@@ -3,6 +3,7 @@ title: OpenScorecard
 translationKey: openscorecard
 routeSlug: openscorecard
 locale: zh
+origin: personal
 summary: 围绕时间标签、可解释模型和可复核政策构建的 B2B 信用决策与模型治理实验室。
 status: 本地已验证作品集系统 · 不是生产授信服务
 visibility: private-source

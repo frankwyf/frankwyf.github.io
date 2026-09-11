@@ -6,9 +6,9 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/yifan-wang-862b89390',
   url: 'https://frankwyf.github.io',
   location: {
-    en: 'Shanghai / Tokyo',
-    ja: '上海 / 東京',
-    zh: '上海 / 东京',
+    en: 'Shanghai, China',
+    ja: '中国・上海',
+    zh: '中国上海',
   },
   availability: {
     en: 'Open to international roles and relocation',

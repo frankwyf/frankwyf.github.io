@@ -37,13 +37,41 @@ const copy = t(locale);
       }
     </div>
   </section>
+  <section class="section section-shell evidence-index">
+    <p class="eyebrow">{copy.ai.evidenceTitle}</p>
+    <p class="section-intro">{copy.ai.evidenceIntro}</p>
+    <div class="evidence-grid">
+      {
+        copy.ai.evidenceLinks.map(([heading, text], index) => {
+          const paths = [
+            'projects/enterprise-ai-assisted-engineering',
+            'projects/ai-revenue-credit-operations',
+            'projects/openscorecard',
+          ];
+          return (
+            <a class="evidence-card" href={localizedPath(locale, paths[index])}>
+              <span>0{index + 1}</span>
+              <h2>{heading}</h2>
+              <p>{text}</p>
+            </a>
+          );
+        })
+      }
+    </div>
+  </section>
   <section class="boundary-section section-shell">
-    <p class="eyebrow">System boundary</p>
+    <p class="eyebrow">{copy.ai.boundaryLabel}</p>
     <h2>{copy.ai.boundaryTitle}</h2>
     <p>{copy.ai.boundary}</p>
-    <div class="boundary-flow" aria-label="AI system control flow">
-      <span>Evidence</span><b>→</b><span>Bounded AI</span><b>→</b><span>Approved tools</span><b>→</b
-      ><span>Human review</span>
+    <div class="boundary-flow" aria-label={copy.ai.boundaryLabel}>
+      {
+        copy.ai.boundaryFlow.map((item, index) => (
+          <>
+            <span>{item}</span>
+            {index < copy.ai.boundaryFlow.length - 1 && <b aria-hidden="true">→</b>}
+          </>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>

@@ -1,5 +1,12 @@
 # Portfolio Roadmap
 
+## 2026-09-11 maintenance snapshot
+
+- Current role and AI-assisted enterprise UAT experience are represented as a public-safe, three-language case study.
+- Home, About, Projects, AI Engineering, and Contact now use the same evidence-first positioning.
+- Case-study origins and visibility are schema-validated; internal sources remain in ignored `local-notes/` only.
+- Local checks cover formatting, Astro type checks, lint, contract tests, publication safety, generated-link validation, and build output.
+
 ## v0.1 — Local MVP
 
 - English, Japanese, and Simplified Chinese core routes
@@ -11,6 +18,8 @@
 
 ## v0.2 — Evidence polish
 
+- [x] professional AI-assisted engineering evidence and case-study navigation
+- [x] responsive/accessibility refinements and generated-page link checks
 - approved synthetic-demo screenshots
 - short case-study walkthrough video
 - first technical article

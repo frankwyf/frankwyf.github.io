@@ -76,7 +76,11 @@ const structuredData = JSON.stringify({
     <script is:inline type="application/ld+json" set:html={structuredData} />
     <script is:inline>
       (() => {
-        const saved = localStorage.getItem('yifan-theme') || 'system';
+        let saved = 'system';
+        try {
+          const stored = localStorage.getItem('yifan-theme');
+          if (stored === 'light' || stored === 'dark' || stored === 'system') saved = stored;
+        } catch {}
         const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.dataset.themeMode = saved;
         document.documentElement.dataset.theme =
@@ -105,7 +109,9 @@ const structuredData = JSON.stringify({
           const actual = mode === 'system' ? (media.matches ? 'dark' : 'light') : mode;
           root.dataset.themeMode = mode;
           root.dataset.theme = actual;
-          localStorage.setItem('yifan-theme', mode);
+          try {
+            localStorage.setItem('yifan-theme', mode);
+          } catch {}
           if (label) label.textContent = themeLabels[modes.indexOf(mode)];
           if (button)
             button.setAttribute(

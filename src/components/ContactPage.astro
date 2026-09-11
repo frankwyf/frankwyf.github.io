@@ -9,6 +9,7 @@ interface Props {
 }
 const { locale } = Astro.props;
 const copy = t(locale);
+const resumeSubject = encodeURIComponent(copy.contact.resumeRequest);
 ---
 
 <BaseLayout
@@ -34,5 +35,8 @@ const copy = t(locale);
       >
     </div>
     <p class="contact-note">{copy.contact.response}</p>
+    <a class="button secondary" href={`mailto:${site.email}?subject=${resumeSubject}`}
+      >{copy.contact.resumeRequest}</a
+    >
   </section>
 </BaseLayout>

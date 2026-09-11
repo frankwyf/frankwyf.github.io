@@ -3,6 +3,7 @@ title: OpenScorecard
 translationKey: openscorecard
 routeSlug: openscorecard
 locale: en
+origin: personal
 summary: A reproducible B2B credit decisioning and model-governance lab built around temporal labels, explainable models, and reviewable policy.
 status: Locally validated portfolio system · Not a production underwriting service
 visibility: private-source

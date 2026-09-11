@@ -8,13 +8,30 @@ export interface Project {
   title: string;
   summary: LocalizedText;
   outcome: LocalizedText;
-  kind: 'flagship' | 'engineering';
-  visibility: 'private-source' | 'public-source';
+  kind: 'professional' | 'flagship' | 'engineering';
+  visibility: 'case-study-only' | 'private-source' | 'public-source';
   technologies: string[];
   url?: string;
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'enterprise-ai-assisted-engineering',
+    title: 'AI-assisted enterprise engineering',
+    summary: {
+      en: 'End-to-end UAT and engineering automation for connected enterprise planning workflows, combining Python/Playwright, browser and network evidence, AI-assisted regression work, and human verification.',
+      ja: '企業の計画管理ワークフローを対象に、Python/Playwright、ブラウザ・ネットワークの証拠、AIを活用した回帰作業、人による検証を組み合わせたエンドツーエンドUAT。',
+      zh: '面向企业规划流程的端到端 UAT 与工程自动化，结合 Python/Playwright、浏览器与网络证据、AI 辅助回归和人工验证。',
+    },
+    outcome: {
+      en: 'Shows controlled AI-assisted engineering, cross-layer debugging, and safe handling of shared operational data.',
+      ja: 'AIを活用した制御可能なエンジニアリング、レイヤー横断のデバッグ、共有業務データの安全な扱いを示します。',
+      zh: '展示受控的 AI 辅助工程、跨层调试和共享业务数据的安全处理。',
+    },
+    kind: 'professional',
+    visibility: 'case-study-only',
+    technologies: ['Python', 'Playwright', 'UAT', 'Debugging', 'AI-assisted engineering'],
+  },
   {
     slug: 'ai-revenue-credit-operations',
     title: 'AI Revenue & Credit Operations Platform',
@@ -158,6 +175,6 @@ export const projects: Project[] = [
 ];
 
 export function projectHref(project: Project, locale: Locale): string {
-  if (project.kind === 'flagship') return localizedPath(locale, `projects/${project.slug}`);
+  if (project.kind !== 'engineering') return localizedPath(locale, `projects/${project.slug}`);
   return project.url ?? localizedPath(locale, 'projects');
 }

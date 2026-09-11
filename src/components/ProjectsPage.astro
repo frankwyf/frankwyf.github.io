@@ -26,7 +26,7 @@ const copy = t(locale);
   </section>
   <section class="section section-shell">
     <header class="section-heading">
-      <p class="eyebrow">01</p><h2>{copy.projects.flagship}</h2>
+      <p class="eyebrow">02</p><h2>{copy.projects.flagship}</h2>
     </header>
     <div class="project-grid flagship-grid">
       {
@@ -36,9 +36,21 @@ const copy = t(locale);
       }
     </div>
   </section>
+  <section class="section section-shell">
+    <header class="section-heading">
+      <p class="eyebrow">01</p><h2>{copy.projects.professional}</h2>
+    </header>
+    <div class="project-grid">
+      {
+        projects
+          .filter((project) => project.kind === 'professional')
+          .map((project) => <ProjectCard {project} {locale} />)
+      }
+    </div>
+  </section>
   <section class="section section-shell section-tint">
     <header class="section-heading">
-      <p class="eyebrow">02</p><h2>{copy.projects.engineering}</h2>
+      <p class="eyebrow">03</p><h2>{copy.projects.engineering}</h2>
     </header>
     <div class="project-grid">
       {

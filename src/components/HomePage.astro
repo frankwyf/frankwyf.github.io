@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from './ProjectCard.astro';
 import { projects } from '../data/projects';
+import { career } from '../data/career';
 import { localizedAlternates, localizedPath, type Locale } from '../i18n';
 import { t } from '../i18n/translations';
 import { site } from '../data/site';
@@ -9,17 +10,16 @@ import { site } from '../data/site';
 interface Props {
   locale: Locale;
 }
-
 const { locale } = Astro.props;
 const copy = t(locale);
+const professional = projects.find((project) => project.kind === 'professional');
 const flagships = projects.filter((project) => project.kind === 'flagship');
 const engineering = projects.filter((project) => project.kind === 'engineering').slice(0, 3);
-const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
 ---
 
 <BaseLayout
   {locale}
-  {title}
+  title={site.name}
   description={copy.home.intro}
   alternates={localizedAlternates()}
   currentPath={localizedPath(locale)}
@@ -31,9 +31,7 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
       <h1>{copy.home.title}</h1>
       <p class="lede">{copy.home.intro}</p>
       <div class="button-row">
-        <a class="button primary" href={localizedPath(locale, 'projects')}
-          >{copy.home.projectsCta}</a
-        >
+        <a class="button primary" href="#selected-work">{copy.home.projectsCta}</a>
         <a class="button secondary" href={localizedPath(locale, 'contact')}
           >{copy.home.contactCta}</a
         >
@@ -47,48 +45,36 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
         <span aria-hidden="true"></span>{site.location[locale]} · {site.availability[locale]}
       </p>
     </div>
-
-    <aside class="system-map" aria-label={copy.home.systemTitle}>
-      <p>{copy.home.systemTitle}</p>
-      <ol>
-        {
-          copy.home.systemSteps.map((step, index) => (
-            <li>
-              <span>0{index + 1}</span>
-              {step}
-            </li>
-          ))
-        }
-      </ol>
-      <div class="system-note">Production discipline, applied to AI.</div>
+    <aside class="professional-snapshot" aria-label={copy.home.snapshotTitle}>
+      <p class="eyebrow">{copy.home.snapshotTitle}</p>
+      <strong>{career.currentRole.company}</strong>
+      <span>{career.currentRole.title}</span>
+      <span>{career.currentRole.period}</span>
+      <ul>
+        <li>Python / SQL / .NET</li><li>{copy.home.snapshotAi}</li><li>EN · 日本語 · 中文</li>
+      </ul>
     </aside>
   </section>
 
-  <section class="section section-shell">
-    <header class="section-heading">
-      <p class="eyebrow">01 / {copy.home.sections[0]}</p>
-      <h2>{copy.home.focusTitle}</h2>
-      <p>{copy.home.focusIntro}</p>
+  <section class="section section-shell experience-section">
+    <header class="section-heading split-heading">
+      <div>
+        <p class="eyebrow">01 / {copy.home.professionalTitle}</p><h2>
+          {copy.home.professionalTitle}
+        </h2>
+      </div>
+      <p>{career.experienceIntro[locale]}</p>
     </header>
-    <div class="focus-grid">
-      {
-        copy.home.focus.map(([heading, text], index) => (
-          <article>
-            <>
-              <span>0{index + 1}</span>
-              <h3>{heading}</h3>
-              <p>{text}</p>
-            </>
-          </article>
-        ))
-      }
-    </div>
+    {professional && <ProjectCard project={professional} {locale} />}
+    <ul class="evidence-list">
+      {career.experienceHighlights[locale].map((item) => <li>{item}</li>)}
+    </ul>
   </section>
 
   <section class="section section-shell section-tint">
     <header class="section-heading split-heading">
       <div>
-        <p class="eyebrow">02 / {copy.home.sections[1]}</p><h2>{copy.home.flagshipTitle}</h2>
+        <p class="eyebrow">02 / {copy.home.flagshipTitle}</p><h2>{copy.home.flagshipTitle}</h2>
       </div>
       <p>{copy.home.flagshipIntro}</p>
     </header>
@@ -97,46 +83,20 @@ const title = locale === 'en' ? site.name : `${site.name} — ${copy.nav.home}`;
     </div>
   </section>
 
-  <section class="section section-shell">
+  <section class="section section-shell" id="selected-work">
     <header class="section-heading">
-      <p class="eyebrow">03 / {copy.home.sections[2]}</p>
-      <h2>{copy.home.selectedTitle}</h2>
+      <p class="eyebrow">03 / {copy.home.selectedTitle}</p><h2>{copy.home.selectedTitle}</h2>
     </header>
     <div class="project-grid">
       {engineering.map((project) => <ProjectCard {project} {locale} />)}
     </div>
     <a class="button secondary section-action" href={localizedPath(locale, 'projects')}
-      >{copy.home.projectsCta} →</a
+      >{copy.home.allProjects} →</a
     >
   </section>
 
-  <section class="section section-shell principles-section">
-    <header class="section-heading">
-      <p class="eyebrow">04 / {copy.home.sections[3]}</p>
-      <h2>{copy.home.principlesTitle}</h2>
-    </header>
-    <div class="principles-list">
-      {
-        copy.home.principles.map(([heading, text], index) => (
-          <article>
-            <>
-              <span>0{index + 1}</span>
-              <div>
-                <>
-                  <h3>{heading}</h3>
-                  <p>{text}</p>
-                </>
-              </div>
-            </>
-          </article>
-        ))
-      }
-    </div>
-  </section>
-
   <section class="closing-section section-shell">
-    <p class="eyebrow">05 / {copy.home.sections[4]}</p>
-    <h2>{copy.home.closing}</h2>
+    <p class="eyebrow">04 / {copy.home.contactTitle}</p><h2>{copy.home.closing}</h2>
     <a class="button primary" href={`mailto:${site.email}`}>{site.email}</a>
   </section>
 </BaseLayout>

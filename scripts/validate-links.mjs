@@ -22,20 +22,56 @@ function targetFor(href) {
   return path.join(output, relative, 'index.html');
 }
 
+function pageUrlFor(href) {
+  try {
+    const url = new globalThis.URL(href, 'https://frankwyf.github.io');
+    if (url.origin !== 'https://frankwyf.github.io') return null;
+    return url;
+  } catch {
+    return null;
+  }
+}
+
 const failures = [];
 const pages = await walk(output);
 for (const page of pages) {
   const html = await readFile(page, 'utf8');
+  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
   if (!/<html\s+lang="[^"]+"/i.test(html)) failures.push(`${page}: missing html lang`);
   if (!/<link\s+rel="canonical"/i.test(html)) failures.push(`${page}: missing canonical link`);
 
   for (const match of html.matchAll(/href="([^"]+)"/g)) {
     const href = match[1];
     if (!href.startsWith('/') || href.startsWith('//')) continue;
+    const [pathPart, fragment = ''] = href.split('#');
     try {
-      await access(targetFor(href));
+      await access(targetFor(pathPart));
     } catch {
       failures.push(`${page}: broken internal link ${href}`);
+    }
+    if (fragment && pathPart === '' && !ids.has(decodeURIComponent(fragment))) {
+      failures.push(`${page}: missing fragment ${href}`);
+    }
+  }
+
+  for (const match of html.matchAll(/<link\s+[^>]*rel="alternate"[^>]*href="([^"]+)"/gi)) {
+    const url = pageUrlFor(match[1]);
+    if (!url) continue;
+    try {
+      await access(targetFor(url.pathname));
+    } catch {
+      failures.push(`${page}: broken alternate link ${match[1]}`);
+    }
+  }
+
+  for (const match of html.matchAll(/<img\s+[^>]*src="([^"]+)"/gi)) {
+    const src = match[1];
+    if (src.startsWith('data:') || src.startsWith('http://') || src.startsWith('https://'))
+      continue;
+    try {
+      await access(path.join(output, src.replace(/^\//, '')));
+    } catch {
+      failures.push(`${page}: missing image ${src}`);
     }
   }
 }

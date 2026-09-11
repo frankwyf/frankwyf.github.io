@@ -1,12 +1,17 @@
 # Yifan Wang Personal Portfolio — Implementation Plan
 
-Status: Initial local MVP implemented; awaiting owner review
+Status: v0.2 upgrade implemented locally; awaiting owner review before any remote publish
 
-Last updated: 2026-08-21
+Last updated: 2026-09-11
 
 Repository root: `Frank_Personal_Wiki/`
 
-Remote publishing status: **Not authorized**
+Remote publishing status: **Not authorized in this maintenance pass**
+
+> Historical note: the original MVP snapshot below was written on 2026-08-21. The current
+> implementation also includes the 2026-09-11 AI-assisted enterprise engineering update,
+> trilingual professional case study, evidence links, accessibility refinements, and the
+> validation/maintenance workflow described in the local execution record.
 
 ## 1. Confirmed identity and priorities
 
@@ -162,6 +167,15 @@ The site must curate projects rather than mirror every GitHub repository.
 - model-risk and decision-policy separation;
 - governance decisions and human review;
 - honest research/portfolio limitations and private-source notice.
+
+### Professional case study: AI-assisted enterprise engineering
+
+- enterprise planning-system UAT across master data, imports/replacements, aggregation/correction, and final confirmation;
+- Python/Playwright browser automation with network, console, and screenshot evidence;
+- AI agents used for planning, regression support, evidence organization, and issue-draft assistance;
+- human ownership of specification interpretation, defect judgment, safe data handling, and final verification;
+- cross-layer investigations including parser/header failures, ignored backend filters, 404 routes, disabled preview export, unsafe confirmation flows, and regressions;
+- no internal identifiers, customer details, prompts, fixtures, or private implementation claims.
 
 ### AI Engineering
 

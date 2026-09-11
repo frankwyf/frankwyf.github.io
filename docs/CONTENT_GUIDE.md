@@ -18,6 +18,21 @@ Write from evidence. Prefer:
 
 Avoid lists of technologies without context. Never convert planned work into past tense.
 
+## Professional evidence and source boundaries
+
+Use `origin: professional` for employer-derived experience and `origin: personal` for
+portfolio work. A professional case study may describe workflow, tools, investigation
+patterns, and the human/AI responsibility boundary, but must not include employer,
+client, internal route, identifier, prompt, fixture, source-code, or production-data details.
+Keep private-source personal systems labelled `private-source` and write only reviewed,
+public-safe case-study material.
+
+For the current professional update, read the career source files in this order before
+editing copy: `career_context_2026-09-05.md`, then the newer
+`career_context_2026-09-11_ai_assisted_uat.md`, followed by `candidate_profile.md` and
+`job_scoring_rules.md`. The 2026-09-11 file overrides positioning assumptions while
+preserving factual history.
+
 ## Adding a case study
 
 1. Add matching Markdown files under `src/content/case-studies/en`, `ja`, and `zh`.
@@ -25,6 +40,9 @@ Avoid lists of technologies without context. Never convert planned work into pas
 3. Complete every schema field.
 4. Add or update the card in `src/data/projects.ts`.
 5. Run the full validation suite.
+
+For a new professional case, also verify all three locale files, the generated Contents
+rail, and the publication audit before committing.
 
 ## Updating contact details
 
