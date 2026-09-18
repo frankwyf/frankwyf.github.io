@@ -40,7 +40,14 @@ async function walk(directory) {
 }
 
 const findings = [];
-for (const root of roots) {
+const rootsToScan = [...roots];
+try {
+  if ((await stat('dist')).isDirectory()) rootsToScan.push('dist');
+} catch {
+  // A source-only audit runs before the first build; dist is checked when present.
+}
+
+for (const root of rootsToScan) {
   try {
     if (!(await stat(root)).isDirectory()) continue;
   } catch {

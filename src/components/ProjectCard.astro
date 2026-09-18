@@ -19,6 +19,7 @@ const actionLabel =
     : project.kind === 'flagship'
       ? copy.viewCase
       : copy.viewProject;
+const maturityLabel = copy.maturity[project.maturity];
 ---
 
 <article
@@ -28,20 +29,39 @@ const actionLabel =
   ]}
 >
   <div class="project-card-topline">
-    <span class:list={['status-label', { private: project.visibility !== 'public-source' }]}>
-      {
-        project.kind === 'professional'
-          ? copy.professionalExperience
-          : project.visibility === 'private-source'
-            ? copy.privateSource
-            : copy.publicSource
-      }
-    </span>
+    <div class="project-labels">
+      <span class:list={['status-label', { private: project.visibility !== 'public-source' }]}>
+        {
+          project.kind === 'professional'
+            ? copy.professionalExperience
+            : project.visibility === 'private-source'
+              ? copy.privateSource
+              : copy.publicSource
+        }
+      </span>
+      <span class="maturity-label">{maturityLabel}</span>
+    </div>
     <span class="project-index" aria-hidden="true">
       {project.kind === 'professional' ? 'P' : project.kind === 'flagship' ? 'F' : 'E'}
     </span>
   </div>
   <h3>{project.title}</h3>
+  {
+    (project.client || project.period) && (
+      <p class="project-meta">
+        {project.client && (
+          <span>
+            {copy.clientLabel}: {project.client}
+          </span>
+        )}
+        {project.period && (
+          <span>
+            {copy.periodLabel}: {project.period}
+          </span>
+        )}
+      </p>
+    )
+  }
   <p>{project.summary[locale]}</p>
   <p class="project-outcome">{project.outcome[locale]}</p>
   <ul class="tag-list" aria-label={copy.aria.technologies}>

@@ -4,6 +4,7 @@ translationKey: openscorecard
 routeSlug: openscorecard
 locale: ja
 origin: personal
+maturity: portfolio-system
 summary: 時系列ラベル、説明可能なモデル、レビュー可能なポリシーを中心に構築したB2B信用判断・モデルガバナンス環境。
 status: ローカル検証済みポートフォリオ · 本番与信サービスではありません
 visibility: private-source

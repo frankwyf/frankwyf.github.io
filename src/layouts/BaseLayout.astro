@@ -30,7 +30,12 @@ const structuredData = JSON.stringify({
   alternateName: site.englishName,
   url: site.url,
   email: `mailto:${site.email}`,
-  jobTitle: 'Software & Data Engineer',
+  jobTitle: 'Software Engineer',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Shanghai',
+    addressCountry: 'CN',
+  },
   sameAs: [site.github, site.linkedin],
   knowsAbout: [
     'Software Engineering',

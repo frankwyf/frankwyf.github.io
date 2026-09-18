@@ -24,3 +24,28 @@ Both flagship codebases are private. Public pages may show reviewed architecture
 3. Confirm generated output and secrets are untracked.
 4. Confirm all claims match current evidence.
 5. Do not push without explicit approval.
+
+## Current public evidence allowlist
+
+The 2026-09-17 user-confirmed disclosure update permits plain-text attribution for these
+verified customer contexts only:
+
+- Hitachi High-Tech Group (Intel may appear only as the end-user context);
+- Credit Saison;
+- Rheon Automatic Machinery;
+- Dalian Ryobi;
+- Canon Optics China.
+
+This allowlist does not permit customer data, logos, internal screens, source code,
+prompts, issue links, proprietary model details, or business metrics. The Canon work
+must remain a professional POC, the NX work delivered professional work, and the two
+flagship systems private-source personal portfolio projects.
+
+## Claim-strength checks
+
+Keep professional delivery, professional POC / technical validation, controlled
+AI-assisted engineering with human review, personal portfolio systems, public-source
+projects, and in-progress assignments visibly separate. Never turn a preparing
+certification, developing assignment, customer attribution, or portfolio architecture
+into an earned credential, production deployment, commercial impact, or mature
+production GenAI claim.

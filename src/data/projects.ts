@@ -9,12 +9,55 @@ export interface Project {
   summary: LocalizedText;
   outcome: LocalizedText;
   kind: 'professional' | 'flagship' | 'engineering';
+  maturity: 'delivered' | 'poc' | 'ai-assisted' | 'portfolio-system' | 'public-source';
   visibility: 'case-study-only' | 'private-source' | 'public-source';
   technologies: string[];
+  client?: string;
+  period?: string;
   url?: string;
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'nx-python-add-on-delivery',
+    title: 'End-to-end NX Python engineering add-on delivery',
+    summary: {
+      en: 'Independent customer delivery for Dalian Ryobi, from technical investigation and proposal through implementation, documentation, handoff, and maintenance.',
+      ja: 'Dalian Ryobi向けに、技術調査・提案から実装、文書化、納品、保守までを一貫して担当したNX Pythonアドオン。',
+      zh: '为 Dalian Ryobi 独立交付 NX Python 工程插件，覆盖技术调查、提案、实现、文档、交付与维护。',
+    },
+    outcome: {
+      en: 'Shows scoped ownership, customer communication, and a complete engineering delivery loop without invented impact metrics.',
+      ja: '推測のない成果指標で、範囲を持った所有、顧客との技術コミュニケーション、一貫したデリバリーを示します。',
+      zh: '在不虚构影响指标的前提下，展示明确范围内的所有权、客户沟通和完整工程交付闭环。',
+    },
+    kind: 'professional',
+    maturity: 'delivered',
+    visibility: 'case-study-only',
+    client: 'Dalian Ryobi',
+    period: 'Sep–Oct 2025',
+    technologies: ['Python', 'NX add-on', 'Technical proposal', 'Customer delivery'],
+  },
+  {
+    slug: 'b2b-credit-management-ml-poc',
+    title: 'B2B credit-management ML proof of concept',
+    summary: {
+      en: 'Professional POC contribution for Canon Optics China covering model construction, part of data preprocessing, technical validation, and architecture discussion.',
+      ja: 'Canon Optics China向けB2B与信管理ML PoCで、モデル構築、データ前処理の一部、技術検証、アーキテクチャ議論に貢献。',
+      zh: '参与 Canon Optics China 的 B2B 信用管理 ML POC，覆盖模型构建、部分数据预处理、技术验证与架构讨论。',
+    },
+    outcome: {
+      en: 'Provides professional Applied ML and financial-data evidence while remaining explicitly a proof of concept, not a production deployment.',
+      ja: '本番展開ではなくPoCであることを明確にした、実務での応用MLと財務データ活用の証拠です。',
+      zh: '明确保持 POC 边界，展示专业 Applied ML 与金融数据实践，而非生产部署经历。',
+    },
+    kind: 'professional',
+    maturity: 'poc',
+    visibility: 'case-study-only',
+    client: 'Canon Optics China',
+    period: 'Aug 2025 · Nov 2025 · Mar–Jun 2026',
+    technologies: ['Python', 'Scorecard methodology', 'Data preprocessing', 'Technical validation'],
+  },
   {
     slug: 'enterprise-ai-assisted-engineering',
     title: 'AI-assisted enterprise engineering',
@@ -29,6 +72,7 @@ export const projects: Project[] = [
       zh: '展示受控的 AI 辅助工程、跨层调试和共享业务数据的安全处理。',
     },
     kind: 'professional',
+    maturity: 'ai-assisted',
     visibility: 'case-study-only',
     technologies: ['Python', 'Playwright', 'UAT', 'Debugging', 'AI-assisted engineering'],
   },
@@ -46,6 +90,7 @@ export const projects: Project[] = [
       zh: '展示应用 AI 如何在财务、租户、权限和审批边界内运行。',
     },
     kind: 'flagship',
+    maturity: 'portfolio-system',
     visibility: 'private-source',
     technologies: [
       'Python',
@@ -72,6 +117,7 @@ export const projects: Project[] = [
       zh: '展示泄漏控制、OOT 证据、模型治理和可复核的信用政策。',
     },
     kind: 'flagship',
+    maturity: 'portfolio-system',
     visibility: 'private-source',
     technologies: [
       'Python',
@@ -96,6 +142,7 @@ export const projects: Project[] = [
       zh: '把检测结果转化为可运营的空间信号。',
     },
     kind: 'engineering',
+    maturity: 'public-source',
     visibility: 'public-source',
     technologies: ['Python', 'YOLO', 'Computer Vision'],
     url: 'https://github.com/frankwyf/yolo-heatmap',
@@ -114,6 +161,7 @@ export const projects: Project[] = [
       zh: '把数值实验连接到结构化产物和可重复评估。',
     },
     kind: 'engineering',
+    maturity: 'public-source',
     visibility: 'public-source',
     technologies: ['Python', 'Simulation', 'Optimization', 'Streamlit'],
     url: 'https://github.com/frankwyf/heat_simulation',
@@ -132,6 +180,7 @@ export const projects: Project[] = [
       zh: '展示从数据获取到可搜索、可测试数据产品的完整路径。',
     },
     kind: 'engineering',
+    maturity: 'public-source',
     visibility: 'public-source',
     technologies: ['Python', 'Search', 'API', 'Data Processing'],
     url: 'https://github.com/frankwyf/web_crawling',
@@ -150,6 +199,7 @@ export const projects: Project[] = [
       zh: '展示后端、Web 和移动端协同的产品现代化。',
     },
     kind: 'engineering',
+    maturity: 'public-source',
     visibility: 'public-source',
     technologies: ['Java', 'Spring Boot', 'Vue', 'WeChat Mini Program'],
     url: 'https://github.com/frankwyf/Gym_Product',
@@ -168,6 +218,7 @@ export const projects: Project[] = [
       zh: '把原生 UI 行为封装成可复用组件，而不是页面专用逻辑。',
     },
     kind: 'engineering',
+    maturity: 'public-source',
     visibility: 'public-source',
     technologies: ['C++17', 'Qt Widgets', 'CMake'],
     url: 'https://github.com/frankwyf/qt-responsive-layout',

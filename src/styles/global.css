@@ -487,6 +487,39 @@ h3 {
   font-size: 0.92rem;
 }
 
+.proof-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: -1rem;
+  border-block: 1px solid var(--line);
+  background: var(--line);
+}
+
+.proof-strip > div {
+  display: flex;
+  min-height: 118px;
+  padding: 1.2rem 1.4rem;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bg-raised);
+}
+
+.proof-strip strong {
+  color: var(--accent);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1;
+}
+
+.proof-strip span {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .project-card.professional {
   min-height: 0;
   border: 1px solid var(--line-strong);
@@ -605,6 +638,13 @@ h3 {
   gap: 1rem;
 }
 
+.project-labels {
+  display: flex;
+  max-width: 80%;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
 .status-label {
   display: inline-flex;
   width: fit-content;
@@ -621,6 +661,30 @@ h3 {
 .status-label.private {
   border-color: color-mix(in srgb, var(--warm) 42%, transparent);
   color: var(--warm);
+}
+
+.maturity-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.32rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+}
+
+.project-meta {
+  display: flex;
+  margin: -0.25rem 0 1rem;
+  flex-wrap: wrap;
+  gap: 0.45rem 1rem;
+  color: var(--muted) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.7rem !important;
+  line-height: 1.5;
 }
 
 .project-index {
@@ -775,6 +839,168 @@ h3 {
 
 .about-copy p {
   margin-bottom: 1.4rem;
+}
+
+.role-growth {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted) !important;
+  font-size: 0.9rem;
+}
+
+.status-in-progress {
+  color: var(--warm) !important;
+}
+
+.experience-hero {
+  min-height: auto;
+}
+
+.role-banner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  margin-top: 4rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg-raised);
+}
+
+.role-banner h2 {
+  margin: 0.65rem 0 0.35rem;
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.role-banner p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.role-banner > p {
+  align-self: end;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.professional-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.experience-timeline {
+  position: relative;
+  display: grid;
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 0;
+  background: var(--bg-raised);
+}
+
+.experience-marker {
+  display: flex;
+  padding: 2rem 1rem;
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.76rem;
+}
+
+.experience-item-main {
+  padding: clamp(1.5rem, 4vw, 2.8rem);
+}
+
+.experience-item-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.experience-item-heading h3 {
+  margin: 0.65rem 0 0.35rem;
+  max-width: 28ch;
+}
+
+.experience-client {
+  margin: 0;
+  color: var(--accent) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700;
+}
+
+.experience-item-main > p,
+.developing-card > p {
+  max-width: 75ch;
+  color: var(--ink-soft);
+}
+
+.experience-contribution {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.experience-contribution strong {
+  color: var(--ink);
+}
+
+.experience-tags {
+  margin: 1rem 0 0;
+}
+
+.experience-item-main > .text-link {
+  margin-top: 1rem;
+}
+
+.developing-grid,
+.experience-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--line);
+}
+
+.developing-card,
+.experience-footer-grid article {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--bg-raised);
+}
+
+.developing-card h3 {
+  margin: 0;
+  max-width: 26ch;
+}
+
+.experience-footer-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.compact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.compact-list li {
+  padding-block: 0.35rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.projects-footer-cta {
+  text-align: center;
+}
+
+.projects-footer-cta h2 {
+  max-width: 24ch;
+  margin-inline: auto;
 }
 
 .about-grid {
@@ -1172,6 +1398,10 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .professional-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .flagship-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1222,6 +1452,7 @@ h3 {
 
   .split-heading,
   .about-hero,
+  .role-banner,
   .case-hero-grid,
   .case-body,
   .writing-placeholder,
@@ -1233,11 +1464,15 @@ h3 {
   .capability-grid,
   .evidence-list,
   .evidence-grid,
+  .proof-strip,
   .timeline-card,
   .project-grid,
+  .professional-grid,
   .flagship-grid,
   .about-grid,
-  .contact-links {
+  .contact-links,
+  .developing-grid,
+  .experience-footer-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1289,6 +1524,19 @@ h3 {
 
   .case-body {
     gap: 3rem;
+  }
+
+  .experience-item {
+    grid-template-columns: 3.25rem 1fr;
+  }
+
+  .experience-item-heading {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .experience-marker {
+    padding-inline: 0.5rem;
   }
 
   .site-footer {

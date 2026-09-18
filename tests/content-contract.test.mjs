@@ -29,7 +29,9 @@ test('public email is centralized in site data', async () => {
 test('all case studies have complete locale coverage and origin labels', async () => {
   const expected = [
     'ai-revenue-credit-operations',
+    'b2b-credit-management-ml-poc',
     'enterprise-ai-assisted-engineering',
+    'nx-python-add-on-delivery',
     'openscorecard',
   ];
   for (const locale of ['en', 'ja', 'zh']) {
@@ -41,7 +43,30 @@ test('all case studies have complete locale coverage and origin labels', async (
       assert.match(content, new RegExp(`^translationKey: ${slug}$`, 'm'));
       assert.match(content, new RegExp(`^routeSlug: ${slug}$`, 'm'));
       assert.match(content, /^origin: (professional|personal)$/m);
+      assert.match(content, /^maturity: (delivered|poc|ai-assisted|portfolio-system)$/m);
+      assert.match(content, /^lastVerified: \d{4}-\d{2}-\d{2}$/m);
     }
+  }
+});
+
+test('professional case studies preserve disclosure and evidence boundaries', async () => {
+  const allowedClients = ['Dalian Ryobi', 'Canon Optics China'];
+  for (const slug of ['nx-python-add-on-delivery', 'b2b-credit-management-ml-poc']) {
+    const content = await readFile(
+      path.join(root, 'src', 'content', 'case-studies', 'en', `${slug}.md`),
+      'utf8',
+    );
+    assert.match(content, /^origin: professional$/m);
+    assert.match(content, new RegExp(`^client: (${allowedClients.join('|')})$`, 'm'));
+    const claimBody = content.split('## Boundary')[0];
+    assert.doesNotMatch(
+      claimBody,
+      /production (?:ML|GenAI) platform|deployed underwriting service/i,
+    );
+    assert.doesNotMatch(
+      claimBody,
+      /(?:^|\n)(?:accuracy|revenue impact|loss reduction|user count):/i,
+    );
   }
 });
 
@@ -53,6 +78,9 @@ test('localized core route files exist', async () => {
     'src/pages/projects/index.astro',
     'src/pages/ja/projects/index.astro',
     'src/pages/zh/projects/index.astro',
+    'src/pages/experience.astro',
+    'src/pages/ja/experience.astro',
+    'src/pages/zh/experience.astro',
   ];
   for (const file of required)
     await assert.doesNotReject(() => readFile(path.join(root, file), 'utf8'));

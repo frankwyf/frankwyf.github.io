@@ -12,8 +12,8 @@ const { locale, currentPath, alternates } = Astro.props;
 const copy = t(locale);
 const nav = [
   [copy.nav.home, ''],
+  [copy.nav.experience, 'experience'],
   [copy.nav.projects, 'projects'],
-  [copy.nav.ai, 'ai-engineering'],
   [copy.nav.about, 'about'],
   [copy.nav.contact, 'contact'],
 ] as const;

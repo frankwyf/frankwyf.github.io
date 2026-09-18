@@ -7,27 +7,37 @@ export const career = {
     company: 'DENTSU SOKEN SHANGHAI',
     title: 'Software Engineer',
     period: 'Jul 2024 – Present',
+    growth: {
+      en: 'Joined at an R1 level and progressed to R2 after the first year; the external title remains Software Engineer.',
+      ja: 'R1レベルで入社し、1年後にR2へ昇格。対外的な職種名はSoftware Engineerです。',
+      zh: '以 R1 级别加入，约一年后晋升至 R2；对外职位仍为 Software Engineer。',
+    } satisfies LocalizedText,
   },
+  positioning: {
+    en: 'Software & Data Engineer transitioning into Applied AI Engineering.',
+    ja: 'エンタープライズソフトウェアとデータを基盤に、応用AIへ進むソフトウェア・データエンジニア。',
+    zh: '以企业软件与数据工程为基础，正在走向应用 AI 的软件与数据工程师。',
+  } satisfies LocalizedText,
   experienceIntro: {
-    en: 'My work combines enterprise software delivery, Python/SQL data integration, financial-data validation, and recent AI-assisted engineering in a shared UAT environment.',
-    ja: '企業向けソフトウェア、Python/SQLによるデータ連携、財務データ検証、共有UAT環境でのAI活用エンジニアリングに携わっています。',
-    zh: '我的工作结合企业软件交付、Python/SQL 数据集成、财务数据验证，以及近期在共享 UAT 环境中的 AI 辅助工程实践。',
+    en: 'My work connects enterprise software delivery, Python/SQL data integration, financial-data validation, customer-facing delivery, and controlled AI-assisted engineering.',
+    ja: '企業向けソフトウェア、Python/SQLによるデータ連携、財務データ検証、顧客向けデリバリー、制御されたAI活用エンジニアリングをつないでいます。',
+    zh: '我的工作连接企业软件交付、Python/SQL 数据集成、财务数据验证、客户交付，以及受控的 AI 辅助工程。',
   } satisfies LocalizedText,
   experienceHighlights: {
     en: [
-      'Designed end-to-end validation and regression workflows for connected enterprise planning features.',
-      'Used Python/Playwright, browser and network evidence, source inspection, and structured Japanese defect reports.',
-      'Kept state-changing actions human-approved while tracing parsing, filtering, routing, and data-correctness failures.',
+      'Independently delivered a Python-based NX engineering add-on from investigation and proposal through implementation, documentation, delivery, and maintenance.',
+      'Contributed model construction, data preprocessing, and technical validation to a professional B2B credit-management ML proof of concept.',
+      'Designed evidence-led enterprise validation with Python/Playwright, network inspection, source analysis, AI assistance, and human review.',
     ],
     ja: [
-      '連携する企業計画機能のエンドツーエンド検証と回帰ワークフローを設計。',
-      'Python/Playwright、ブラウザ・ネットワーク証拠、ソース確認、構造化した日本語の不具合報告を活用。',
-      '状態を変更する操作は人の承認下に置き、解析・フィルタ・ルーティング・データ整合性の問題を追跡。',
+      'PythonによるNXエンジニアリングアドオンを、調査・提案から実装、文書化、納品、保守まで一貫して担当。',
+      'B2B与信管理ML PoCで、モデル構築、データ前処理の一部、技術検証に貢献。',
+      'Python/Playwright、ネットワーク確認、ソース分析、AI支援、人による確認を組み合わせた証拠重視の企業検証を設計。',
     ],
     zh: [
-      '为相互连接的企业规划功能设计端到端验证与回归工作流。',
-      '结合 Python/Playwright、浏览器与网络证据、源码检查和结构化日文缺陷报告。',
-      '对改变状态的操作保留人工审批，并排查解析、过滤、路由和数据正确性问题。',
+      '独立交付 Python NX 工程插件，覆盖技术调查、方案提案、实现、文档、交付与维护。',
+      '参与企业 B2B 信用管理机器学习 POC，负责模型构建、部分数据预处理与技术验证。',
+      '结合 Python/Playwright、网络检查、源码分析、AI 辅助和人工复核，设计以证据为核心的企业验证流程。',
     ],
   } satisfies Record<Locale, string[]>,
   education: {
@@ -43,25 +53,25 @@ export const career = {
       ],
       [
         'Data and finance',
-        'Python/SQL ETL, data quality, reconciliation, and financial workflow validation.',
+        'Python/SQL ETL, data quality, reconciliation, credit-risk workflows, and financial validation.',
       ],
       [
-        'AI-assisted engineering',
-        'Controlled agent support, cross-layer diagnosis, evidence capture, and human review.',
+        'Applied AI transition',
+        'Professional ML POC and controlled AI-assisted engineering alongside private portfolio systems.',
       ],
     ],
     ja: [
       ['企業向けソフトウェア', 'C#/.NETアプリケーション、連携、テスト、運用検証。'],
-      ['データと財務', 'Python/SQL ETL、データ品質、照合、財務ワークフロー検証。'],
+      ['データと財務', 'Python/SQL ETL、データ品質、照合、与信ワークフロー、財務データ検証。'],
       [
-        'AI活用エンジニアリング',
-        '制御されたエージェント支援、レイヤー横断診断、証拠取得、人による確認。',
+        '応用AIへの移行',
+        '専門業務でのML PoCと、非公開ポートフォリオを並行する制御されたAI活用エンジニアリング。',
       ],
     ],
     zh: [
       ['企业软件', 'C#/.NET 应用、系统集成、测试与生产验证。'],
-      ['数据与金融', 'Python/SQL ETL、数据质量、对账和财务流程验证。'],
-      ['AI 辅助工程', '受控的 Agent 辅助、跨层诊断、证据收集与人工复核。'],
+      ['数据与金融', 'Python/SQL ETL、数据质量、对账、信用风险流程与财务数据验证。'],
+      ['走向应用 AI', '专业 ML POC 与受控 AI 辅助工程，结合私有源码个人项目持续实践。'],
     ],
   } satisfies Record<Locale, [string, string][]>,
 } as const;

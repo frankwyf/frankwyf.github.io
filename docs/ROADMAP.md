@@ -7,6 +7,17 @@
 - Case-study origins and visibility are schema-validated; internal sources remain in ignored `local-notes/` only.
 - Local checks cover formatting, Astro type checks, lint, contract tests, publication safety, generated-link validation, and build output.
 
+## 2026-09-18 evidence upgrade snapshot
+
+- Added a trilingual Experience route with a dated professional timeline.
+- Added public-safe NX Python add-on delivery and B2B credit-management ML POC case studies.
+- Professional delivery, professional POC, AI-assisted engineering, personal systems,
+  public source, and in-progress work now have distinct maturity labels.
+- Homepage and About foreground complete delivery, financial-data/ML evidence, and the
+  controlled AI-assisted workflow rather than presenting UAT as the only professional signal.
+- GitHub Pages remains the existing static Astro workflow; release evidence is recorded
+  in the dated local execution record.
+
 ## v0.1 — Local MVP
 
 - English, Japanese, and Simplified Chinese core routes

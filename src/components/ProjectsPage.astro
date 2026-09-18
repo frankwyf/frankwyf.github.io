@@ -26,24 +26,24 @@ const copy = t(locale);
   </section>
   <section class="section section-shell">
     <header class="section-heading">
-      <p class="eyebrow">02</p><h2>{copy.projects.flagship}</h2>
+      <p class="eyebrow">01</p><h2>{copy.projects.professional}</h2>
     </header>
-    <div class="project-grid flagship-grid">
+    <div class="project-grid professional-grid">
       {
         projects
-          .filter((project) => project.kind === 'flagship')
+          .filter((project) => project.kind === 'professional')
           .map((project) => <ProjectCard {project} {locale} />)
       }
     </div>
   </section>
   <section class="section section-shell">
     <header class="section-heading">
-      <p class="eyebrow">01</p><h2>{copy.projects.professional}</h2>
+      <p class="eyebrow">02</p><h2>{copy.projects.flagship}</h2>
     </header>
-    <div class="project-grid">
+    <div class="project-grid flagship-grid">
       {
         projects
-          .filter((project) => project.kind === 'professional')
+          .filter((project) => project.kind === 'flagship')
           .map((project) => <ProjectCard {project} {locale} />)
       }
     </div>
@@ -59,5 +59,12 @@ const copy = t(locale);
           .map((project) => <ProjectCard {project} {locale} />)
       }
     </div>
+  </section>
+  <section class="section section-shell projects-footer-cta">
+    <p class="eyebrow">{copy.nav.experience}</p>
+    <h2>{copy.experience.title}</h2>
+    <a class="button secondary" href={localizedPath(locale, 'experience')}
+      >{copy.experience.viewAll} →</a
+    >
   </section>
 </BaseLayout>

@@ -29,7 +29,13 @@ const verifiedDate = new Intl.DateTimeFormat(localeMeta[locale].lang, {
 >
   <article class="case-study">
     <header class="case-hero section-shell">
-      <a class="back-link" href={localizedPath(locale, 'projects')}>← {copy.nav.projects}</a>
+      <a
+        class="back-link"
+        href={localizedPath(
+          locale,
+          entry.data.origin === 'professional' ? 'experience' : 'projects',
+        )}>← {entry.data.origin === 'professional' ? copy.nav.experience : copy.nav.projects}</a
+      >
       <div class="case-hero-grid">
         <div>
           <p class="eyebrow">
@@ -63,6 +69,31 @@ const verifiedDate = new Intl.DateTimeFormat(localeMeta[locale].lang, {
               }</span
             ><strong>{verifiedDate}</strong>
           </div>
+          <div>
+            <span>{copy.caseStudy.maturity}</span><strong
+              >{copy.maturity[entry.data.maturity]}</strong
+            >
+          </div>
+          {
+            entry.data.client && (
+              <div>
+                <>
+                  <span>{copy.caseStudy.client}</span>
+                  <strong>{entry.data.client}</strong>
+                </>
+              </div>
+            )
+          }
+          {
+            entry.data.period && (
+              <div>
+                <>
+                  <span>{copy.caseStudy.period}</span>
+                  <strong>{entry.data.period}</strong>
+                </>
+              </div>
+            )
+          }
         </aside>
       </div>
       <ul class="tag-list case-tags">

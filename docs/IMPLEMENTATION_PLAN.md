@@ -1,8 +1,13 @@
 # Yifan Wang Personal Portfolio — Implementation Plan
 
-Status: v0.2 upgrade implemented locally; awaiting owner review before any remote publish
+Status: v0.3 evidence upgrade implemented locally; release status is recorded in the dated local execution record
 
 Last updated: 2026-09-11
+
+The 2026-09-18 upgrade adds a trilingual Experience page, two public-safe professional
+case studies, maturity labels, and the verified customer/date boundaries from the
+September career context. See the dated plan and execution record in ignored
+`local-notes/` for release evidence.
 
 Repository root: `Frank_Personal_Wiki/`
 

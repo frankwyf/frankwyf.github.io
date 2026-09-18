@@ -22,7 +22,7 @@ const copy = t(locale);
   <section class="page-hero section-shell about-hero">
     <div><p class="eyebrow">{copy.about.eyebrow}</p><h1>{copy.about.title}</h1></div>
     <div class="about-copy">
-      {copy.about.paragraphs.slice(0, 3).map((paragraph) => <p>{paragraph}</p>)}
+      {copy.about.paragraphs.slice(0, 4).map((paragraph) => <p>{paragraph}</p>)}
     </div>
   </section>
 
@@ -40,8 +40,15 @@ const copy = t(locale);
         <p>{career.experienceIntro[locale]}</p><ul class="evidence-list">
           {career.experienceHighlights[locale].map((item) => <li>{item}</li>)}
         </ul>
+        <p class="role-growth">
+          <strong>{copy.experience.roleGrowth}:</strong>
+          {career.currentRole.growth[locale]}
+        </p>
       </div>
     </article>
+    <a class="button secondary section-action" href={localizedPath(locale, 'experience')}
+      >{copy.experience.viewAll} →</a
+    >
   </section>
 
   <section class="section section-shell section-tint">
@@ -78,14 +85,14 @@ const copy = t(locale);
             <li>
               <>
                 <strong>{certification.name}</strong>
-                <span>
+                <span class:list={{ 'status-in-progress': certification.status === 'In progress' }}>
                   {certification.issuer} · {certification.status}
                 </span>
               </>
             </li>
           ))
         }
-      </ul><p class="panel-note">{copy.about.preparing}</p>
+      </ul>
     </article>
     <article class="info-panel">
       <p class="eyebrow">{copy.about.locationTitle}</p><p class="panel-large">

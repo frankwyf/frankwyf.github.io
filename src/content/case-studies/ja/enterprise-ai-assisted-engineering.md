@@ -4,6 +4,7 @@ translationKey: enterprise-ai-assisted-engineering
 routeSlug: enterprise-ai-assisted-engineering
 locale: ja
 origin: professional
+maturity: ai-assisted
 summary: Python/Playwright、ブラウザ・ネットワークの証拠、AIを活用した回帰作業、人による検証を組み合わせた企業計画ワークフローのエンドツーエンドUAT。
 status: 実務経験 · 公開用概要
 visibility: case-study-only

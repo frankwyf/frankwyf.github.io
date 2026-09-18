@@ -4,6 +4,7 @@ translationKey: ai-revenue-credit-operations
 routeSlug: ai-revenue-credit-operations
 locale: zh
 origin: personal
+maturity: portfolio-system
 summary: 在保持财务逻辑确定性的同时，用 AI 提供有依据的检索与受控辅助的 B2B 运营平台。
 status: 本地发布候选 · 云模板尚未部署
 visibility: private-source

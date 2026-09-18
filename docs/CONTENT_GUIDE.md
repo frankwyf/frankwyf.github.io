@@ -27,11 +27,26 @@ client, internal route, identifier, prompt, fixture, source-code, or production-
 Keep private-source personal systems labelled `private-source` and write only reviewed,
 public-safe case-study material.
 
+The September 2026 evidence update adds two public-safe professional levels: `delivered`
+for the Dalian Ryobi NX Python add-on and `poc` for the Canon Optics China
+B2B credit-management ML proof of concept. Keep both separate from `ai-assisted` UAT
+and `portfolio-system` personal projects. The current source order also includes
+`career_context_merge_update_2026-09.md` and
+`career_context_2026-09-17_project_dates_and_disclosure.md`; the latter is authoritative
+for approved customer attribution and workbook-supported project dates.
+
+Approved plain-text customer attribution is narrow: Hitachi High-Tech Group (with Intel
+only as the approved end-user context), Credit Saison, Rheon Automatic Machinery,
+Dalian Ryobi, and Canon Optics China. Attribution never permits logos, customer data,
+internal identifiers, proprietary algorithms, screenshots, or unsupported outcomes.
+
 For the current professional update, read the career source files in this order before
-editing copy: `career_context_2026-09-05.md`, then the newer
-`career_context_2026-09-11_ai_assisted_uat.md`, followed by `candidate_profile.md` and
-`job_scoring_rules.md`. The 2026-09-11 file overrides positioning assumptions while
-preserving factual history.
+editing copy: `career_context_2026-09-05.md`, then
+`career_context_2026-09-11_ai_assisted_uat.md`,
+`career_context_merge_update_2026-09.md`,
+`career_context_2026-09-17_project_dates_and_disclosure.md`,
+`candidate_profile.md`, and `job_scoring_rules.md`. The newest dated files override
+current-status assumptions while preserving factual history.
 
 ## Adding a case study
 

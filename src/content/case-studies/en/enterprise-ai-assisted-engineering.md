@@ -4,6 +4,7 @@ translationKey: enterprise-ai-assisted-engineering
 routeSlug: enterprise-ai-assisted-engineering
 locale: en
 origin: professional
+maturity: ai-assisted
 summary: End-to-end UAT and engineering automation for connected enterprise planning workflows, combining Python/Playwright, browser and network evidence, AI-assisted regression work, and human verification.
 status: Professional experience · Public summary
 visibility: case-study-only

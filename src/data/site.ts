@@ -38,4 +38,14 @@ export const certifications = [
     issuer: 'Siemens',
     status: 'Earned',
   },
+  {
+    name: 'AWS Certified Data Engineer – Associate (DEA-C01)',
+    issuer: 'Amazon Web Services',
+    status: 'In progress',
+  },
+  {
+    name: 'PTC Certified Codebeamer Implementation Practitioner',
+    issuer: 'PTC',
+    status: 'In progress',
+  },
 ] as const;

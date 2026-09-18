@@ -10,9 +10,10 @@ import { site } from '../data/site';
 interface Props {
   locale: Locale;
 }
+
 const { locale } = Astro.props;
 const copy = t(locale);
-const professional = projects.find((project) => project.kind === 'professional');
+const professional = projects.filter((project) => project.kind === 'professional');
 const flagships = projects.filter((project) => project.kind === 'flagship');
 const engineering = projects.filter((project) => project.kind === 'engineering').slice(0, 3);
 ---
@@ -31,9 +32,9 @@ const engineering = projects.filter((project) => project.kind === 'engineering')
       <h1>{copy.home.title}</h1>
       <p class="lede">{copy.home.intro}</p>
       <div class="button-row">
-        <a class="button primary" href="#selected-work">{copy.home.projectsCta}</a>
-        <a class="button secondary" href={localizedPath(locale, 'contact')}
-          >{copy.home.contactCta}</a
+        <a class="button primary" href="#professional-evidence">{copy.home.projectsCta}</a>
+        <a class="button secondary" href={localizedPath(locale, 'experience')}
+          >{copy.nav.experience}</a
         >
       </div>
       <div class="social-row">
@@ -51,24 +52,38 @@ const engineering = projects.filter((project) => project.kind === 'engineering')
       <span>{career.currentRole.title}</span>
       <span>{career.currentRole.period}</span>
       <ul>
-        <li>Python / SQL / .NET</li><li>{copy.home.snapshotAi}</li><li>EN · 日本語 · 中文</li>
+        <li>2+ years enterprise engineering</li>
+        <li>Python / SQL / .NET</li>
+        <li>{copy.home.snapshotAi}</li>
+        <li>EN · 日本語 · 中文</li>
       </ul>
     </aside>
   </section>
 
-  <section class="section section-shell experience-section">
+  <section class="proof-strip section-shell" aria-label={copy.home.snapshotTitle}>
+    <div><strong>2+</strong><span>years enterprise engineering</span></div>
+    <div><strong>1</strong><span>end-to-end customer delivery</span></div>
+    <div><strong>3</strong><span>AWS certifications earned</span></div>
+    <div><strong>3</strong><span>working languages</span></div>
+  </section>
+
+  <section class="section section-shell" id="professional-evidence">
     <header class="section-heading split-heading">
       <div>
-        <p class="eyebrow">01 / {copy.home.professionalTitle}</p><h2>
-          {copy.home.professionalTitle}
-        </h2>
+        <p class="eyebrow">01 / {copy.home.professionalTitle}</p>
+        <h2>{copy.home.professionalTitle}</h2>
       </div>
       <p>{career.experienceIntro[locale]}</p>
     </header>
-    {professional && <ProjectCard project={professional} {locale} />}
+    <div class="project-grid professional-grid">
+      {professional.map((project) => <ProjectCard project={project} {locale} />)}
+    </div>
     <ul class="evidence-list">
       {career.experienceHighlights[locale].map((item) => <li>{item}</li>)}
     </ul>
+    <a class="button secondary section-action" href={localizedPath(locale, 'experience')}
+      >{copy.experience.viewAll} →</a
+    >
   </section>
 
   <section class="section section-shell section-tint">

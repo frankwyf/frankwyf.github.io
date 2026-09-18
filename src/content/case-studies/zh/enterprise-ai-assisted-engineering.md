@@ -4,6 +4,7 @@ translationKey: enterprise-ai-assisted-engineering
 routeSlug: enterprise-ai-assisted-engineering
 locale: zh
 origin: professional
+maturity: ai-assisted
 summary: 面向企业规划流程的端到端 UAT 与工程自动化，结合 Python/Playwright、浏览器与网络证据、AI 辅助回归和人工验证。
 status: 企业工作经历 · 公开摘要
 visibility: case-study-only
