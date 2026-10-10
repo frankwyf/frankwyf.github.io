@@ -45,7 +45,7 @@ draft: false
 
 工作流把数据契约和观察日期作为明确输入。候选模型依据分开的时间证据进行比较，模型治理与信用政策则保持为独立决策。
 
-<figure class="case-architecture">
+<figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/openscorecard.svg" alt="OpenScorecard 的公开安全工作流图：确定性合成中小企业组合经过 Schema、时间和泄漏检查；Train、Validation 与 OOT 证据用于模型比较、治理、独立政策与本地只读复核。" />
   <figcaption>面向公开展示的工作流摘要，描述合成数据的本地系统，不代表已部署授信服务。</figcaption>
 </figure>

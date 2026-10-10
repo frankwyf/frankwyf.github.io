@@ -41,7 +41,7 @@ Revenue・Credit部門では、顧客、契約、請求、支払、返金、利�
 
 財務上の正解は決定論的なサービスに置き、検索と任意のAI支援は、認証、テナント、ツール、人によるレビューの明確な境界の内側に配置します。
 
-<figure class="case-architecture">
+<figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/ai-revenue-credit-operations.svg" alt="公開向けに整理した構成図。認証済みリクエストはIDとテナントの検証、決定論的な財務・データ処理、テナント分離検索、任意の制御されたAI、許可リスト型ツール、別担当者によるレビュー、監査付きドライランを通ります。" />
   <figcaption>公開可能な範囲に整理した構成概要です。ソースコードやデプロイ固有の情報は含みません。</figcaption>
 </figure>

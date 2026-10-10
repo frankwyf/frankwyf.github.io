@@ -85,7 +85,7 @@ test('flagship engineering evidence stays localized, private-safe, and dated', a
       assert.match(content, /^visibility: private-source$/m);
       assert.match(content, /^lastVerified: \d{4}-\d{2}-\d{2}$/m);
       assert.ok(content.includes(headings[locale]));
-      assert.match(content, /<figure class="case-architecture">/);
+      assert.match(content, /<figure class="case-architecture" tabindex="0">/);
       assert.match(content, /<img[^>]+alt="[^"]+"/);
       assert.doesNotMatch(content, /github\.com\/frankwyf\/Company_Credit_Score/);
       assert.doesNotMatch(content, /github\.com\/frankwyf\/ai-revenue-credit-operations-platform/);

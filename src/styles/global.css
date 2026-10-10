@@ -1317,6 +1317,11 @@ h3 {
   border-top: 1px solid var(--line-strong);
 }
 
+.case-rail,
+.prose {
+  min-width: 0;
+}
+
 .case-rail {
   position: sticky;
   top: 110px;
@@ -1435,6 +1440,10 @@ h3 {
   color: var(--ink);
 }
 
+.prose code {
+  overflow-wrap: anywhere;
+}
+
 .case-architecture {
   margin: 1.5rem 0 2rem;
 }
@@ -1452,6 +1461,11 @@ h3 {
   margin-top: 0.55rem;
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.case-architecture:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .site-footer {
@@ -1555,7 +1569,7 @@ h3 {
   }
 
   .primary-nav {
-    gap: 1.1rem;
+    gap: 0.9rem;
     padding-bottom: 0.3rem;
     scroll-snap-type: inline proximity;
   }
@@ -1657,6 +1671,7 @@ h3 {
   }
 
   .case-body {
+    grid-template-columns: minmax(0, 1fr);
     gap: 3rem;
   }
 
@@ -1675,6 +1690,20 @@ h3 {
 
   .site-footer {
     padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .case-architecture {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+
+  .case-architecture img {
+    width: 800px;
+    max-width: none;
   }
 }
 

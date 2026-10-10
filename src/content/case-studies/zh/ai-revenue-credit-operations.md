@@ -41,7 +41,7 @@ draft: false
 
 系统把财务事实保留在确定性服务中，并将检索和可选 AI 辅助放在明确的身份、租户、工具与人工复核边界之后。
 
-<figure class="case-architecture">
+<figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/ai-revenue-credit-operations.svg" alt="经过公开安全处理的架构：请求经过身份与租户校验、确定性财务和数据服务、租户隔离的证据检索、可选的受控 AI、白名单工具、独立人工复核与带审计的 dry-run。" />
   <figcaption>公开安全的架构摘要，不包含源码级或部署专属信息。</figcaption>
 </figure>

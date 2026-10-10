@@ -45,7 +45,7 @@ draft: false
 
 データ契約と観測日をワークフローの入力として明示します。候補モデルは時系列を分離した証拠で比較し、ガバナンスと信用ポリシーは別の判断として扱います。
 
-<figure class="case-architecture">
+<figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/openscorecard.svg" alt="OpenScorecardの公開向けワークフロー図。合成SMEポートフォリオにスキーマ・時間・リーケージ検査を行い、Train、Validation、OOTを分離して候補モデルを比較し、ガバナンス、独立したポリシー、ローカルの読み取り専用レビューへ進みます。" />
   <figcaption>合成データを用いるローカルシステムの公開向け概要です。本番の与信サービスを示すものではありません。</figcaption>
 </figure>

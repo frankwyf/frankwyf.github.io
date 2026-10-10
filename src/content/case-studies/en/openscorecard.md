@@ -45,7 +45,7 @@ A read-only local experience connects portfolio overview, company review, model 
 
 The workflow treats the dataset contract and observation date as first-class inputs. Candidate models are compared on separated temporal evidence, while governance and credit policy remain independent decisions.
 
-<figure class="case-architecture">
+<figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/openscorecard.svg" alt="Sanitised OpenScorecard workflow: a deterministic synthetic SME portfolio passes schema, time, and leakage gates; train, validation, and out-of-time data support model comparison, governance, separate policy, and a local read-only review." />
   <figcaption>Public-safe workflow summary; it describes a synthetic local portfolio system, not a deployed underwriting service.</figcaption>
 </figure>

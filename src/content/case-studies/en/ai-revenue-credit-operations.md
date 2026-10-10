@@ -41,7 +41,7 @@ Recommendations are drafts rather than actions. A separate authorized reviewer m
 
 The architecture keeps financial truth in deterministic services and places retrieval and optional AI assistance behind explicit identity, tenant, tool, and human-review boundaries.
 
-<figure class="case-architecture">
+<figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/ai-revenue-credit-operations.svg" alt="Sanitised architecture: authenticated requests pass identity and tenant checks, deterministic finance and data services, tenant-scoped evidence retrieval, optional bounded AI, allow-listed tools, separate human review, and an audited dry-run." />
   <figcaption>A public-safe architecture summary; it omits source-level and deployment-specific details.</figcaption>
 </figure>
