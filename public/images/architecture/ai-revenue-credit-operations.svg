@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title description">
+  <title id="title">AI Revenue and Credit Operations architecture</title>
+  <desc id="description">A request passes through identity and tenant authorization to deterministic finance and data services. Contract evidence can be retrieved for optional bounded AI assistance. Recommendations require a separate human review before a simulated action, with events recorded in an audit trail.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#47786d" />
+    </marker>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, sans-serif; fill: #18332d; }
+      .box { fill: #fff; stroke: #47786d; stroke-width: 2; rx: 16; }
+      .soft { fill: #eaf3ef; }
+      .ai { fill: #edf2fa; stroke: #5474a4; }
+      .human { fill: #fff1e8; stroke: #a85c34; }
+      .title { font-size: 19px; font-weight: 700; text-anchor: middle; }
+      .detail { font-size: 14px; text-anchor: middle; fill: #4c625b; }
+      .line { stroke: #47786d; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .dash { stroke-dasharray: 7 7; }
+    </style>
+  </defs>
+  <rect width="1200" height="520" rx="24" fill="#f7faf8" />
+  <text x="48" y="52" font-size="13" font-weight="700" letter-spacing="2" fill="#176b59">REQUEST AND DECISION PATH</text>
+
+  <rect class="box" x="48" y="96" width="180" height="116" />
+  <text class="title" x="138" y="140"><tspan x="138">Authenticated</tspan><tspan x="138" dy="25">request</tspan></text>
+  <text class="detail" x="138" y="191">user · tenant · request ID</text>
+
+  <rect class="box soft" x="276" y="96" width="190" height="116" />
+  <text class="title" x="371" y="140"><tspan x="371">API boundary</tspan><tspan x="371" dy="25">Identity + RBAC</tspan></text>
+  <text class="detail" x="371" y="191">deny by default</text>
+
+  <rect class="box" x="514" y="96" width="202" height="116" />
+  <text class="title" x="615" y="140"><tspan x="615">Deterministic</tspan><tspan x="615" dy="25">finance + data</tspan></text>
+  <text class="detail" x="615" y="191">money · quality · risk</text>
+
+  <rect class="box soft" x="764" y="96" width="190" height="116" />
+  <text class="title" x="859" y="140"><tspan x="859">Tenant-scoped</tspan><tspan x="859" dy="25">evidence retrieval</tspan></text>
+  <text class="detail" x="859" y="191">citations · refusal</text>
+
+  <rect class="box ai" x="1002" y="96" width="150" height="116" />
+  <text class="title" x="1077" y="140"><tspan x="1077">Bounded AI</tspan><tspan x="1077" dy="25">optional</tspan></text>
+  <text class="detail" x="1077" y="191">no source of truth</text>
+
+  <path class="line" d="M228 154h38" />
+  <path class="line" d="M466 154h40" />
+  <path class="line" d="M716 154h40" />
+  <path class="line" d="M954 154h40" />
+
+  <rect class="box" x="260" y="328" width="210" height="104" />
+  <text class="title" x="365" y="370"><tspan x="365">PostgreSQL</tspan></text>
+  <text class="detail" x="365" y="399">tenant data · vectors · records</text>
+
+  <rect class="box ai" x="526" y="328" width="210" height="104" />
+  <text class="title" x="631" y="370"><tspan x="631">Allow-listed tools</tspan></text>
+  <text class="detail" x="631" y="399">schema · permission · audit</text>
+
+  <rect class="box human" x="792" y="328" width="170" height="104" />
+  <text class="title" x="877" y="370"><tspan x="877">Human review</tspan></text>
+  <text class="detail" x="877" y="399">separate reviewer</text>
+
+  <rect class="box soft" x="1018" y="328" width="134" height="104" />
+  <text class="title" x="1085" y="370"><tspan x="1085">Dry-run</tspan></text>
+  <text class="detail" x="1085" y="399">idempotent</text>
+
+  <path class="line" d="M615 212v64H390v46" />
+  <path class="line" d="M859 212v66H632v42" />
+  <path class="line" d="M1077 212v73H877v35" />
+  <path class="line" d="M470 380h48" />
+  <path class="line" d="M736 380h48" />
+  <path class="line" d="M962 380h48" />
+  <text x="48" y="483" font-size="14" fill="#53675f">Financial values stay in deterministic code; high-impact actions are simulations and need explicit review.</text>
+</svg>

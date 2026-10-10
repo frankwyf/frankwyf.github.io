@@ -17,7 +17,7 @@ technologies:
   - RBAC
   - Evaluation
   - AWS design
-lastVerified: 2026-08-21
+lastVerified: 2026-10-10
 draft: false
 ---
 
@@ -37,11 +37,38 @@ Contract retrieval is tenant-scoped and evidence-backed. Answers require support
 
 Recommendations are drafts rather than actions. A separate authorized reviewer must approve the current version before an idempotent dry-run adapter can simulate the result. Creator/reviewer separation, optimistic concurrency, approval-bound tokens, and append-only redacted audit events make the control path visible.
 
-## Evaluation and delivery evidence
+## Engineering Evidence
 
-The local suite covers deterministic numerical behavior, retrieval, citations, tool selection and parameters, refusal quality, adversarial prompts, and tenant isolation. Fake providers keep the default evaluation reproducible and free; optional local inference is isolated behind provider interfaces.
+The architecture keeps financial truth in deterministic services and places retrieval and optional AI assistance behind explicit identity, tenant, tool, and human-review boundaries.
 
-Container and AWS infrastructure definitions are reviewable engineering artifacts, not deployment claims. The cloud configuration remains disabled by default and has not been applied to a paid account.
+<figure class="case-architecture">
+  <img src="/images/architecture/ai-revenue-credit-operations.svg" alt="Sanitised architecture: authenticated requests pass identity and tenant checks, deterministic finance and data services, tenant-scoped evidence retrieval, optional bounded AI, allow-listed tools, separate human review, and an audited dry-run." />
+  <figcaption>A public-safe architecture summary; it omits source-level and deployment-specific details.</figcaption>
+</figure>
+
+### Implemented capabilities
+
+- Exact `Decimal` financial summaries, aging, and reconciliation with currency isolation.
+- Synthetic-data quality validation, quarantine, persisted quality runs, and versioned rules.
+- Tenant-filtered contract retrieval with citations and refusal when evidence is missing.
+- Allow-listed, schema-validated, permission-aware, audited tools and bounded orchestration.
+- Signed local identities, five-role RBAC, separate creator/reviewer control, approval-bound idempotent dry-run actions, and redacted audit events.
+- Versioned evaluation fixtures for retrieval, tool use, financial checks, adversarial handling, and tenant boundaries.
+
+### Local verification
+
+The private local checkout was checked on 10 October 2026 with `make check` and the synthetic evaluation runner (`python -m scripts.run_evaluations --report <output-file>`). The repository suite passed 122 tests with 92% application coverage. The evaluation runner passed 18 fixture cases; its default `schema-oracle-v1` validates dataset/report plumbing, not model quality. These are local verification results, not a public CI badge or hosted-service claim.
+
+### Technical decisions and demonstration
+
+- Keep money, permissions, and policy in deterministic code rather than generated text.
+- Require tenant-scoped evidence and citations for contract answers; missing evidence fails closed.
+- Restrict tool calls by schema and permission, then require a separate reviewer for simulated high-impact actions.
+- Use deterministic fake providers by default; optional local inference stays behind provider interfaces.
+
+There is no hosted interactive demo or approved public screenshot linked from this case study. The source and generated reports remain private; the public page exposes only this sanitised diagram and reviewed capability summary.
+
+Container and AWS infrastructure definitions are reviewable engineering artifacts, not deployment claims. Cloud configuration remains disabled by default and has not been applied to a paid account.
 
 ## Honest boundary
 

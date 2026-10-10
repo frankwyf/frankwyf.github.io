@@ -15,7 +15,7 @@ technologies:
   - OOT validation
   - Model governance
   - Synthetic data
-lastVerified: 2026-08-21
+lastVerified: 2026-10-10
 draft: false
 ---
 
@@ -40,6 +40,37 @@ The model estimates risk; a separate versioned policy maps that estimate to grad
 ## Review experience
 
 A read-only local experience connects portfolio overview, company review, model validation, and monitoring evidence. Score contributions can reconstruct the total score and support ranked reasons. Monitoring separates immediately available drift signals from performance evidence that only becomes meaningful after labels mature.
+
+## Engineering Evidence
+
+The workflow treats the dataset contract and observation date as first-class inputs. Candidate models are compared on separated temporal evidence, while governance and credit policy remain independent decisions.
+
+<figure class="case-architecture">
+  <img src="/images/architecture/openscorecard.svg" alt="Sanitised OpenScorecard workflow: a deterministic synthetic SME portfolio passes schema, time, and leakage gates; train, validation, and out-of-time data support model comparison, governance, separate policy, and a local read-only review." />
+  <figcaption>Public-safe workflow summary; it describes a synthetic local portfolio system, not a deployed underwriting service.</figcaption>
+</figure>
+
+### Implemented capabilities
+
+- Deterministic synthetic SME portfolio generation with explicit observation and performance windows.
+- Schema, data-quality, and temporal leakage checks before modeling.
+- Explainable scorecard, logistic baseline, and tree challenger comparison on the same temporal split.
+- Out-of-time, calibration, stability, and segment evidence with explicit governance gates and a versioned Model Card.
+- Separate, versioned decision policy with contribution-grounded reason codes and human-review bands.
+- Read-only local review views for portfolio overview, company evidence, validation, and monitoring.
+
+### Local verification
+
+On 10 October 2026, the local source suite completed with 486 passed and 3 skipped; two skips require `pyarrow`, and one requires local socket binding. Ruff and the dependency-lock check passed. `python scripts/validate_portfolio_evidence.py` passed for the synthetic fixture (`companies=3`, `files=1`); it checks public-safe markers, deterministic ordering, probability semantics, governance fields, and reconstructable score contributions, not ML quality. Mypy was unavailable in this checkout, so no type-check result is claimed. The repository is private-source and these results are local, not a public CI badge.
+
+### Technical decisions and demonstration
+
+- Keep the target label and observation/performance windows explicit so future information cannot leak into model inputs.
+- Compare candidates using the same temporal evidence rather than one headline metric.
+- Keep model risk estimates separate from versioned grades, terms, and human-review policy.
+- Keep the browser review experience read-only and use synthetic portfolio evidence.
+
+The canonical local experiment is available in the private source checkout through `make portfolio`; it generates versioned synthetic artifacts. No hosted interactive demo or approved public screenshot is linked here, and local generated results are not bundled into this site.
 
 ## Honest boundary
 

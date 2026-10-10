@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title description">
+  <title id="title">OpenScorecard model governance workflow</title>
+  <desc id="description">A deterministic synthetic SME portfolio is checked against schema, observation-time, and leakage rules, then split into train, validation, and out-of-time evidence. Explainable model candidates are evaluated for calibration, stability, and governance before a separate versioned policy and human-reviewed local read-only experience.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#47786d" />
+    </marker>
+    <style>
+      text { font-family: Inter, ui-sans-serif, system-ui, sans-serif; fill: #18332d; }
+      .box { fill: #fff; stroke: #47786d; stroke-width: 2; rx: 16; }
+      .soft { fill: #eaf3ef; }
+      .model { fill: #edf2fa; stroke: #5474a4; }
+      .human { fill: #fff1e8; stroke: #a85c34; }
+      .title { font-size: 18px; font-weight: 700; text-anchor: middle; }
+      .detail { font-size: 13px; text-anchor: middle; fill: #4c625b; }
+      .line { stroke: #47786d; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="520" rx="24" fill="#f7faf8" />
+  <text x="48" y="52" font-size="13" font-weight="700" letter-spacing="2" fill="#176b59">LOCAL MODEL-TO-POLICY EVIDENCE FLOW</text>
+
+  <rect class="box" x="48" y="96" width="204" height="116" />
+  <text class="title" x="150" y="138"><tspan x="150">Synthetic SME</tspan><tspan x="150" dy="24">portfolio</tspan></text>
+  <text class="detail" x="150" y="188">deterministic seed</text>
+
+  <rect class="box soft" x="300" y="96" width="204" height="116" />
+  <text class="title" x="402" y="138"><tspan x="402">Data contract</tspan><tspan x="402" dy="24">+ leakage gates</tspan></text>
+  <text class="detail" x="402" y="188">schema · time · quality</text>
+
+  <rect class="box" x="552" y="96" width="204" height="116" />
+  <text class="title" x="654" y="138"><tspan x="654">Train · Validation</tspan><tspan x="654" dy="24">· Out-of-time</tspan></text>
+  <text class="detail" x="654" y="188">separated evidence</text>
+
+  <rect class="box model" x="804" y="96" width="204" height="116" />
+  <text class="title" x="906" y="138"><tspan x="906">Model candidates</tspan><tspan x="906" dy="24">scorecard · logistic · tree</tspan></text>
+  <text class="detail" x="906" y="188">explainable comparison</text>
+
+  <rect class="box model" x="48" y="328" width="204" height="116" />
+  <text class="title" x="150" y="370"><tspan x="150">Validation evidence</tspan></text>
+  <text class="detail" x="150" y="402">calibration · stability · OOT</text>
+
+  <rect class="box soft" x="300" y="328" width="204" height="116" />
+  <text class="title" x="402" y="370"><tspan x="402">Model governance</tspan></text>
+  <text class="detail" x="402" y="402">Model Card · explicit gates</text>
+
+  <rect class="box" x="552" y="328" width="204" height="116" />
+  <text class="title" x="654" y="370"><tspan x="654">Separate policy</tspan></text>
+  <text class="detail" x="654" y="402">grades · terms · review bands</text>
+
+  <rect class="box human" x="804" y="328" width="204" height="116" />
+  <text class="title" x="906" y="370"><tspan x="906">Read-only review</tspan></text>
+  <text class="detail" x="906" y="402">local demo · synthetic only</text>
+
+  <path class="line" d="M252 154h40" />
+  <path class="line" d="M504 154h40" />
+  <path class="line" d="M756 154h40" />
+  <path class="line" d="M906 212v58H150v50" />
+  <path class="line" d="M252 386h40" />
+  <path class="line" d="M504 386h40" />
+  <path class="line" d="M756 386h40" />
+  <text x="48" y="485" font-size="14" fill="#53675f">Synthetic evaluation is not evidence of real-world credit performance or production underwriting readiness.</text>
+</svg>

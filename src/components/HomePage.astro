@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from './ProjectCard.astro';
+import ProfessionalEvidenceCard from './ProfessionalEvidenceCard.astro';
 import { projects } from '../data/projects';
+import { experienceTimeline } from '../data/experience';
 import { career } from '../data/career';
 import { localizedAlternates, localizedPath, type Locale } from '../i18n';
 import { t } from '../i18n/translations';
@@ -13,14 +15,20 @@ interface Props {
 
 const { locale } = Astro.props;
 const copy = t(locale);
-const professional = projects.filter((project) => project.kind === 'professional');
 const flagships = projects.filter((project) => project.kind === 'flagship');
 const engineering = projects.filter((project) => project.kind === 'engineering').slice(0, 3);
+const featuredExperienceIds = ['rheon-bom-integration', 'hitachi-phm', 'canon-credit-ml'];
+const experienceById = new Map(experienceTimeline.map((item) => [item.id, item]));
+const featuredExperience = featuredExperienceIds.flatMap((id) => {
+  const item = experienceById.get(id);
+  return item ? [item] : [];
+});
 ---
 
 <BaseLayout
   {locale}
   title={site.name}
+  seoTitle={copy.home.seoTitle}
   description={copy.home.intro}
   alternates={localizedAlternates()}
   currentPath={localizedPath(locale)}
@@ -29,12 +37,18 @@ const engineering = projects.filter((project) => project.kind === 'engineering')
     <div class="hero-copy">
       <p class="eyebrow">{copy.home.eyebrow}</p>
       <p class="identity">Yifan Wang <span>· {site.englishName}</span></p>
-      <h1>{copy.home.title}</h1>
+      <h1 class="hero-title">
+        <span>{copy.home.titleLead}</span>
+        <span class="hero-title-focus">{copy.home.titleFocus}</span>
+      </h1>
       <p class="lede">{copy.home.intro}</p>
-      <div class="button-row">
-        <a class="button primary" href="#professional-evidence">{copy.home.projectsCta}</a>
-        <a class="button secondary" href={localizedPath(locale, 'experience')}
-          >{copy.nav.experience}</a
+      <div class="button-row hero-actions">
+        <a class="button primary" href="#professional-evidence">{copy.home.engineeringCta}</a>
+        <a class="button secondary" href={localizedPath(locale, 'projects')}
+          >{copy.home.projectsCta}</a
+        >
+        <a class="button secondary" href={localizedPath(locale, 'contact')}
+          >{copy.home.contactCta}</a
         >
       </div>
       <div class="social-row">
@@ -52,19 +66,24 @@ const engineering = projects.filter((project) => project.kind === 'engineering')
       <span>{career.currentRole.title}</span>
       <span>{career.currentRole.period}</span>
       <ul>
-        <li>2+ years enterprise engineering</li>
-        <li>Python / SQL / .NET</li>
+        <li>{copy.home.snapshotFocus}</li>
         <li>{copy.home.snapshotAi}</li>
-        <li>EN · 日本語 · 中文</li>
+        <li>{copy.home.snapshotEducation}</li>
       </ul>
     </aside>
   </section>
 
   <section class="proof-strip section-shell" aria-label={copy.home.snapshotTitle}>
-    <div><strong>2+</strong><span>years enterprise engineering</span></div>
-    <div><strong>1</strong><span>end-to-end customer delivery</span></div>
-    <div><strong>3</strong><span>AWS certifications earned</span></div>
-    <div><strong>3</strong><span>working languages</span></div>
+    <div>
+      <strong>{copy.home.proofEducationTitle}</strong><span>{copy.home.proofEducation}</span>
+    </div>
+    <div>
+      <strong>{copy.home.proofEngineeringTitle}</strong><span>{copy.home.proofEngineering}</span>
+    </div>
+    <div>
+      <strong>{copy.home.proofCertificationTitle}</strong><span>{copy.home.proofCertification}</span
+      >
+    </div>
   </section>
 
   <section class="section section-shell" id="professional-evidence">
@@ -75,12 +94,18 @@ const engineering = projects.filter((project) => project.kind === 'engineering')
       </div>
       <p>{career.experienceIntro[locale]}</p>
     </header>
-    <div class="project-grid professional-grid">
-      {professional.map((project) => <ProjectCard project={project} {locale} />)}
+    <div class="professional-evidence-grid">
+      {featuredExperience.map((item) => <ProfessionalEvidenceCard {item} {locale} />)}
     </div>
-    <ul class="evidence-list">
-      {career.experienceHighlights[locale].map((item) => <li>{item}</li>)}
-    </ul>
+    <div class="additional-evidence">
+      <span>{copy.home.additionalEvidence}</span>
+      <a href={localizedPath(locale, 'projects/nx-python-add-on-delivery')}
+        >{copy.home.additionalNx}</a
+      >
+      <a href={localizedPath(locale, 'projects/enterprise-ai-assisted-engineering')}
+        >{copy.home.additionalUat}</a
+      >
+    </div>
     <a class="button secondary section-action" href={localizedPath(locale, 'experience')}
       >{copy.experience.viewAll} →</a
     >

@@ -11,9 +11,9 @@ export const site = {
     zh: '中国上海',
   },
   availability: {
-    en: 'Open to international roles and relocation',
-    ja: '海外ポジション・転居も検討',
-    zh: '开放国际机会与搬迁',
+    en: 'Open to UK and international roles · relocation-ready',
+    ja: '英国を含む海外ポジション・転居も検討',
+    zh: '开放英国及国际机会，可考虑搬迁',
   },
 } as const;
 
