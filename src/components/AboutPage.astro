@@ -85,7 +85,7 @@ const copy = t(locale);
             <li>
               <>
                 <strong>{certification.name}</strong>
-                <span class:list={{ 'status-in-progress': certification.status === 'In progress' }}>
+                <span>
                   {certification.issuer} · {certification.status}
                 </span>
               </>
@@ -93,6 +93,7 @@ const copy = t(locale);
           ))
         }
       </ul>
+      <p class="panel-note certification-note">{copy.about.preparing}</p>
     </article>
     <article class="info-panel">
       <p class="eyebrow">{copy.about.locationTitle}</p><p class="panel-large">

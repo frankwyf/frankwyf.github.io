@@ -43,7 +43,10 @@ test('all case studies have complete locale coverage and origin labels', async (
       assert.match(content, new RegExp(`^translationKey: ${slug}$`, 'm'));
       assert.match(content, new RegExp(`^routeSlug: ${slug}$`, 'm'));
       assert.match(content, /^origin: (professional|personal)$/m);
-      assert.match(content, /^maturity: (delivered|poc|ai-assisted|portfolio-system)$/m);
+      assert.match(
+        content,
+        /^maturity: (delivered|poc|production-integration|ai-assisted|portfolio-system|in-progress|research)$/m,
+      );
       assert.match(content, /^lastVerified: \d{4}-\d{2}-\d{2}$/m);
     }
   }
@@ -58,7 +61,7 @@ test('professional case studies preserve disclosure and evidence boundaries', as
     );
     assert.match(content, /^origin: professional$/m);
     assert.match(content, new RegExp(`^client: (${allowedClients.join('|')})$`, 'm'));
-    const claimBody = content.split('## Boundary')[0];
+    const claimBody = content.split(/## (?:Evidence and )?Boundary/i)[0];
     assert.doesNotMatch(
       claimBody,
       /production (?:ML|GenAI) platform|deployed underwriting service/i,
@@ -101,13 +104,38 @@ test('flagship engineering evidence stays localized, private-safe, and dated', a
   );
 });
 
+test('English architecture diagrams have localized, visible flow summaries and scroll guidance', async () => {
+  const scrollCue = {
+    en: 'Swipe horizontally to inspect the diagram.',
+    ja: '図は横スクロールで確認できます。',
+    zh: '图示可横向滚动查看。',
+  };
+  const flowCue = {
+    en: 'Flow:',
+    ja: '流れ：',
+    zh: '流程：',
+  };
+  for (const locale of ['en', 'ja', 'zh']) {
+    for (const slug of ['ai-revenue-credit-operations', 'openscorecard']) {
+      const content = await readFile(
+        path.join(root, 'src', 'content', 'case-studies', locale, `${slug}.md`),
+        'utf8',
+      );
+      const figure = content.match(/<figure class="case-architecture"[\s\S]*?<\/figure>/)?.[0];
+      assert.ok(figure);
+      assert.match(figure, /<img[^>]+alt="[^"]+"/);
+      assert.match(figure, new RegExp(`<figcaption>${scrollCue[locale]}[^<]*${flowCue[locale]}`));
+    }
+  }
+});
+
 test('home prioritizes backend and data evidence with three localized actions', async () => {
   const home = await readFile(path.join(root, 'src', 'components', 'HomePage.astro'), 'utf8');
   const translations = await readFile(path.join(root, 'src', 'i18n', 'translations.ts'), 'utf8');
   const projects = await readFile(path.join(root, 'src', 'data', 'projects.ts'), 'utf8');
   assert.match(
     home,
-    /featuredExperienceIds = \['rheon-bom-integration', 'hitachi-phm', 'canon-credit-ml'\]/,
+    /featuredExperienceIds = \['nx-python-add-on', 'canon-credit-ml', 'rheon-bom-integration'\]/,
   );
   assert.match(translations, /engineeringCta: 'View Engineering Work'/);
   assert.match(translations, /projectsCta: 'Explore Projects'/);
@@ -121,6 +149,57 @@ test('home prioritizes backend and data evidence with three localized actions', 
     order.map((slug) => engineeringProjects.indexOf(`slug: '${slug}'`)),
     [...order].map((slug) => engineeringProjects.indexOf(`slug: '${slug}'`)).sort((a, b) => a - b),
   );
+});
+
+test('latest professional case studies use confirmed scope and maturity boundaries', async () => {
+  const readCase = (locale, slug) =>
+    readFile(path.join(root, 'src', 'content', 'case-studies', locale, `${slug}.md`), 'utf8');
+  const [credit, nx, uat] = await Promise.all([
+    readCase('en', 'b2b-credit-management-ml-poc'),
+    readCase('en', 'nx-python-add-on-delivery'),
+    readCase('en', 'enterprise-ai-assisted-engineering'),
+  ]);
+
+  assert.match(credit, /^maturity: production-integration$/m);
+  assert.match(credit, /resulting model is now used in the customer's business platform/i);
+  assert.match(credit, /assigned model component/i);
+  assert.match(credit, /do not claim sole ownership of the model or independent deployment/i);
+  assert.match(nx, /customer deployed and continues to use/i);
+  assert.match(nx, /partial follow-up maintenance/i);
+  assert.match(nx, /A colleague handled on-site customer communication/i);
+  assert.match(nx, /I independently delivered the technical implementation/i);
+  assert.match(nx, /does not claim a formal technical-lead title/i);
+  assert.match(uat, /^maturity: in-progress$/m);
+  assert.match(uat, /individual responsibilities are being confirmed/i);
+  const uatDescription = uat.replace(/^---[\s\S]*?---\s*/, '').split('## Boundary')[0];
+  assert.doesNotMatch(uatDescription, /Playwright|AI agent|AI-assisted|test-automation system/i);
+  assert.match(uat, /not evidence of a completed AI agent, test-automation system/i);
+});
+
+test('profile copy reflects current credentials, languages, and enterprise stack', async () => {
+  const translations = await readFile(path.join(root, 'src', 'i18n', 'translations.ts'), 'utf8');
+  const siteData = await readFile(path.join(root, 'src', 'data', 'site.ts'), 'utf8');
+  const experience = await readFile(path.join(root, 'src', 'data', 'experience.ts'), 'utf8');
+  assert.match(
+    translations,
+    /Japanese — JLPT N2; basic conversation, limited spontaneous business conversation/,
+  );
+  assert.match(translations, /日本語 — JLPT N2、日常会話初級。即興のビジネス会話には制約あり/);
+  assert.match(translations, /日语 — JLPT N2，基础日常会话；即兴商务会话有限/);
+  assert.doesNotMatch(
+    translations,
+    /C#\/.NET|Japanese — JLPT N2 \/ business communication|JLPT N2 \/ 業務コミュニケーション|JLPT N2 \/ 商务沟通/,
+  );
+  assert.match(translations, /VB\.NET maintenance and feature work/);
+  assert.match(translations, /VB\.NET 系统维护与功能开发/);
+  assert.doesNotMatch(siteData, /Data Engineer – Associate \(DEA-C01\)/);
+  assert.match(
+    translations,
+    /AWS Certified Data Engineer – Associate \(DEA-C01\)\. Not yet earned/,
+  );
+  assert.match(experience, /id: 'enterprise-planning-uat'/);
+  assert.match(experience, /id: 'workflow-feasibility-study'/);
+  assert.doesNotMatch(experience, /200,?000|20万/);
 });
 
 test('localized core route files exist', async () => {

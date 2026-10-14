@@ -47,7 +47,7 @@ draft: false
 
 <figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/openscorecard.svg" alt="OpenScorecardの公開向けワークフロー図。合成SMEポートフォリオにスキーマ・時間・リーケージ検査を行い、Train、Validation、OOTを分離して候補モデルを比較し、ガバナンス、独立したポリシー、ローカルの読み取り専用レビューへ進みます。" />
-  <figcaption>合成データを用いるローカルシステムの公開向け概要です。本番の与信サービスを示すものではありません。</figcaption>
+  <figcaption>図は横スクロールで確認できます。流れ：合成SMEデータ → スキーマ・時間・リーケージ検査 → 時系列を分けたモデル比較 → ガバナンスゲート → バージョン管理された与信ポリシー → ローカルの読み取り専用レビュー。ローカルのポートフォリオシステムであり、本番与信サービスではありません。</figcaption>
 </figure>
 
 ### 実装済み機能

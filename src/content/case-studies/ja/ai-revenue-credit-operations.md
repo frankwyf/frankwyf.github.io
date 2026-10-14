@@ -43,7 +43,7 @@ Revenue・Credit部門では、顧客、契約、請求、支払、返金、利�
 
 <figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/ai-revenue-credit-operations.svg" alt="公開向けに整理した構成図。認証済みリクエストはIDとテナントの検証、決定論的な財務・データ処理、テナント分離検索、任意の制御されたAI、許可リスト型ツール、別担当者によるレビュー、監査付きドライランを通ります。" />
-  <figcaption>公開可能な範囲に整理した構成概要です。ソースコードやデプロイ固有の情報は含みません。</figcaption>
+  <figcaption>図は横スクロールで確認できます。処理の流れ：認証済みリクエスト → ID・テナント確認 → 決定論的な財務・データ処理 → テナント分離検索（制御されたAIは任意） → 許可リスト型ツール → 独立した人による確認 → 監査付きドライラン。ソースコードやデプロイ固有の情報は含みません。</figcaption>
 </figure>
 
 ### 実装済み機能

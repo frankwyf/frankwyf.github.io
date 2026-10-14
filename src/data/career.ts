@@ -19,25 +19,25 @@ export const career = {
     zh: '以企业软件与数据工程为基础，正在走向应用 AI 的软件与数据工程师。',
   } satisfies LocalizedText,
   experienceIntro: {
-    en: 'My work connects enterprise software delivery, Python/SQL data integration, financial-data validation, customer-facing delivery, and controlled AI-assisted engineering.',
-    ja: '企業向けソフトウェア、Python/SQLによるデータ連携、財務データ検証、顧客向けデリバリー、制御されたAI活用エンジニアリングをつないでいます。',
-    zh: '我的工作连接企业软件交付、Python/SQL 数据集成、财务数据验证、客户交付，以及受控的 AI 辅助工程。',
+    en: 'My professional work spans enterprise software delivery, Python/SQL data integration, financial-data validation, and applied ML, alongside current research into enterprise workflow automation and AI feasibility.',
+    ja: '企業向けソフトウェア、Python/SQLデータ連携、財務データ検証、実務MLに携わり、現在は企業ワークフローの自動化やAI活用の可能性も調査しています。',
+    zh: '我的职业经历涵盖企业软件交付、Python/SQL 数据集成、财务数据验证和应用机器学习；近期也在研究企业工作流自动化与 AI 应用的可行性。',
   } satisfies LocalizedText,
   experienceHighlights: {
     en: [
-      'Independently delivered a Python-based NX engineering add-on from investigation and proposal through implementation, documentation, delivery, and maintenance.',
-      'Contributed model construction, data preprocessing, and technical validation to a professional B2B credit-management ML proof of concept.',
-      'Designed evidence-led enterprise validation with Python/Playwright, network inspection, source analysis, AI assistance, and human review.',
+      'Independently delivered the technical implementation, testing, and documentation for a Dalian Ryobi Python add-on that the customer deployed and continues to use; I provided partial follow-up maintenance, while a colleague handled on-site communication.',
+      'Contributed model construction, data preparation, and validation to a B2B credit-scorecard POC, then aligned my assigned component for production integration; the resulting model is now used in the customer platform.',
+      'Built Python/SQL data integration for PLM-to-SQL Server BOM workflows and validated it in Azure; this was environment validation, not an Azure production deployment.',
     ],
     ja: [
-      'PythonによるNXエンジニアリングアドオンを、調査・提案から実装、文書化、納品、保守まで一貫して担当。',
-      'B2B与信管理ML PoCで、モデル構築、データ前処理の一部、技術検証に貢献。',
-      'Python/Playwright、ネットワーク確認、ソース分析、AI支援、人による確認を組み合わせた証拠重視の企業検証を設計。',
+      'Dalian Ryobi向けPythonアドオンの技術実装、テスト、文書作成、引き継ぎを独立して担当。顧客が導入して継続利用しており、納品後の保守も一部担当しました。現地対応は同僚が担いました。',
+      'B2B与信スコアカードPoCでモデル構築、データ準備、検証に貢献し、その後、担当コンポーネントの本番連携を調整。モデルは顧客プラットフォームで利用されています。',
+      'PLMからSQL ServerへのBOMデータ連携にPython/SQLを用い、Azure環境で検証しました。Azureへの本番デプロイを示すものではありません。',
     ],
     zh: [
-      '独立交付 Python NX 工程插件，覆盖技术调查、方案提案、实现、文档、交付与维护。',
-      '参与企业 B2B 信用管理机器学习 POC，负责模型构建、部分数据预处理与技术验证。',
-      '结合 Python/Playwright、网络检查、源码分析、AI 辅助和人工复核，设计以证据为核心的企业验证流程。',
+      '独立完成 Dalian Ryobi Python 插件的技术实现、测试、文档与交接；客户已部署并持续使用，我也承担部分后续维护。现场沟通由同事负责。',
+      '参与 B2B 信用评分 POC 的模型构建、数据准备与验证，随后协调本人负责的组件进行生产集成；该模型目前已在客户平台中使用。',
+      '使用 Python/SQL 将 PLM 流程中的 BOM 数据集成到 SQL Server，并在 Azure 环境验证；这不代表部署或运营了 Azure 生产服务。',
     ],
   } satisfies Record<Locale, string[]>,
   education: {
@@ -49,7 +49,7 @@ export const career = {
     en: [
       [
         'Enterprise software',
-        'C#/.NET applications, integration, testing, and production validation.',
+        'VB.NET maintenance and feature development, plus Java/Spring Boot enterprise project experience.',
       ],
       [
         'Data and finance',
@@ -57,21 +57,21 @@ export const career = {
       ],
       [
         'Applied AI transition',
-        'Professional ML POC and controlled AI-assisted engineering alongside private portfolio systems.',
+        'Professional ML POC, ongoing workflow-feasibility research, and private Applied AI portfolio systems.',
       ],
     ],
     ja: [
-      ['企業向けソフトウェア', 'C#/.NETアプリケーション、連携、テスト、運用検証。'],
+      ['企業向けソフトウェア', 'VB.NETによる保守・機能開発と、Java/Spring Bootの企業案件経験。'],
       ['データと財務', 'Python/SQL ETL、データ品質、照合、与信ワークフロー、財務データ検証。'],
       [
         '応用AIへの移行',
-        '専門業務でのML PoCと、非公開ポートフォリオを並行する制御されたAI活用エンジニアリング。',
+        '実務ML PoC、進行中の業務ワークフロー調査、非公開の応用AIポートフォリオ。',
       ],
     ],
     zh: [
-      ['企业软件', 'C#/.NET 应用、系统集成、测试与生产验证。'],
+      ['企业软件', 'VB.NET 系统维护与功能开发，以及 Java/Spring Boot 企业项目经验。'],
       ['数据与金融', 'Python/SQL ETL、数据质量、对账、信用风险流程与财务数据验证。'],
-      ['走向应用 AI', '专业 ML POC 与受控 AI 辅助工程，结合私有源码个人项目持续实践。'],
+      ['走向应用 AI', '专业 ML POC、进行中的工作流可行性研究，以及私有源码应用 AI 个人项目。'],
     ],
   } satisfies Record<Locale, [string, string][]>,
 } as const;

@@ -43,7 +43,7 @@ The architecture keeps financial truth in deterministic services and places retr
 
 <figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/ai-revenue-credit-operations.svg" alt="Sanitised architecture: authenticated requests pass identity and tenant checks, deterministic finance and data services, tenant-scoped evidence retrieval, optional bounded AI, allow-listed tools, separate human review, and an audited dry-run." />
-  <figcaption>A public-safe architecture summary; it omits source-level and deployment-specific details.</figcaption>
+  <figcaption>Swipe horizontally to inspect the diagram. Flow: authenticated request → identity and tenant checks → deterministic finance and data → tenant-scoped retrieval with optional bounded AI → allow-listed tools → separate human review → audited dry-run. Source and deployment details are omitted.</figcaption>
 </figure>
 
 ### Implemented capabilities

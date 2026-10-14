@@ -3,7 +3,13 @@ import type { Locale } from '../i18n';
 type LocalizedText = Record<Locale, string>;
 
 export type ExperienceMaturity =
-  'delivered' | 'poc' | 'professional-work' | 'ai-assisted' | 'in-progress';
+  | 'delivered'
+  | 'poc'
+  | 'production-integration'
+  | 'professional-work'
+  | 'ai-assisted'
+  | 'in-progress'
+  | 'research';
 
 export interface ExperienceItem {
   id: string;
@@ -33,20 +39,20 @@ export const experienceTimeline: ExperienceItem[] = [
       zh: '面向生产数据管理、分析与监控的业务关键型企业软件。',
     },
     contribution: {
-      en: 'Developed and unit-tested .NET modules while supporting data accuracy, system reliability, and validation from design through implementation.',
-      ja: '設計から実装まで.NETモジュールの開発・単体テストを行い、データ精度、信頼性、検証を支援。',
-      zh: '开发并单元测试 .NET 模块，从设计到实现支持数据准确性、系统可靠性与验证。',
+      en: 'Investigated and fixed UI and workflow defects, implemented and tested assigned VB.NET features, and built FTP/SFTP transfers between Windows servers on separate LANs. System design was handled by the PM and other team members.',
+      ja: '画面・業務フローの不具合を調査・修正し、担当機能をVB.NETで実装・テスト。異なるLAN上のWindowsサーバー間のFTP/SFTP転送も実装しました。システム設計はPMと他のチームメンバーが担当しました。',
+      zh: '调查并修复界面及业务流程缺陷，使用 VB.NET 实现和测试所负责的功能，并开发不同局域网 Windows 服务器间的 FTP/SFTP 文件传输。系统设计由 PM 和其他团队成员负责。',
     },
-    technologies: ['C#/.NET', 'Production data', 'Testing'],
+    technologies: ['VB.NET', 'FTP/SFTP', 'Windows Server', 'Testing'],
     maturity: 'professional-work',
   },
   {
-    id: 'credit-saison-stravis',
+    id: 'credit-saison-data-validation',
     client: 'Credit Saison',
     title: {
-      en: 'STRAVIS accounting-data verification',
-      ja: 'STRAVIS会計データ検証',
-      zh: 'STRAVIS 会计数据验证',
+      en: 'Enterprise accounting-data validation',
+      ja: '企業会計データの検証',
+      zh: '企业会计数据验证',
     },
     period: 'Oct–Dec 2024',
     summary: {
@@ -77,9 +83,9 @@ export const experienceTimeline: ExperienceItem[] = [
       zh: '使用 Python/SQL 将 PLM 流程中的 BOM 数据集成到 SQL Server。',
     },
     contribution: {
-      en: 'Built multithreaded processing and validated execution and data integrity in an Azure production environment.',
-      ja: 'マルチスレッド処理を実装し、Azureの運用環境で実行結果とデータ整合性を検証。',
-      zh: '构建多线程处理，并在 Azure 生产环境验证执行结果与数据完整性。',
+      en: 'Built rerunnable Python/SQL bulk-import processing with asynchronous execution and batch writes, then validated the tool and data integrity in an Azure environment.',
+      ja: '再実行可能なPython/SQL一括取込処理を開発し、非同期実行とバッチ書き込みを実装。Azure環境でツールとデータ整合性を検証しました。',
+      zh: '构建可重复运行的 Python/SQL 批量导入流程，实现异步执行和批量写入，并在 Azure 环境中验证工具与数据完整性。',
     },
     technologies: ['Python', 'SQL Server', 'ETL', 'Azure'],
     maturity: 'professional-work',
@@ -88,22 +94,22 @@ export const experienceTimeline: ExperienceItem[] = [
     id: 'nx-python-add-on',
     client: 'Dalian Ryobi',
     title: {
-      en: 'NX Python engineering add-on',
-      ja: 'NX Pythonエンジニアリングアドオン',
-      zh: 'NX Python 工程插件',
+      en: 'Python engineering add-on for Siemens NX',
+      ja: 'Siemens NX向けPythonエンジニアリングアドオン',
+      zh: '用于 Siemens NX 的 Python 工程插件',
     },
     period: 'Sep–Oct 2025',
     summary: {
-      en: 'A scoped customer-facing engineering delivery with independent ownership across the full lifecycle.',
-      ja: '開発ライフサイクル全体を主体的に担った、範囲の明確な顧客向けエンジニアリング案件。',
-      zh: '一个范围明确、覆盖完整生命周期并由我独立负责的客户工程交付。',
+      en: 'A customer-deployed Python tool for rule-based NC instruction checks and schedule-file generation.',
+      ja: 'NC命令のルール検証と日程ファイル生成を行う、顧客導入済みのPythonツール。',
+      zh: '已由客户部署使用的 Python 工具，用于按规则检查 NC 指令并生成日程文件。',
     },
     contribution: {
-      en: 'Owned investigation, proposal, implementation, technical questions, documentation, final delivery, and maintenance.',
-      ja: '調査、提案、実装、技術Q&A、文書化、納品、保守を一貫して担当。',
-      zh: '负责技术调查、方案提案、实现、技术问答、文档、最终交付与维护。',
+      en: 'Independently delivered the technical implementation, testing, user documentation, and handoff, then provided partial follow-up maintenance. The customer deployed the add-on and continues to use it; a colleague handled on-site communication.',
+      ja: '技術実装、テスト、ユーザー文書、引き継ぎを独立して担当し、納品後の保守も一部行いました。顧客がアドオンを導入して継続利用しており、現地での顧客対応は同僚が担当しました。',
+      zh: '独立完成插件技术实现、测试、用户文档和交接，并承担部分后续维护。客户已部署并持续使用；现场客户沟通由同事负责。',
     },
-    technologies: ['Python', 'NX add-on', 'Delivery', 'Maintenance'],
+    technologies: ['Python', 'Siemens NX', 'Rule-based validation', 'Windows executable'],
     maturity: 'delivered',
     caseStudySlug: 'nx-python-add-on-delivery',
   },
@@ -111,66 +117,66 @@ export const experienceTimeline: ExperienceItem[] = [
     id: 'canon-credit-ml',
     client: 'Canon Optics China',
     title: {
-      en: 'B2B credit-management ML POC',
-      ja: 'B2B与信管理ML PoC',
-      zh: 'B2B 信用管理 ML POC',
+      en: 'B2B credit scorecard: POC and production integration',
+      ja: 'B2B与信スコアカード：PoCと本番連携',
+      zh: 'B2B 信用评分模型：POC 与生产集成',
     },
-    period: 'Aug 2025 · Nov 2025 · Mar–Jun 2026',
+    period: 'Aug–Nov 2025 · Mar–Jun 2026',
     summary: {
-      en: 'A professional proof of concept for customer evaluation and credit-management decision support.',
-      ja: '顧客評価と与信管理の意思決定支援を目的とした、実務上の機械学習PoC。',
-      zh: '面向客户评价与信用管理决策支持的专业机器学习概念验证。',
+      en: 'A 2025 professional POC followed by production integration of my assigned model component in 2026. The resulting model is now used in the customer’s business platform.',
+      ja: '2025年の実務PoCに続き、2026年に担当モデルコンポーネントを本番連携。モデルは顧客の業務プラットフォームで現在利用されています。',
+      zh: '2025 年的专业 POC 后，于 2026 年将本人负责的模型组件与客户平台进行生产集成。该模型目前已在客户业务平台中使用。',
     },
     contribution: {
-      en: 'Contributed model construction, part of data preprocessing, technical validation, architecture discussion, meetings, and presentations.',
-      ja: 'モデル構築、データ前処理の一部、技術検証、アーキテクチャ議論、会議、発表に貢献。',
-      zh: '参与模型构建、部分数据预处理、技术验证、架构讨论、会议与成果展示。',
+      en: 'Contributed to scorecard model construction and validation during the POC, then aligned my assigned model component with the customer’s platform for production integration. I do not claim independent deployment or ownership of the full platform lifecycle.',
+      ja: 'PoCでスコアカードモデルの構築・検証に貢献し、その後、担当モデルコンポーネントの顧客プラットフォームへの本番連携を調整しました。単独での本番デプロイやプラットフォーム全体のライフサイクル管理は主張しません。',
+      zh: '在 POC 阶段参与评分卡模型构建与验证，随后协调本人负责的模型组件与客户平台进行生产集成。我不声称独立完成部署或负责整个生产平台生命周期。',
     },
-    technologies: ['Python', 'Credit scoring', 'Data preprocessing', 'ML validation'],
-    maturity: 'poc',
+    technologies: ['Python', 'Credit scoring', 'Data preparation', 'Model integration'],
+    maturity: 'production-integration',
     caseStudySlug: 'b2b-credit-management-ml-poc',
   },
 ];
 
 export const developingExperience: ExperienceItem[] = [
   {
-    id: 'emphasight',
+    id: 'enterprise-planning-uat',
     title: {
-      en: 'EMPHASIGHT enterprise analytics work',
-      ja: 'EMPHASIGHTエンタープライズ分析業務',
-      zh: 'EMPHASIGHT 企业分析工作',
+      en: 'Enterprise planning-system UAT assignment',
+      ja: '企業計画システムのUAT業務',
+      zh: '企业计划系统 UAT 工作',
     },
     summary: {
-      en: 'Assigned enterprise analytics and business-software work involving financial/transaction analysis, Java systems, data, and AI-assisted development opportunities.',
-      ja: '財務・取引分析、Java系企業システム、データ、AI活用開発の可能性に関わる業務。',
-      zh: '涉及财务/交易分析、Java 企业系统、数据与 AI 辅助开发机会的企业分析与业务软件工作。',
+      en: 'An ongoing enterprise planning-system UAT assignment. My individual scope, tools, defect work, and outcomes are not yet confirmed and are not claimed here.',
+      ja: '企業向け計画システムのUAT業務です。本人の具体的な担当範囲、使用ツール、欠陥対応、成果は確認中です。',
+      zh: '企业计划系统的 UAT 工作。本人具体职责、所用工具、缺陷处理和结果仍在核实中。',
     },
     contribution: {
-      en: 'Developing assignment; no mature production GenAI or completed AI transformation is claimed.',
-      ja: '進行中の業務であり、成熟した本番GenAI導入や完了したAI変革は主張しません。',
-      zh: '属于正在发展的工作，不宣称成熟的生产 GenAI 或已完成的 AI 转型。',
+      en: 'Current project-level assignment only. Specific personal testing, automation, defect, and delivery claims are not made while scope is being confirmed.',
+      ja: '現時点では進行中の業務としてのみ記載しています。担当範囲の確認中のため、個人のテスト、自動化、不具合対応、納品に関する具体的な主張はしていません。',
+      zh: '目前仅作为进行中的项目工作记录。职责范围尚待确认，因此不对个人测试、自动化、缺陷处理或交付作具体声明。',
     },
-    technologies: ['Enterprise analytics', 'Java', 'SQL', 'AI-assisted development'],
+    technologies: ['Enterprise system', 'UAT (project-level)'],
     maturity: 'in-progress',
   },
   {
-    id: 'stravis-ai-productivity',
+    id: 'workflow-feasibility-study',
     title: {
-      en: 'STRAVIS AI productivity initiative',
-      ja: 'STRAVIS AI生産性向上イニシアチブ',
-      zh: 'STRAVIS AI 效率提升计划',
+      en: 'Consultant workflow automation & AI feasibility study',
+      ja: 'コンサルタント業務の自動化・AI活用可能性調査',
+      zh: '顾问工作流自动化与 AI 可行性研究',
     },
     summary: {
-      en: 'An in-progress investigation of controlled AI-assisted workflows for repetitive configuration and consulting work.',
-      ja: '設定・コンサルティング作業の反復部分を対象に、制御されたAI活用ワークフローを検討する取り組み。',
-      zh: '正在研究如何用受控的 AI 辅助流程减少重复配置与咨询工作。',
+      en: 'Mapping file-layout, spreadsheet data-mapping, and configuration-check workflows to assess where automation or AI could help consultants.',
+      ja: 'ファイルレイアウト、Excelデータマッピング、設定確認の業務フローを整理し、自動化やAIがコンサルタントを支援できる領域を調査しています。',
+      zh: '梳理文件布局、Excel 数据映射和配置检查等流程，研究自动化或 AI 可为顾问提供帮助的环节。',
     },
     contribution: {
-      en: 'Focuses on opportunity discovery and workflow analysis; reusable tools and measured productivity gains are not claimed.',
-      ja: '機会発見と業務分析が中心で、再利用可能なツールの納品や定量的な生産性向上は主張しません。',
-      zh: '重点是机会发现与工作流分析，不宣称已交付可复用工具或取得量化效率提升。',
+      en: 'Research / investigation in progress. No automation code, reusable tool, formal deliverable, adoption, or measured gain is claimed.',
+      ja: '調査・実現可能性の検討段階です。自動化コード、再利用可能なツール、正式成果物、導入実績、定量的な効果は主張しません。',
+      zh: '目前处于研究与可行性调查阶段。不声称已有自动化代码、可复用工具、正式交付物、团队采用或量化收益。',
     },
-    technologies: ['AI productivity', 'Workflow analysis', 'Human review'],
-    maturity: 'in-progress',
+    technologies: ['Workflow mapping', 'Configuration checks', 'Automation / AI feasibility'],
+    maturity: 'research',
   },
 ];

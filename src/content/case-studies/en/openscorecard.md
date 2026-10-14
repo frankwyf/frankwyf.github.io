@@ -47,7 +47,7 @@ The workflow treats the dataset contract and observation date as first-class inp
 
 <figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/openscorecard.svg" alt="Sanitised OpenScorecard workflow: a deterministic synthetic SME portfolio passes schema, time, and leakage gates; train, validation, and out-of-time data support model comparison, governance, separate policy, and a local read-only review." />
-  <figcaption>Public-safe workflow summary; it describes a synthetic local portfolio system, not a deployed underwriting service.</figcaption>
+  <figcaption>Swipe horizontally to inspect the diagram. Flow: synthetic SME data → schema, time, and leakage checks → time-separated model comparison → governance gates → versioned credit policy → local read-only review. This is a local portfolio system, not a deployed underwriting service.</figcaption>
 </figure>
 
 ### Implemented capabilities

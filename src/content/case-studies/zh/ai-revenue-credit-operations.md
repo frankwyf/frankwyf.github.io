@@ -43,7 +43,7 @@ draft: false
 
 <figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/ai-revenue-credit-operations.svg" alt="经过公开安全处理的架构：请求经过身份与租户校验、确定性财务和数据服务、租户隔离的证据检索、可选的受控 AI、白名单工具、独立人工复核与带审计的 dry-run。" />
-  <figcaption>公开安全的架构摘要，不包含源码级或部署专属信息。</figcaption>
+  <figcaption>图示可横向滚动查看。流程：已认证请求 → 身份与租户校验 → 确定性财务和数据处理 → 租户隔离检索（可选的有界 AI）→ 白名单工具 → 独立人工复核 → 带审计的 dry-run。图中不包含源码级或部署专属信息。</figcaption>
 </figure>
 
 ### 已实现能力

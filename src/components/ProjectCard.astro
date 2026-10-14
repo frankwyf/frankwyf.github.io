@@ -20,6 +20,7 @@ const actionLabel =
       ? copy.viewCase
       : copy.viewProject;
 const maturityLabel = copy.maturity[project.maturity];
+const title = project.localizedTitle?.[locale] ?? project.title;
 ---
 
 <article
@@ -45,7 +46,7 @@ const maturityLabel = copy.maturity[project.maturity];
       {project.kind === 'professional' ? 'P' : project.kind === 'flagship' ? 'F' : 'E'}
     </span>
   </div>
-  <h3>{project.title}</h3>
+  <h3>{title}</h3>
   {
     (project.client || project.period) && (
       <p class="project-meta">
@@ -72,7 +73,7 @@ const maturityLabel = copy.maturity[project.maturity];
     href={href}
     target={external ? '_blank' : undefined}
     rel={external ? 'external noopener' : undefined}
-    aria-label={`${actionLabel}: ${project.title}`}
+    aria-label={`${actionLabel}: ${title}`}
   >
     {actionLabel}
     <span aria-hidden="true">{external ? '↗' : '→'}</span>

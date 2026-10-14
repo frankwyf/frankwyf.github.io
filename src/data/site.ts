@@ -11,9 +11,9 @@ export const site = {
     zh: '中国上海',
   },
   availability: {
-    en: 'Open to UK and international roles · relocation-ready',
-    ja: '英国を含む海外ポジション・転居も検討',
-    zh: '开放英国及国际机会，可考虑搬迁',
+    en: 'Open to UK / Europe roles and selected Japan opportunities · relocation-ready',
+    ja: '英国・欧州と条件の合う日本のポジションを希望 · 転居可',
+    zh: '开放英国/欧洲及符合条件的日本机会 · 可考虑搬迁',
   },
 } as const;
 
@@ -34,18 +34,23 @@ export const certifications = [
     status: 'Earned',
   },
   {
-    name: 'Digital Industries Software Credentials',
+    name: 'Siemens 2026 Sales Professional Certificate',
     issuer: 'Siemens',
     status: 'Earned',
   },
   {
-    name: 'AWS Certified Data Engineer – Associate (DEA-C01)',
-    issuer: 'Amazon Web Services',
-    status: 'In progress',
+    name: 'Siemens 2026 Sales Associate Certificate',
+    issuer: 'Siemens',
+    status: 'Earned',
   },
   {
-    name: 'PTC Certified Codebeamer Implementation Practitioner',
-    issuer: 'PTC',
-    status: 'In progress',
+    name: 'Siemens 2026 PreSales Associate Certificate',
+    issuer: 'Siemens',
+    status: 'Earned',
+  },
+  {
+    name: 'Siemens 2025 PreSales Associate Certificate',
+    issuer: 'Siemens',
+    status: 'Earned',
   },
 ] as const;

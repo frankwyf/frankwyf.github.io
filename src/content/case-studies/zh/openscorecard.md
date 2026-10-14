@@ -47,7 +47,7 @@ draft: false
 
 <figure class="case-architecture" tabindex="0">
   <img src="/images/architecture/openscorecard.svg" alt="OpenScorecard 的公开安全工作流图：确定性合成中小企业组合经过 Schema、时间和泄漏检查；Train、Validation 与 OOT 证据用于模型比较、治理、独立政策与本地只读复核。" />
-  <figcaption>面向公开展示的工作流摘要，描述合成数据的本地系统，不代表已部署授信服务。</figcaption>
+  <figcaption>图示可横向滚动查看。流程：合成中小企业数据 → Schema、时间与泄漏检查 → 按时间切分的模型比较 → 治理门禁 → 版本化信用政策 → 本地只读复核。这是使用本地组合数据的个人系统，不代表已部署授信服务。</figcaption>
 </figure>
 
 ### 已实现能力

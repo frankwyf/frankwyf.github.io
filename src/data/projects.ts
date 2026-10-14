@@ -9,9 +9,18 @@ export interface Project {
   summary: LocalizedText;
   outcome: LocalizedText;
   kind: 'professional' | 'flagship' | 'engineering';
-  maturity: 'delivered' | 'poc' | 'ai-assisted' | 'portfolio-system' | 'public-source';
+  maturity:
+    | 'delivered'
+    | 'poc'
+    | 'production-integration'
+    | 'ai-assisted'
+    | 'portfolio-system'
+    | 'public-source'
+    | 'in-progress'
+    | 'research';
   visibility: 'case-study-only' | 'private-source' | 'public-source';
   technologies: string[];
+  localizedTitle?: LocalizedText;
   client?: string;
   period?: string;
   url?: string;
@@ -20,61 +29,76 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'nx-python-add-on-delivery',
-    title: 'End-to-end NX Python engineering add-on delivery',
+    title: 'Python engineering add-on for Siemens NX',
+    localizedTitle: {
+      en: 'Python engineering add-on for Siemens NX',
+      ja: 'Siemens NX向けPythonエンジニアリングアドオン',
+      zh: '用于 Siemens NX 的 Python 工程插件',
+    },
     summary: {
-      en: 'Independent customer delivery for Dalian Ryobi, from technical investigation and proposal through implementation, documentation, handoff, and maintenance.',
-      ja: 'Dalian Ryobi向けに、技術調査・提案から実装、文書化、納品、保守までを一貫して担当したNX Pythonアドオン。',
-      zh: '为 Dalian Ryobi 独立交付 NX Python 工程插件，覆盖技术调查、提案、实现、文档、交付与维护。',
+      en: 'A rule-based Python tool for NC instruction checks and schedule-file generation, deployed and still used by Dalian Ryobi.',
+      ja: 'NC命令のルール検証と日程ファイル生成を行うPythonツール。Dalian Ryobiが導入し、現在も利用しています。',
+      zh: '用于按规则检查 NC 指令并生成日程文件的 Python 工具，已由 Dalian Ryobi 部署并持续使用。',
     },
     outcome: {
-      en: 'Shows scoped ownership, customer communication, and a complete engineering delivery loop without invented impact metrics.',
-      ja: '推測のない成果指標で、範囲を持った所有、顧客との技術コミュニケーション、一貫したデリバリーを示します。',
-      zh: '在不虚构影响指标的前提下，展示明确范围内的所有权、客户沟通和完整工程交付闭环。',
+      en: 'I independently delivered the technical implementation, testing, user documentation, and handoff, then provided partial follow-up maintenance; a colleague handled on-site communication.',
+      ja: '技術実装、テスト、ユーザー文書、引き継ぎを独立して担当し、納品後の保守も一部行いました。現地での顧客対応は同僚が担いました。',
+      zh: '我独立完成技术实现、测试、用户文档和交接，并承担部分后续维护；现场客户沟通由同事负责。',
     },
     kind: 'professional',
     maturity: 'delivered',
     visibility: 'case-study-only',
     client: 'Dalian Ryobi',
     period: 'Sep–Oct 2025',
-    technologies: ['Python', 'NX add-on', 'Technical proposal', 'Customer delivery'],
+    technologies: ['Python', 'Siemens NX', 'Rule-based validation', 'Windows executable'],
   },
   {
     slug: 'b2b-credit-management-ml-poc',
-    title: 'B2B credit-management ML proof of concept',
+    title: 'B2B credit scorecard: POC and production integration',
+    localizedTitle: {
+      en: 'B2B credit scorecard: POC and production integration',
+      ja: 'B2B与信スコアカード：PoCと本番連携',
+      zh: 'B2B 信用评分模型：POC 与生产集成',
+    },
     summary: {
-      en: 'Professional POC contribution for Canon Optics China covering model construction, part of data preprocessing, technical validation, and architecture discussion.',
-      ja: 'Canon Optics China向けB2B与信管理ML PoCで、モデル構築、データ前処理の一部、技術検証、アーキテクチャ議論に貢献。',
-      zh: '参与 Canon Optics China 的 B2B 信用管理 ML POC，覆盖模型构建、部分数据预处理、技术验证与架构讨论。',
+      en: 'A 2025 professional POC followed by production integration of my assigned model component in 2026; the resulting model is now used in the customer’s platform.',
+      ja: '2025年の実務PoCに続き、2026年に担当モデルコンポーネントを本番連携。モデルは顧客の業務プラットフォームで現在利用されています。',
+      zh: '2025 年专业 POC 后，于 2026 年将本人负责的模型组件与客户平台进行生产集成；该模型目前已在客户平台中使用。',
     },
     outcome: {
-      en: 'Provides professional Applied ML and financial-data evidence while remaining explicitly a proof of concept, not a production deployment.',
-      ja: '本番展開ではなくPoCであることを明確にした、実務での応用MLと財務データ活用の証拠です。',
-      zh: '明确保持 POC 边界，展示专业 Applied ML 与金融数据实践，而非生产部署经历。',
+      en: 'Shows model work from POC through assigned-component integration without claiming independent deployment or ownership of the full production platform.',
+      ja: 'PoCから担当コンポーネントの連携までを示し、単独でのデプロイや本番プラットフォーム全体の所有は主張しません。',
+      zh: '展示从 POC 到负责组件集成的经历，但不声称独立部署或拥有完整生产平台。',
     },
     kind: 'professional',
-    maturity: 'poc',
+    maturity: 'production-integration',
     visibility: 'case-study-only',
     client: 'Canon Optics China',
-    period: 'Aug 2025 · Nov 2025 · Mar–Jun 2026',
+    period: 'Aug–Nov 2025 · Mar–Jun 2026',
     technologies: ['Python', 'Scorecard methodology', 'Data preprocessing', 'Technical validation'],
   },
   {
     slug: 'enterprise-ai-assisted-engineering',
-    title: 'AI-assisted enterprise engineering',
+    title: 'Enterprise planning-system UAT assignment',
+    localizedTitle: {
+      en: 'Enterprise planning-system UAT assignment',
+      ja: '企業計画システムのUAT業務',
+      zh: '企业计划系统 UAT 工作',
+    },
     summary: {
-      en: 'End-to-end UAT and engineering automation for connected enterprise planning workflows, combining Python/Playwright, browser and network evidence, AI-assisted regression work, and human verification.',
-      ja: '企業の計画管理ワークフローを対象に、Python/Playwright、ブラウザ・ネットワークの証拠、AIを活用した回帰作業、人による検証を組み合わせたエンドツーエンドUAT。',
-      zh: '面向企业规划流程的端到端 UAT 与工程自动化，结合 Python/Playwright、浏览器与网络证据、AI 辅助回归和人工验证。',
+      en: 'An ongoing project-level UAT assignment. My individual scope, tools, defect work, and outcomes are not yet confirmed and are not claimed here.',
+      ja: '進行中のプロジェクトレベルのUAT業務です。個人の担当範囲、ツール、不具合対応、成果は未確認のため、ここでは主張しません。',
+      zh: '进行中的项目级 UAT 工作。本人具体职责、工具、缺陷处理和结果尚未确认，因此不在此作具体声明。',
     },
     outcome: {
-      en: 'Shows controlled AI-assisted engineering, cross-layer debugging, and safe handling of shared operational data.',
-      ja: 'AIを活用した制御可能なエンジニアリング、レイヤー横断のデバッグ、共有業務データの安全な扱いを示します。',
-      zh: '展示受控的 AI 辅助工程、跨层调试和共享业务数据的安全处理。',
+      en: 'Kept separate from delivered work; this is not presented as a completed AI-agent or test-automation system.',
+      ja: '納品済みの実務とは分けて記載し、完成したAIエージェントやテスト自動化システムとしては紹介しません。',
+      zh: '与已交付工作分开列示；不将其描述为已完成的 AI Agent 或测试自动化系统。',
     },
     kind: 'professional',
-    maturity: 'ai-assisted',
+    maturity: 'in-progress',
     visibility: 'case-study-only',
-    technologies: ['Python', 'Playwright', 'UAT', 'Debugging', 'AI-assisted engineering'],
+    technologies: ['Enterprise planning system', 'UAT (project-level)'],
   },
   {
     slug: 'ai-revenue-credit-operations',

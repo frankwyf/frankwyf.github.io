@@ -17,7 +17,7 @@ const { locale } = Astro.props;
 const copy = t(locale);
 const flagships = projects.filter((project) => project.kind === 'flagship');
 const engineering = projects.filter((project) => project.kind === 'engineering').slice(0, 3);
-const featuredExperienceIds = ['rheon-bom-integration', 'hitachi-phm', 'canon-credit-ml'];
+const featuredExperienceIds = ['nx-python-add-on', 'canon-credit-ml', 'rheon-bom-integration'];
 const experienceById = new Map(experienceTimeline.map((item) => [item.id, item]));
 const featuredExperience = featuredExperienceIds.flatMap((id) => {
   const item = experienceById.get(id);
@@ -99,10 +99,10 @@ const featuredExperience = featuredExperienceIds.flatMap((id) => {
     </div>
     <div class="additional-evidence">
       <span>{copy.home.additionalEvidence}</span>
-      <a href={localizedPath(locale, 'projects/nx-python-add-on-delivery')}
-        >{copy.home.additionalNx}</a
+      <a href={`${localizedPath(locale, 'experience')}#hitachi-phm`}
+        >{copy.home.additionalHitachi}</a
       >
-      <a href={localizedPath(locale, 'projects/enterprise-ai-assisted-engineering')}
+      <a href={`${localizedPath(locale, 'experience')}#developing-assignments`}
         >{copy.home.additionalUat}</a
       >
     </div>
