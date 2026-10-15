@@ -11,9 +11,9 @@ export const site = {
     zh: '中国上海',
   },
   availability: {
-    en: 'Open to UK / Europe roles and selected Japan opportunities · relocation-ready',
-    ja: '英国・欧州と条件の合う日本のポジションを希望 · 転居可',
-    zh: '开放英国/欧洲及符合条件的日本机会 · 可考虑搬迁',
+    en: 'UK / Europe / Japan opportunities',
+    ja: '英国・欧州・日本での機会',
+    zh: '英国 / 欧洲 / 日本机会',
   },
 } as const;
 

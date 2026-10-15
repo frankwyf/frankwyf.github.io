@@ -26,17 +26,17 @@ export const career = {
   experienceHighlights: {
     en: [
       'Independently delivered the technical implementation, testing, and documentation for a Dalian Ryobi Python add-on that the customer deployed and continues to use; I provided partial follow-up maintenance, while a colleague handled on-site communication.',
-      'Contributed model construction, data preparation, and validation to a B2B credit-scorecard POC, then aligned my assigned component for production integration; the resulting model is now used in the customer platform.',
+      'Contributed model construction, data preparation, and validation to a B2B credit-scorecard POC. During the later team production-integration phase, I coordinated alignment of my assigned component with the customer platform; the model is now in use there.',
       'Built Python/SQL data integration for PLM-to-SQL Server BOM workflows and validated it in Azure; this was environment validation, not an Azure production deployment.',
     ],
     ja: [
       'Dalian Ryobi向けPythonアドオンの技術実装、テスト、文書作成、引き継ぎを独立して担当。顧客が導入して継続利用しており、納品後の保守も一部担当しました。現地対応は同僚が担いました。',
-      'B2B与信スコアカードPoCでモデル構築、データ準備、検証に貢献し、その後、担当コンポーネントの本番連携を調整。モデルは顧客プラットフォームで利用されています。',
+      'B2B与信スコアカードPoCでモデル構築、データ準備、検証に貢献。後続のチーム本番連携では担当コンポーネントと顧客プラットフォームとの調整を行い、モデルは現在利用されています。',
       'PLMからSQL ServerへのBOMデータ連携にPython/SQLを用い、Azure環境で検証しました。Azureへの本番デプロイを示すものではありません。',
     ],
     zh: [
       '独立完成 Dalian Ryobi Python 插件的技术实现、测试、文档与交接；客户已部署并持续使用，我也承担部分后续维护。现场沟通由同事负责。',
-      '参与 B2B 信用评分 POC 的模型构建、数据准备与验证，随后协调本人负责的组件进行生产集成；该模型目前已在客户平台中使用。',
+      '参与 B2B 信用评分 POC 的模型构建、数据准备与验证。后续团队生产集成阶段，我协调本人分配组件与客户平台的对接；该模型目前已在平台中使用。',
       '使用 Python/SQL 将 PLM 流程中的 BOM 数据集成到 SQL Server，并在 Azure 环境验证；这不代表部署或运营了 Azure 生产服务。',
     ],
   } satisfies Record<Locale, string[]>,

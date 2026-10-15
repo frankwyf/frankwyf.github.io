@@ -14,6 +14,7 @@ export type ExperienceMaturity =
 export interface ExperienceItem {
   id: string;
   client?: string;
+  clientRelation?: LocalizedText;
   title: LocalizedText;
   period?: string;
   summary: LocalizedText;
@@ -26,7 +27,12 @@ export interface ExperienceItem {
 export const experienceTimeline: ExperienceItem[] = [
   {
     id: 'hitachi-phm',
-    client: 'Hitachi High-Tech Group · Intel end user',
+    client: 'Hitachi High-Tech Group',
+    clientRelation: {
+      en: 'end user: Intel',
+      ja: '最終利用者：Intel',
+      zh: '最终用户：Intel',
+    },
     title: {
       en: 'Custom semiconductor production-data system',
       ja: '半導体生産データシステム',
@@ -105,9 +111,9 @@ export const experienceTimeline: ExperienceItem[] = [
       zh: '已由客户部署使用的 Python 工具，用于按规则检查 NC 指令并生成日程文件。',
     },
     contribution: {
-      en: 'Independently delivered the technical implementation, testing, user documentation, and handoff, then provided partial follow-up maintenance. The customer deployed the add-on and continues to use it; a colleague handled on-site communication.',
-      ja: '技術実装、テスト、ユーザー文書、引き継ぎを独立して担当し、納品後の保守も一部行いました。顧客がアドオンを導入して継続利用しており、現地での顧客対応は同僚が担当しました。',
-      zh: '独立完成插件技术实现、测试、用户文档和交接，并承担部分后续维护。客户已部署并持续使用；现场客户沟通由同事负责。',
+      en: 'Built and tested the Python add-on, prepared its user documentation and handoff, and provided partial follow-up maintenance. The customer deployed it and continues to use it.',
+      ja: 'Pythonアドオンの実装とテスト、ユーザー文書の作成、引き継ぎを担当し、納品後の保守も一部行いました。顧客が導入し、現在も利用しています。',
+      zh: '完成 Python 插件的实现、测试、用户文档与交接，并承担部分后续维护。客户已部署并持续使用。',
     },
     technologies: ['Python', 'Siemens NX', 'Rule-based validation', 'Windows executable'],
     maturity: 'delivered',
@@ -117,20 +123,20 @@ export const experienceTimeline: ExperienceItem[] = [
     id: 'canon-credit-ml',
     client: 'Canon Optics China',
     title: {
-      en: 'B2B credit scorecard: POC and production integration',
-      ja: 'B2B与信スコアカード：PoCと本番連携',
-      zh: 'B2B 信用评分模型：POC 与生产集成',
+      en: 'B2B credit scorecard',
+      ja: 'B2B与信スコアカード',
+      zh: 'B2B 信用评分模型',
     },
     period: 'Aug–Nov 2025 · Mar–Jun 2026',
     summary: {
-      en: 'A 2025 professional POC followed by production integration of my assigned model component in 2026. The resulting model is now used in the customer’s business platform.',
-      ja: '2025年の実務PoCに続き、2026年に担当モデルコンポーネントを本番連携。モデルは顧客の業務プラットフォームで現在利用されています。',
-      zh: '2025 年的专业 POC 后，于 2026 年将本人负责的模型组件与客户平台进行生产集成。该模型目前已在客户业务平台中使用。',
+      en: 'A 2025 professional POC followed by team production integration in 2026. The resulting model is now used on the customer’s business platform.',
+      ja: '2025年の実務PoCに続き、2026年にチームで本番連携を実施。モデルは顧客の業務プラットフォームで現在利用されています。',
+      zh: '2025 年专业 POC 后，团队于 2026 年完成生产集成。模型目前已在客户业务平台中使用。',
     },
     contribution: {
-      en: 'Contributed to scorecard model construction and validation during the POC, then aligned my assigned model component with the customer’s platform for production integration. I do not claim independent deployment or ownership of the full platform lifecycle.',
-      ja: 'PoCでスコアカードモデルの構築・検証に貢献し、その後、担当モデルコンポーネントの顧客プラットフォームへの本番連携を調整しました。単独での本番デプロイやプラットフォーム全体のライフサイクル管理は主張しません。',
-      zh: '在 POC 阶段参与评分卡模型构建与验证，随后协调本人负责的模型组件与客户平台进行生产集成。我不声称独立完成部署或负责整个生产平台生命周期。',
+      en: 'Contributed to scorecard model construction, data preparation, and validation in the POC. During the later team integration phase, I coordinated alignment of my assigned model component with the customer’s platform.',
+      ja: 'PoCではスコアカードモデルの構築、データ準備、検証に貢献しました。後続のチーム連携では、担当モデルコンポーネントと顧客プラットフォームとの調整を行いました。',
+      zh: '在 POC 阶段参与评分卡模型构建、数据准备与验证。后续团队集成期间，我协调本人分配的模型组件与客户平台对接。',
     },
     technologies: ['Python', 'Credit scoring', 'Data preparation', 'Model integration'],
     maturity: 'production-integration',
@@ -147,14 +153,14 @@ export const developingExperience: ExperienceItem[] = [
       zh: '企业计划系统 UAT 工作',
     },
     summary: {
-      en: 'An ongoing enterprise planning-system UAT assignment. My individual scope, tools, defect work, and outcomes are not yet confirmed and are not claimed here.',
-      ja: '企業向け計画システムのUAT業務です。本人の具体的な担当範囲、使用ツール、欠陥対応、成果は確認中です。',
-      zh: '企业计划系统的 UAT 工作。本人具体职责、所用工具、缺陷处理和结果仍在核实中。',
+      en: 'UAT work is in progress for an enterprise planning system.',
+      ja: '企業計画システムのUAT業務が進行中です。',
+      zh: '企业计划系统的 UAT 工作正在进行。',
     },
     contribution: {
-      en: 'Current project-level assignment only. Specific personal testing, automation, defect, and delivery claims are not made while scope is being confirmed.',
-      ja: '現時点では進行中の業務としてのみ記載しています。担当範囲の確認中のため、個人のテスト、自動化、不具合対応、納品に関する具体的な主張はしていません。',
-      zh: '目前仅作为进行中的项目工作记录。职责范围尚待确认，因此不对个人测试、自动化、缺陷处理或交付作具体声明。',
+      en: 'Current assignment in progress.',
+      ja: '現在進行中の業務です。',
+      zh: '当前工作正在进行。',
     },
     technologies: ['Enterprise system', 'UAT (project-level)'],
     maturity: 'in-progress',

@@ -15,7 +15,7 @@ const copy = t(locale);
 
 <article class="professional-evidence-card">
   <p class="eyebrow">
-    {item.client} · {item.period}
+    {item.client}{item.clientRelation ? ` · ${item.clientRelation[locale]}` : ''} · {item.period}
   </p>
   <h3>{item.title[locale]}</h3>
   <dl>

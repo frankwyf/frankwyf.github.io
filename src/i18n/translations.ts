@@ -65,7 +65,7 @@ export const messages = {
       contributionLabel: 'Contribution',
       additionalEvidence: 'More professional evidence',
       additionalHitachi: 'Hitachi High-Tech Group · VB.NET + FTP/SFTP delivery',
-      additionalUat: 'Current assignments · scope and feasibility in progress',
+      additionalUat: 'Enterprise planning-system UAT · in progress',
       contactTitle: 'Contact',
       systemTitle: 'From delivery to applied AI',
       systemNote:
@@ -184,7 +184,7 @@ export const messages = {
         ],
         [
           'B2B credit scorecard',
-          'Professional POC followed by production integration of my assigned model component.',
+          '2025 credit-scoring POC; during the 2026 team integration, I coordinated my assigned component with the customer platform.',
         ],
         [
           'AI Revenue & Credit Operations',
@@ -202,8 +202,8 @@ export const messages = {
       paragraphs: [
         'My background spans enterprise application development, VB.NET maintenance and feature work, Java/Spring Boot projects, Python/SQL data integration, ETL, and financial-data validation.',
         'I connect backend software, data integration, and business workflows. I value clear interfaces and reliable data, keep important calculations testable, and apply models where they can be evaluated.',
-        'At DENTSU SOKEN SHANGHAI, I have delivered enterprise software and data work, contributed to a professional credit-scoring POC, and aligned my assigned model component for production integration. A customer-deployed NX add-on I implemented is still in use, with partial follow-up maintenance. Current UAT scope and workflow-automation research remain clearly marked as in progress.',
-        'My primary focus is Backend, Software, and Data Engineering; additional directions include Applied AI, AI-enabled Backend, AI Solutions, and Data/AI Platform engineering. I prioritize UK/Europe roles and consider selected Japan opportunities. Based in Shanghai and relocation-ready; overseas roles may require employer-supported work authorization.',
+        'At DENTSU SOKEN SHANGHAI, I have delivered enterprise software and data work and contributed to a professional credit-scoring POC. In the later team production-integration phase, I coordinated alignment of my assigned model component with the customer platform; the model is now in use. A customer-deployed NX add-on I implemented is also still in use, with partial follow-up maintenance. I am currently based in Shanghai, China.',
+        'My primary focus is Backend, Software, and Data Engineering; additional directions include Applied AI, AI-enabled Backend, AI Solutions, and Data/AI Platform engineering. I am open to UK / Europe / Japan opportunities.',
       ],
       languagesTitle: 'Languages',
       experienceTitle: 'Professional experience',
@@ -235,7 +235,7 @@ export const messages = {
       eyebrow: 'Contact',
       title: 'Let’s talk about software, data, and dependable AI.',
       intro:
-        'I am open to UK and international opportunities in Backend Engineering, Data Engineering, and Applied AI. I am currently based in Shanghai and willing to relocate.',
+        'I am open to UK / Europe / Japan opportunities in Backend Engineering, Data Engineering, and Applied AI. I am currently based in Shanghai, China.',
       email: 'Email',
       resumeRequest: 'Request résumé',
       response:
@@ -328,7 +328,7 @@ export const messages = {
       contributionLabel: '担当・貢献',
       additionalEvidence: 'その他の実務証拠',
       additionalHitachi: 'Hitachi High-Tech Group · VB.NET・FTP/SFTP開発',
-      additionalUat: '現在の業務 · 担当範囲と調査を確認中',
+      additionalUat: '企業計画システムのUAT · 進行中',
       contactTitle: '連絡先',
       systemTitle: 'デリバリーから応用AIへ',
       systemNote: '企業ソフトウェア → データ連携 → 応用ML → 信頼できる応用AIシステム。',
@@ -409,7 +409,10 @@ export const messages = {
         '上記の原則を、検証可能なワークフロー、制御されたケーススタディ、レビュー可能な実務証拠として示します。',
       evidenceLinks: [
         ['NX Pythonアドオン', '顧客導入済み。実装、テスト、文書化、引き継ぎ、一部保守。'],
-        ['B2B与信スコアカード', '実務PoCの後、担当モデルコンポーネントを本番連携。'],
+        [
+          'B2B与信スコアカード',
+          '2025年の与信PoC。2026年のチーム連携では、担当コンポーネントと顧客プラットフォームの調整を行いました。',
+        ],
         [
           'AI Revenue & Credit Operations',
           '決定論的な金融・信用境界を示す非公開ソースのケーススタディ。',
@@ -423,8 +426,8 @@ export const messages = {
       paragraphs: [
         'VB.NETの保守・機能開発、Java/Spring Boot案件、Python/SQLデータ連携、ETL、財務データ検証など、企業向けアプリケーションに携わってきました。',
         'バックエンド、データ連携、業務ワークフローを結び付けます。明確なインターフェースと信頼できるデータを重視し、重要な計算はテスト可能に保ち、評価できる領域にモデルを適用します。',
-        'DENTSU SOKEN SHANGHAIで企業向けソフトウェアとデータ業務を担当し、与信スコアリングPoCに貢献した後、担当モデルコンポーネントの本番連携を行いました。実装したNXアドオンは顧客が導入し、現在も利用中で、一部保守も担当しました。現在のUAT範囲と業務自動化の調査は進行中として明記しています。',
-        '主軸はBackend、Software、Data Engineeringです。Applied AI、AI活用バックエンド、AI Solutions、Data/AI Platformも隣接領域として検討しています。英国・欧州を優先し、日本は条件の合う機会を検討します。上海在住、転居可能。海外就職では雇用主による就労資格支援が必要な場合があります。',
+        'DENTSU SOKEN SHANGHAIで企業向けソフトウェアとデータ業務を担当し、与信スコアリングPoCに貢献しました。後続のチーム本番連携では、担当モデルコンポーネントと顧客プラットフォームとの調整を行い、モデルは現在利用されています。実装したNXアドオンも顧客が導入し、現在も利用中で、一部保守を担当しました。現在は中国・上海を拠点としています。',
+        '主軸はBackend、Software、Data Engineeringです。Applied AI、AI活用バックエンド、AI Solutions、Data/AI Platformも隣接領域として検討しています。英国・欧州・日本での機会に関心があります。',
       ],
       languagesTitle: '言語',
       experienceTitle: '実務経験',
@@ -456,7 +459,7 @@ export const messages = {
       eyebrow: '連絡先',
       title: 'ソフトウェア、データ、信頼できるAIについて話しましょう。',
       intro:
-        '英国を含む海外のBackend Engineering、Data Engineering、Applied AIの機会を探しています。現在は上海を拠点とし、転居も検討しています。',
+        'Backend Engineering、Data Engineering、Applied AI分野の英国・欧州・日本での機会に関心があります。現在は中国・上海を拠点としています。',
       email: 'メール',
       resumeRequest: '職務経歴書を依頼',
       response:
@@ -542,7 +545,7 @@ export const messages = {
       contributionLabel: '我的贡献',
       additionalEvidence: '其他专业经历',
       additionalHitachi: 'Hitachi High-Tech Group · VB.NET + FTP/SFTP 开发',
-      additionalUat: '当前任务 · 职责范围与可行性研究进行中',
+      additionalUat: '企业计划系统 UAT · 进行中',
       contactTitle: '联系',
       systemTitle: '从交付走向应用 AI',
       systemNote: '企业软件 → 数据集成 → 应用机器学习 → 可靠的应用 AI 系统。',
@@ -609,7 +612,10 @@ export const messages = {
         '下面的页面展示这些原则如何落地为可测试工作流、受控案例研究和可复核的工程证据。',
       evidenceLinks: [
         ['NX Python 工程插件', '客户已部署使用；本人负责实现、测试、文档、交接与部分维护。'],
-        ['B2B 信用评分模型', '专业 POC 后，将本人负责的模型组件集成至生产平台。'],
+        [
+          'B2B 信用评分模型',
+          '2025 年完成信用评分 POC；2026 年团队生产集成期间，我协调本人分配组件与客户平台的对接。',
+        ],
         ['AI Revenue & Credit Operations', '展示确定性财务与信用边界的私有源码案例研究。'],
         ['OpenScorecard', '关注可解释性与治理的私有源码信用分析案例研究。'],
       ],
@@ -620,8 +626,8 @@ export const messages = {
       paragraphs: [
         '我的背景包括 VB.NET 系统维护与功能开发、Java/Spring Boot 企业项目、Python/SQL 数据集成、ETL 和财务数据验证。',
         '我擅长连接后端软件、数据集成与业务流程，重视清晰接口和可靠数据，让重要计算可测试，并在可评估的环节应用模型。',
-        '在 DENTSU SOKEN SHANGHAI，我参与企业软件与数据交付、专业信用评分 POC，并将本人负责的模型组件与生产平台集成。我实现的 NX 插件已由客户部署并持续使用，我也承担部分后续维护。当前 UAT 职责及工作流自动化研究明确标记为进行中。',
-        '我的首要方向是 Backend、Software 与 Data Engineering；Applied AI、AI-enabled Backend、AI Solutions 和 Data/AI Platform 是相邻发展方向。优先英国/欧洲机会，也选择性考虑日本机会。目前在上海，可考虑搬迁；海外职位可能需要雇主协助工作许可。',
+        '在 DENTSU SOKEN SHANGHAI，我参与企业软件与数据交付，并参与专业信用评分 POC。后续团队生产集成期间，我协调本人分配的模型组件与客户平台对接；模型目前已投入使用。我实现的 NX 插件也已由客户部署并持续使用，我承担部分后续维护。目前居住在中国上海。',
+        '我的首要方向是 Backend、Software 与 Data Engineering；Applied AI、AI-enabled Backend、AI Solutions 和 Data/AI Platform 是相邻发展方向。我关注英国 / 欧洲 / 日本的机会。',
       ],
       languagesTitle: '语言',
       experienceTitle: '工作经历',
@@ -653,7 +659,7 @@ export const messages = {
       eyebrow: '联系',
       title: '聊聊软件、数据与可靠的 AI。',
       intro:
-        '我关注英国及国际市场的 Backend Engineering、Data Engineering 与 Applied AI 机会。目前居住在上海，可考虑搬迁。',
+        '我关注英国 / 欧洲 / 日本的 Backend Engineering、Data Engineering 与 Applied AI 机会。目前居住在中国上海。',
       email: '邮箱',
       resumeRequest: '索取简历',
       response: '邮箱是最直接的联系方式。GitHub 和 LinkedIn 可提供更多项目与职业背景信息。',

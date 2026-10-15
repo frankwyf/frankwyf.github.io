@@ -67,7 +67,12 @@ const featured = projects.filter((project) => project.kind === 'professional');
                 <div>
                   {item.period && <span class="eyebrow">{item.period}</span>}
                   <h3>{item.title[locale]}</h3>
-                  {item.client && <p class="experience-client">{item.client}</p>}
+                  {item.client && (
+                    <p class="experience-client">
+                      {item.client}
+                      {item.clientRelation ? ` · ${item.clientRelation[locale]}` : ''}
+                    </p>
+                  )}
                 </div>
                 <span class="maturity-label">{copy.maturity[item.maturity]}</span>
               </div>

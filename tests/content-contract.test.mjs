@@ -154,16 +154,34 @@ test('home prioritizes backend and data evidence with three localized actions', 
 test('latest professional case studies use confirmed scope and maturity boundaries', async () => {
   const readCase = (locale, slug) =>
     readFile(path.join(root, 'src', 'content', 'case-studies', locale, `${slug}.md`), 'utf8');
-  const [credit, nx, uat] = await Promise.all([
+  const [creditEn, creditJa, creditZh, nx, uat] = await Promise.all([
     readCase('en', 'b2b-credit-management-ml-poc'),
+    readCase('ja', 'b2b-credit-management-ml-poc'),
+    readCase('zh', 'b2b-credit-management-ml-poc'),
     readCase('en', 'nx-python-add-on-delivery'),
     readCase('en', 'enterprise-ai-assisted-engineering'),
   ]);
 
-  assert.match(credit, /^maturity: production-integration$/m);
-  assert.match(credit, /resulting model is now used in the customer's business platform/i);
-  assert.match(credit, /assigned model component/i);
-  assert.match(credit, /do not claim sole ownership of the model or independent deployment/i);
+  for (const [credit, evidence] of [
+    [creditEn, /team production integration/i],
+    [creditJa, /チームで本番連携/],
+    [creditZh, /团队.*生产集成/],
+  ]) {
+    assert.match(credit, /^maturity: production-integration$/m);
+    assert.match(credit, evidence);
+    assert.match(credit, /assigned model component|担当モデルコンポーネント|分配的模型组件/);
+    assert.match(credit, /model is now used|現在利用されています|目前已在客户业务平台中使用/);
+    assert.doesNotMatch(
+      credit,
+      /independently integrated|independently responsible for (?:production )?integration|独立して本番連携|独立完成生产集成/,
+    );
+  }
+  assert.match(creditEn, /coordinated alignment of my assigned model component/i);
+  assert.match(creditJa, /担当モデルコンポーネントと顧客プラットフォームとの調整/);
+  assert.match(creditZh, /协调本人分配的模型组件与客户平台对接/);
+  assert.match(creditEn, /followed by team production integration/i);
+  assert.match(creditJa, /2026年にチームで本番連携/);
+  assert.match(creditZh, /团队于 2026 年完成生产集成/);
   assert.match(nx, /customer deployed and continues to use/i);
   assert.match(nx, /partial follow-up maintenance/i);
   assert.match(nx, /A colleague handled on-site customer communication/i);
@@ -174,6 +192,48 @@ test('latest professional case studies use confirmed scope and maturity boundari
   const uatDescription = uat.replace(/^---[\s\S]*?---\s*/, '').split('## Boundary')[0];
   assert.doesNotMatch(uatDescription, /Playwright|AI agent|AI-assisted|test-automation system/i);
   assert.match(uat, /not evidence of a completed AI agent, test-automation system/i);
+});
+
+test('public client names and end-user relationship stay within confirmed attribution', async () => {
+  const experience = await readFile(path.join(root, 'src', 'data', 'experience.ts'), 'utf8');
+  const allowedClients = [
+    'Hitachi High-Tech Group',
+    'Credit Saison',
+    'Rheon Automatic Machinery',
+    'Dalian Ryobi',
+    'Canon Optics China',
+  ];
+  const clients = [...experience.matchAll(/client: '([^']+)'/g)].map((match) => match[1]);
+  assert.deepEqual(clients, allowedClients);
+  for (const relationship of ['end user: Intel', '最終利用者：Intel', '最终用户：Intel']) {
+    assert.ok(experience.includes(relationship));
+  }
+  assert.doesNotMatch(experience, /client: 'Intel'/);
+});
+
+test('international availability and Shanghai base are consistent in all three locales', async () => {
+  const translations = await readFile(path.join(root, 'src', 'i18n', 'translations.ts'), 'utf8');
+  const siteData = await readFile(path.join(root, 'src', 'data', 'site.ts'), 'utf8');
+  for (const phrase of [
+    'UK / Europe / Japan opportunities',
+    '英国・欧州・日本での機会',
+    '英国 / 欧洲 / 日本机会',
+    'Shanghai, China',
+    '中国・上海',
+    '中国上海',
+    'I am currently based in Shanghai, China.',
+    '現在は中国・上海を拠点としています。',
+    '目前居住在中国上海。',
+  ]) {
+    assert.ok(
+      `${translations}\n${siteData}`.includes(phrase),
+      `Missing localized location copy: ${phrase}`,
+    );
+  }
+  assert.doesNotMatch(
+    translations,
+    /relocation-ready|willing to relocate|転居可能|転居も検討|可考虑搬迁|work authorization|work permit|就労資格支援|雇主协助工作许可/,
+  );
 });
 
 test('profile copy reflects current credentials, languages, and enterprise stack', async () => {
